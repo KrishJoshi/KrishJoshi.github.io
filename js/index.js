@@ -20,14 +20,14 @@ $(function(){
 
 	$(window).load(function() {
 		// init controller
-		var controller = new ScrollMagic();
+		var controller = new ScrollMagic.Controller();
 		
 		var tween = TweenMax.to(".prettyBar", 0.5, {height: 4});
 		
 		
 
 		
-		var scene = new ScrollScene({triggerElement: trigger})
+		var scene = new ScrollMagic.Scene({triggerElement: trigger})
 						.setTween(tween)
 						.addTo(controller);
 						
