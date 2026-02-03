@@ -1,39 +1,93 @@
 ---
 interface Props {
   summary: string;
+  name: string;
+  label: string;
 }
 
-const { summary } = Astro.props;
+const { summary, name, label } = Astro.props;
 
-// Bold specific keywords
-const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'GraphQL', 'Claude', 'AI', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA'];
-let formattedSummary = summary;
-boldWords.forEach(word => {
-  formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);
-});
+// Extract key highlights from summary
+const highlights = [
+  { metric: '14+', label: 'Years Experience', icon: 'timeline' },
+  { metric: '2M+', label: 'Daily Users Served', icon: 'groups' },
+  { metric: 'FTSE 100', label: 'Enterprise Scale', icon: 'business_center' },
+  { metric: 'AWS + AI', label: 'Cloud & GenAI', icon: 'cloud' }
+];
 
-const expertiseAreas = [
-  'Frontend Architecture',
-  'Cloud Infrastructure',
-  'Identity & Authentication',
-  'Team Leadership',
-  'AI Integration',
-  'DevOps & CI/CD',
-  'Security & Compliance'
+const coreStack = [
+  { category: 'Frontend', skills: 'React, React Native, TypeScript, Next.js' },
+  { category: 'Cloud', skills: 'AWS (Lambda, EKS, Bedrock), Terraform' },
+  { category: 'Identity', skills: 'WebAuthn, OAuth2/OIDC, MFA' },
+  { category: 'AI/ML', skills: 'Claude (Bedrock), SageMaker, LangChain' }
+];
+
+const recentImpact = [
+  'Architected GenAI sustainability platform with Claude & AWS Bedrock',
+  'Reduced Lambda cold starts by 40% through optimization strategies',
+  'Implemented WebAuthn/Passkeys reducing compromise incidents by 60%',
+  'Led Angular-to-React migration improving performance by 40%'
 ];
 ---
 
 <div class="flex flex-col">
-  <span class="section-title-pill mb-4">Profile</span>
-  <div class="text-gray-700 dark:text-gray-300 leading-relaxed mt-4 flex-1">
-    <p class="mb-4 leading-relaxed" set:html={formattedSummary} />
-    <div class="mt-6">
-      <h4 class="text-sm font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Core Expertise</h4>
-      <div class="flex flex-wrap gap-2">
-        {expertiseAreas.map(area => (
-          <span class="bg-gray-900 dark:bg-gray-700 text-white px-3 py-1.5 rounded-full text-xs font-semibold">{area}</span>
-        ))}
+  <h2 class="text-xs font-bold text-gray-500 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm">person</span>
+    Profile
+  </h2>
+
+  <!-- Quick Stats -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+    {highlights.map(h => (
+      <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="material-symbols-outlined text-sm text-indigo-600 dark:text-indigo-400">{h.icon}</span>
+          <div class="text-xl font-black text-gray-900 dark:text-white">{h.metric}</div>
+        </div>
+        <div class="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wide">{h.label}</div>
       </div>
+    ))}
+  </div>
+
+  <!-- Summary -->
+  <div class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+    <p class="font-semibold text-gray-900 dark:text-white mb-2">{label}</p>
+    <p>
+      Principal engineer specializing in <strong class="font-bold text-gray-900 dark:text-white">React</strong>,
+      <strong class="font-bold text-gray-900 dark:text-white">AWS</strong>, and
+      <strong class="font-bold text-gray-900 dark:text-white">Identity/Auth</strong> systems.
+      Architected platforms serving millions at <strong class="font-bold text-gray-900 dark:text-white">Tesco</strong>,
+      <strong class="font-bold text-gray-900 dark:text-white">Chase UK</strong>, and
+      <strong class="font-bold text-gray-900 dark:text-white">Cisco</strong>.
+      Recent focus on integrating <strong class="font-bold text-gray-900 dark:text-white">GenAI</strong>
+      (<strong class="font-bold text-gray-900 dark:text-white">Claude</strong> /
+      <strong class="font-bold text-gray-900 dark:text-white">Amazon Bedrock</strong>) into enterprise workflows.
+    </p>
+  </div>
+
+  <!-- Core Tech Stack -->
+  <div class="mb-6">
+    <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">Core Tech Stack</h4>
+    <div class="space-y-2">
+      {coreStack.map(stack => (
+        <div class="flex items-start gap-2">
+          <span class="text-xs font-bold text-gray-900 dark:text-white min-w-[70px]">{stack.category}:</span>
+          <span class="text-xs text-gray-600 dark:text-gray-400">{stack.skills}</span>
+        </div>
+      ))}
     </div>
+  </div>
+
+  <!-- Recent Impact -->
+  <div>
+    <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">Recent Impact</h4>
+    <ul class="space-y-2">
+      {recentImpact.map(impact => (
+        <li class="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
+          <span class="material-symbols-outlined text-sm text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0">check_circle</span>
+          <span>{impact}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </div>
