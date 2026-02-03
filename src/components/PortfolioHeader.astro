@@ -1,0 +1,87 @@
+---
+interface Props {
+  name: string;
+  label: string;
+  headline: string;
+  tagline: string;
+  email: string;
+  availability: string;
+  currentFocus: string;
+  profiles: { network: string; url: string }[];
+}
+
+const { name, label, headline, tagline, email, availability, currentFocus, profiles } = Astro.props;
+---
+
+<header class="mb-12">
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
+    <!-- Main hero -->
+    <div class="section-box bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur p-8 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.1),transparent_50%)]"></div>
+      <div class="relative">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center border border-indigo-500/30">
+            <span class="material-symbols-outlined text-indigo-400">terminal</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white">{name}</h1>
+        </div>
+
+        <p class="text-xl md:text-2xl text-slate-300 mb-2">
+          {headline.split('scale effortlessly')[0]}<span class="text-white font-semibold">scale effortlessly</span>{headline.split('scale effortlessly')[1] || '.'}
+        </p>
+        <p class="text-slate-400 mb-8">{tagline}</p>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            <span class="text-xs text-slate-400 font-mono">{availability}</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            {profiles.map(p => (
+              <a href={p.url} target="_blank" rel="noopener" class="w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center border border-slate-700 hover:border-slate-500 hover:bg-slate-700/50 transition-all">
+                <span class="material-symbols-outlined text-lg text-slate-400">{p.network === 'LinkedIn' ? 'work' : 'code'}</span>
+              </a>
+            ))}
+            <a href={`mailto:${email}`} class="w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center border border-slate-700 hover:border-slate-500 hover:bg-slate-700/50 transition-all">
+              <span class="material-symbols-outlined text-lg text-slate-400">mail</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick stats card -->
+    <div class="section-box bg-slate-900/50 backdrop-blur p-6 border-slate-700">
+      <div class="space-y-5">
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Core Expertise</div>
+          <div class="flex items-center justify-between">
+            <span class="text-white font-bold">AWS Solutions Architect</span>
+            <span class="text-xs text-indigo-400 font-semibold">Professional</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Total Experience</div>
+          <div class="flex items-center justify-between">
+            <span class="text-white font-bold">14+ Years</span>
+            <span class="text-xs text-emerald-400 font-semibold">Senior+</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Current Focus</div>
+          <div class="flex items-center justify-between">
+            <span class="text-white font-bold">{currentFocus}</span>
+            <span class="text-xs text-cyan-400 font-semibold">Active</span>
+          </div>
+        </div>
+
+        <a href={`mailto:${email}`} class="block w-full py-3 bg-white text-slate-900 rounded-lg text-center font-bold text-sm hover:bg-slate-100 transition-colors mt-4">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

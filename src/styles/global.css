@@ -44,6 +44,33 @@
   color: #1a1a1a;
 }
 
+/* Portfolio mode styles */
+body.portfolio-mode {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  min-height: 100vh;
+}
+
+body.portfolio-mode .section-box {
+  border-color: rgba(71, 85, 105, 0.5);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+/* Portfolio animations */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Expertise bar animation */
+.expertise-bar {
+  transition: width 1s ease-out;
+}
+
 /* Print styles */
 @media print {
   body {
@@ -62,6 +89,15 @@
     color: white !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  /* Hide portfolio view in print */
+  #portfolio-view {
+    display: none !important;
+  }
+
+  #classic-view {
+    display: block !important;
   }
 }
 

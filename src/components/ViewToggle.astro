@@ -1,0 +1,72 @@
+---
+// View toggle between Classic CV and Portfolio view
+---
+
+<div class="fixed top-6 left-6 z-50 no-print">
+  <div class="flex bg-white dark:bg-slate-800 rounded-full shadow-md border border-gray-200 dark:border-slate-700 p-1">
+    <button
+      id="view-classic"
+      class="view-toggle-btn px-4 py-2 rounded-full text-xs font-bold uppercase transition-all bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+      data-view="classic"
+    >
+      Classic
+    </button>
+    <button
+      id="view-portfolio"
+      class="view-toggle-btn px-4 py-2 rounded-full text-xs font-bold uppercase transition-all text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white"
+      data-view="portfolio"
+    >
+      Portfolio
+    </button>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'cv-view-mode';
+
+  function setView(mode: 'classic' | 'portfolio') {
+    const classicView = document.getElementById('classic-view');
+    const portfolioView = document.getElementById('portfolio-view');
+    const classicBtn = document.getElementById('view-classic');
+    const portfolioBtn = document.getElementById('view-portfolio');
+
+    if (mode === 'portfolio') {
+      classicView?.classList.add('hidden');
+      portfolioView?.classList.remove('hidden');
+      document.body.classList.add('portfolio-mode');
+
+      classicBtn?.classList.remove('bg-gray-900', 'text-white', 'dark:bg-white', 'dark:text-gray-900');
+      classicBtn?.classList.add('text-gray-600', 'dark:text-slate-400');
+
+      portfolioBtn?.classList.add('bg-gray-900', 'text-white', 'dark:bg-white', 'dark:text-gray-900');
+      portfolioBtn?.classList.remove('text-gray-600', 'dark:text-slate-400');
+    } else {
+      classicView?.classList.remove('hidden');
+      portfolioView?.classList.add('hidden');
+      document.body.classList.remove('portfolio-mode');
+
+      classicBtn?.classList.add('bg-gray-900', 'text-white', 'dark:bg-white', 'dark:text-gray-900');
+      classicBtn?.classList.remove('text-gray-600', 'dark:text-slate-400');
+
+      portfolioBtn?.classList.remove('bg-gray-900', 'text-white', 'dark:bg-white', 'dark:text-gray-900');
+      portfolioBtn?.classList.add('text-gray-600', 'dark:text-slate-400');
+    }
+
+    localStorage.setItem(STORAGE_KEY, mode);
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem(STORAGE_KEY) as 'classic' | 'portfolio' | null;
+    if (saved) {
+      setView(saved);
+    }
+
+    document.querySelectorAll('.view-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = (btn as HTMLElement).dataset.view as 'classic' | 'portfolio';
+        setView(view);
+      });
+    });
+  });
+</script>

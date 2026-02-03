@@ -2,10 +2,14 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Krish Joshi",
-    "label": "Principal Engineer & AWS Certified Architect",
+    "label": "Principal Engineer & Cloud Architect",
+    "headline": "Engineering systems that scale effortlessly",
+    "tagline": "Specializing in Cloud-Native Architectures, AI Integration, and Distributed Systems.",
     "email": "me@krishj.com",
     "phone": "+44 7794 438962",
     "url": "https://krishj.com",
+    "availability": "Available for Strategic Roles",
+    "currentFocus": "AI & Open Banking",
     "summary": "Principal engineer with 14+ years of hands-on experience building digital products at scale, from early-stage startups to FTSE 100 enterprises. My career has evolved from full-stack .NET development through to frontend architecture and cloud platform leadership, with deep expertise across the entire software delivery lifecycle. I specialise in React, React Native, and AWS, and have architected systems serving millions of daily users at companies like Tesco, Chase UK, and Cisco. Recently, I've been at the forefront of integrating AI-assisted development tools—including Claude and Amazon Bedrock—into engineering workflows, dramatically accelerating delivery while maintaining enterprise-grade quality and security standards.",
     "location": {
       "city": "London",
@@ -24,6 +28,31 @@
       }
     ]
   },
+  "philosophy": {
+    "statement": "I build hardened infrastructure that behaves like living tissue—auto-scaling, self-healing, and observable at every layer.",
+    "principles": [
+      {
+        "icon": "bolt",
+        "title": "Latency First",
+        "description": "Optimization at the edge and cold-start reduction for serverless."
+      },
+      {
+        "icon": "shield",
+        "title": "Secure by Design",
+        "description": "IAM least-privilege and encrypted data planes as standard."
+      },
+      {
+        "icon": "visibility",
+        "title": "Observable Systems",
+        "description": "Distributed tracing, metrics, and alerting from day one."
+      }
+    ]
+  },
+  "expertise": [
+    { "name": "Cloud Architecture", "level": 95, "skills": ["Serverless", "Terraform", "EKS", "IAM"] },
+    { "name": "Engineering Management", "level": 88, "skills": ["System Design", "SDLC", "CI/CD"] },
+    { "name": "Frontend Mastery", "level": 92, "skills": ["React 18", "Next.js", "TypeScript"] }
+  ],
   "achievements": [
     {
       "title": "Architected AI Sustainability Platform",

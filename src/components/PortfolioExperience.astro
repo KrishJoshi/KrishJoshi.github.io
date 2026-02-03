@@ -1,0 +1,102 @@
+---
+interface Job {
+  name: string;
+  position: string;
+  startDate: string;
+  endDate?: string;
+  summary?: string;
+  highlights?: string[];
+  keywords?: string[];
+}
+
+interface Props {
+  work: Job[];
+}
+
+const { work } = Astro.props;
+
+function formatDateRange(start: string, end?: string): string {
+  const formatDate = (dateStr?: string) => {
+    if (!dateStr) return 'Present';
+    const [year, month] = dateStr.split('-');
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return month ? `${months[parseInt(month) - 1]} ${year}` : year;
+  };
+  return `${formatDate(start)} — ${formatDate(end)}`;
+}
+
+// Split into recent (featured) and earlier roles
+const recentJobs = work.slice(0, 3);
+const earlierJobs = work.slice(3);
+---
+
+<section class="mb-6">
+  <div class="flex items-center gap-3 mb-6">
+    <span class="material-symbols-outlined text-indigo-400">history</span>
+    <h2 class="text-2xl font-black tracking-tight text-white">Professional Evolution</h2>
+  </div>
+
+  <!-- Recent/Featured roles -->
+  <div class="space-y-4 mb-8">
+    {recentJobs.map(job => (
+      <article class="section-box p-6 bg-slate-900/30 backdrop-blur border-slate-700 border-l-2 border-l-emerald-500">
+        <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+          <h3 class="text-xl font-black text-white">{job.name}</h3>
+          <span class="px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-semibold">
+            {formatDateRange(job.startDate, job.endDate)}
+          </span>
+        </div>
+
+        <p class="text-sm font-semibold text-emerald-400 mb-3">{job.position}</p>
+
+        {job.summary && (
+          <p class="text-slate-400 italic text-sm mb-4">"{job.summary}"</p>
+        )}
+
+        {job.highlights && job.highlights.length > 0 && (
+          <ul class="space-y-2 mb-4">
+            {job.highlights.map(h => (
+              <li class="flex items-start gap-2 text-sm text-slate-300">
+                <span class="text-emerald-500 mt-0.5">◦</span>
+                <span set:html={h.replace(/\*\*([^*]+)\*\*/g, '<span class="text-indigo-400 font-medium">$1</span>')} />
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {job.keywords && job.keywords.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {job.keywords.map(k => (
+              <span class="px-2 py-1 bg-slate-800/50 border border-slate-700 rounded text-xs text-slate-400">{k}</span>
+            ))}
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+
+  <!-- Earlier roles - compact grid -->
+  {earlierJobs.length > 0 && (
+    <div>
+      <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Earlier Experience</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {earlierJobs.slice(0, 6).map(job => (
+          <div class="section-box p-4 bg-slate-900/20 backdrop-blur border-slate-700/50">
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h4 class="font-bold text-white text-sm">{job.name}</h4>
+              <span class="text-[10px] text-slate-500 whitespace-nowrap">{job.startDate.split('-')[0]}</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">{job.position}</p>
+            {job.keywords && (
+              <div class="flex flex-wrap gap-1">
+                {job.keywords.slice(0, 3).map(k => (
+                  <span class="text-[10px] text-slate-500">{k}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</section>

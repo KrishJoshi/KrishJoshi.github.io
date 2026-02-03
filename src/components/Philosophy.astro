@@ -1,0 +1,38 @@
+---
+interface Principle {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  statement: string;
+  principles: Principle[];
+}
+
+const { statement, principles } = Astro.props;
+
+// Split statement to highlight "hardened infrastructure"
+const [before, after] = statement.split('hardened infrastructure');
+---
+
+<div class="section-box p-6 bg-slate-900/30 backdrop-blur border-slate-700">
+  <div class="flex items-center gap-2 text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">
+    <span class="text-indigo-400">λ</span>
+    The Architectural Philosophy
+  </div>
+
+  <blockquote class="text-xl md:text-2xl text-slate-200 leading-relaxed font-light mb-6">
+    "{before}<span class="text-indigo-400 font-medium">hardened infrastructure</span>{after}"
+  </blockquote>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    {principles.map(p => (
+      <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+        <span class="material-symbols-outlined text-xl text-indigo-400 mb-2 block">{p.icon}</span>
+        <h4 class="text-sm font-bold text-white mb-1">{p.title}</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">{p.description}</p>
+      </div>
+    ))}
+  </div>
+</div>
