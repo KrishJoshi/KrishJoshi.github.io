@@ -37,36 +37,268 @@ const [before, after] = statement.split('hardened infrastructure');
       </div>
     </div>
 
-    <!-- Architecture Diagram -->
-    <div class="relative bg-slate-950 rounded-2xl p-6 border border-slate-800 shadow-2xl h-[300px] flex items-center justify-center overflow-hidden">
-      <!-- Grid background -->
-      <div class="absolute inset-0 flex items-center justify-center opacity-20">
-        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <!-- Interactive Architecture Diagram -->
+    <div class="relative bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl h-[340px] overflow-hidden" id="arch-diagram">
+      <!-- Animated grid background -->
+      <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 400 340">
           <defs>
-            <pattern id="diagram-grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
             </pattern>
           </defs>
-          <rect width="100" height="100" fill="url(#diagram-grid)"/>
+          <rect width="400" height="340" fill="url(#grid-pattern)"/>
         </svg>
       </div>
 
-      <!-- Simulated Architecture Diagram -->
-      <div class="relative z-10 flex flex-col gap-4">
-        <div class="flex justify-center gap-8">
-          <div class="node px-4 py-2 border border-indigo-500 rounded bg-slate-900 text-[10px] font-mono animate-pulse text-indigo-400">LB: Cloudfront</div>
+      <!-- SVG Connection Lines & Particles -->
+      <svg class="absolute inset-0 w-full h-full z-0" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <!-- Gradient for lines -->
+          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.4" />
+          </linearGradient>
+          <!-- Glow filter -->
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <!-- Particle glow -->
+          <filter id="particle-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Connection paths -->
+        <!-- Users to CloudFront -->
+        <path id="path1" d="M 60 50 Q 60 75 200 75" fill="none" stroke="url(#line-gradient)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/>
+        <!-- CloudFront to API Gateway -->
+        <path id="path2" d="M 200 90 L 200 115" fill="none" stroke="url(#line-gradient)" stroke-width="1.5" opacity="0.6"/>
+        <!-- API Gateway to Lambda -->
+        <path id="path3" d="M 180 145 Q 120 165 120 185" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+        <!-- API Gateway to EKS -->
+        <path id="path4" d="M 220 145 Q 280 165 280 185" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+        <!-- Lambda to DynamoDB -->
+        <path id="path5" d="M 120 220 Q 120 245 160 260" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+        <!-- EKS to RDS -->
+        <path id="path6" d="M 280 220 Q 280 245 240 260" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+        <!-- Lambda to Bedrock -->
+        <path id="path7" d="M 100 205 Q 50 205 50 245" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+        <!-- EKS to Redis -->
+        <path id="path8" d="M 300 205 Q 350 205 350 245" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.6"/>
+
+        <!-- Animated particles -->
+        <g filter="url(#particle-glow)">
+          <!-- Particle on path 1 -->
+          <circle r="3" fill="#6366f1">
+            <animateMotion dur="2s" repeatCount="indefinite">
+              <mpath href="#path1"/>
+            </animateMotion>
+          </circle>
+          <!-- Particle on path 2 -->
+          <circle r="3" fill="#6366f1">
+            <animateMotion dur="1s" repeatCount="indefinite">
+              <mpath href="#path2"/>
+            </animateMotion>
+          </circle>
+          <!-- Particle on path 3 -->
+          <circle r="2.5" fill="#10b981">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.3s">
+              <mpath href="#path3"/>
+            </animateMotion>
+          </circle>
+          <!-- Particle on path 4 -->
+          <circle r="2.5" fill="#10b981">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.8s">
+              <mpath href="#path4"/>
+            </animateMotion>
+          </circle>
+          <!-- Particle on path 5 -->
+          <circle r="2" fill="#a855f7">
+            <animateMotion dur="1.2s" repeatCount="indefinite" begin="0.5s">
+              <mpath href="#path5"/>
+            </animateMotion>
+          </circle>
+          <!-- Particle on path 6 -->
+          <circle r="2" fill="#a855f7">
+            <animateMotion dur="1.2s" repeatCount="indefinite" begin="1s">
+              <mpath href="#path6"/>
+            </animateMotion>
+          </circle>
+          <!-- AI Particle -->
+          <circle r="2" fill="#f59e0b">
+            <animateMotion dur="2s" repeatCount="indefinite" begin="0.2s">
+              <mpath href="#path7"/>
+            </animateMotion>
+          </circle>
+          <!-- Cache particle -->
+          <circle r="2" fill="#ef4444">
+            <animateMotion dur="1.3s" repeatCount="indefinite" begin="0.6s">
+              <mpath href="#path8"/>
+            </animateMotion>
+          </circle>
+        </g>
+      </svg>
+
+      <!-- Architecture Nodes -->
+      <div class="relative z-10 h-full p-4">
+        <!-- Row 1: Users & CDN -->
+        <div class="flex justify-between items-start mb-2">
+          <!-- Users -->
+          <div class="arch-node group" data-tooltip="2M+ Daily Users (Tesco Scale)">
+            <div class="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center group-hover:border-indigo-500 group-hover:bg-slate-800 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-slate-400 group-hover:text-indigo-400 transition-colors">group</span>
+            </div>
+            <span class="text-[9px] font-mono text-slate-500 mt-1 block text-center">Users</span>
+          </div>
+
+          <!-- CloudFront -->
+          <div class="arch-node group" data-tooltip="Edge CDN - Global Distribution">
+            <div class="w-16 h-10 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer">
+              <span class="text-[9px] font-mono text-indigo-400 font-semibold">CloudFront</span>
+            </div>
+          </div>
+
+          <!-- Monitoring -->
+          <div class="arch-node group" data-tooltip="OpenTelemetry + X-Ray Tracing">
+            <div class="w-12 h-12 rounded-xl bg-slate-800/80 border border-cyan-500/50 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-slate-800 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-cyan-400 text-lg">monitoring</span>
+            </div>
+            <span class="text-[9px] font-mono text-slate-500 mt-1 block text-center">Traces</span>
+          </div>
         </div>
-        <div class="flex justify-center gap-8">
-          <div class="node px-4 py-2 border border-emerald-500 rounded bg-slate-900 text-[10px] font-mono text-emerald-400">APP: Lambda/Go</div>
-          <div class="node px-4 py-2 border border-emerald-500 rounded bg-slate-900 text-[10px] font-mono text-emerald-400">APP: Lambda/TS</div>
+
+        <!-- Row 2: API Gateway -->
+        <div class="flex justify-center my-3">
+          <div class="arch-node group" data-tooltip="FAPI/OAuth2 Compliant Gateway">
+            <div class="px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center gap-2 group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-indigo-400 text-sm">api</span>
+              <span class="text-[10px] font-mono text-indigo-400">API Gateway</span>
+            </div>
+          </div>
         </div>
-        <div class="flex justify-center gap-8">
-          <div class="node px-4 py-2 border border-purple-500 rounded bg-slate-900 text-[10px] font-mono text-purple-400">DB: DynamoDB</div>
+
+        <!-- Row 3: Compute -->
+        <div class="flex justify-center gap-8 my-3">
+          <!-- Lambda -->
+          <div class="arch-node group" data-tooltip="Serverless Functions (TypeScript/Go)">
+            <div class="w-20 h-14 rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer">
+              <span class="text-[10px] font-mono text-emerald-400 font-semibold">Lambda</span>
+              <span class="text-[8px] text-emerald-400/70">TS / Go</span>
+            </div>
+          </div>
+
+          <!-- EKS -->
+          <div class="arch-node group" data-tooltip="Kubernetes Microservices (Tesco)">
+            <div class="w-20 h-14 rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer">
+              <span class="text-[10px] font-mono text-emerald-400 font-semibold">EKS</span>
+              <span class="text-[8px] text-emerald-400/70">React SSR</span>
+            </div>
+          </div>
         </div>
-        <div class="mt-4 text-center">
-          <span class="text-[8px] font-mono text-slate-500">Live Traffic Simulation: 1.2k req/sec</span>
+
+        <!-- Row 4: Data & AI -->
+        <div class="flex justify-between items-end px-2">
+          <!-- Bedrock/AI -->
+          <div class="arch-node group" data-tooltip="Claude AI via Amazon Bedrock">
+            <div class="w-14 h-12 rounded-lg bg-amber-500/20 border border-amber-500/50 border-dashed flex flex-col items-center justify-center group-hover:border-amber-400 group-hover:bg-amber-500/30 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-amber-400 text-sm">psychology</span>
+              <span class="text-[8px] font-mono text-amber-400">Bedrock</span>
+            </div>
+          </div>
+
+          <!-- DynamoDB -->
+          <div class="arch-node group" data-tooltip="NoSQL - High Throughput">
+            <div class="w-20 h-12 rounded-lg bg-purple-500/20 border border-purple-500/50 flex flex-col items-center justify-center group-hover:border-purple-400 group-hover:bg-purple-500/30 transition-all cursor-pointer">
+              <span class="text-[10px] font-mono text-purple-400 font-semibold">DynamoDB</span>
+            </div>
+          </div>
+
+          <!-- Redis -->
+          <div class="arch-node group" data-tooltip="Session & Cache Layer">
+            <div class="w-14 h-12 rounded-lg bg-red-500/20 border border-red-500/50 flex flex-col items-center justify-center group-hover:border-red-400 group-hover:bg-red-500/30 transition-all cursor-pointer">
+              <span class="text-[9px] font-mono text-red-400 font-semibold">Redis</span>
+              <span class="text-[7px] text-red-400/70">Cache</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Status bar -->
+        <div class="absolute bottom-3 left-0 right-0 flex justify-center items-center gap-4">
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+            <span class="text-[8px] font-mono text-slate-500">2M req/day</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse"></span>
+            <span class="text-[8px] font-mono text-slate-500">&lt;50ms p99</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
+            <span class="text-[8px] font-mono text-slate-500">AI-Enhanced</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tooltip -->
+      <div id="arch-tooltip" class="absolute hidden px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white shadow-xl z-50 pointer-events-none max-w-[200px]">
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .arch-node {
+    position: relative;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 0.8; }
+  }
+</style>
+
+<script>
+  // Tooltip functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const tooltip = document.getElementById('arch-tooltip');
+    const nodes = document.querySelectorAll('.arch-node[data-tooltip]');
+
+    nodes.forEach(node => {
+      node.addEventListener('mouseenter', (e) => {
+        const text = (node as HTMLElement).dataset.tooltip;
+        if (tooltip && text) {
+          tooltip.textContent = text;
+          tooltip.classList.remove('hidden');
+        }
+      });
+
+      node.addEventListener('mousemove', (e) => {
+        if (tooltip) {
+          const rect = document.getElementById('arch-diagram')?.getBoundingClientRect();
+          if (rect) {
+            const x = (e as MouseEvent).clientX - rect.left;
+            const y = (e as MouseEvent).clientY - rect.top;
+            tooltip.style.left = `${x + 10}px`;
+            tooltip.style.top = `${y - 30}px`;
+          }
+        }
+      });
+
+      node.addEventListener('mouseleave', () => {
+        if (tooltip) {
+          tooltip.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
