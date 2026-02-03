@@ -16,23 +16,57 @@ const { statement, principles } = Astro.props;
 const [before, after] = statement.split('hardened infrastructure');
 ---
 
-<div class="section-box p-6 bg-slate-900/30 backdrop-blur border-slate-700">
-  <div class="flex items-center gap-2 text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">
-    <span class="text-indigo-400">λ</span>
-    The Architectural Philosophy
-  </div>
-
-  <blockquote class="text-xl md:text-2xl text-slate-200 leading-relaxed font-light mb-6">
-    "{before}<span class="text-indigo-400 font-medium">hardened infrastructure</span>{after}"
-  </blockquote>
-
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    {principles.map(p => (
-      <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
-        <span class="material-symbols-outlined text-xl text-indigo-400 mb-2 block">{p.icon}</span>
-        <h4 class="text-sm font-bold text-white mb-1">{p.title}</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">{p.description}</p>
+<section class="bento-card p-8 overflow-hidden mb-6">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">architecture</span>
+        The Architectural Philosophy
+      </h3>
+      <p class="text-2xl font-light text-white leading-relaxed mb-8">
+        "{before}<span class="text-indigo-400 font-medium">hardened infrastructure</span>{after}"
+      </p>
+      <div class="grid grid-cols-2 gap-4">
+        {principles.slice(0, 2).map(p => (
+          <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800">
+            <span class="material-symbols-outlined text-indigo-400 mb-2 block">{p.icon}</span>
+            <h4 class="text-sm font-bold text-white mb-1">{p.title}</h4>
+            <p class="text-xs text-slate-400">{p.description}</p>
+          </div>
+        ))}
       </div>
-    ))}
+    </div>
+
+    <!-- Architecture Diagram -->
+    <div class="relative bg-slate-950 rounded-2xl p-6 border border-slate-800 shadow-2xl h-[300px] flex items-center justify-center overflow-hidden">
+      <!-- Grid background -->
+      <div class="absolute inset-0 flex items-center justify-center opacity-20">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="diagram-grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#diagram-grid)"/>
+        </svg>
+      </div>
+
+      <!-- Simulated Architecture Diagram -->
+      <div class="relative z-10 flex flex-col gap-4">
+        <div class="flex justify-center gap-8">
+          <div class="node px-4 py-2 border border-indigo-500 rounded bg-slate-900 text-[10px] font-mono animate-pulse text-indigo-400">LB: Cloudfront</div>
+        </div>
+        <div class="flex justify-center gap-8">
+          <div class="node px-4 py-2 border border-emerald-500 rounded bg-slate-900 text-[10px] font-mono text-emerald-400">APP: Lambda/Go</div>
+          <div class="node px-4 py-2 border border-emerald-500 rounded bg-slate-900 text-[10px] font-mono text-emerald-400">APP: Lambda/TS</div>
+        </div>
+        <div class="flex justify-center gap-8">
+          <div class="node px-4 py-2 border border-purple-500 rounded bg-slate-900 text-[10px] font-mono text-purple-400">DB: DynamoDB</div>
+        </div>
+        <div class="mt-4 text-center">
+          <span class="text-[8px] font-mono text-slate-500">Live Traffic Simulation: 1.2k req/sec</span>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
