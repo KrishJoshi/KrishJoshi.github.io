@@ -45,9 +45,25 @@ const github = profiles.find(p => p.network === 'GitHub');
           <h1 id="hero-name" class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter">{name}</h1>
         </div>
       </div>
-      <p class="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-2xl font-light">
-        {headline.split('scale effortlessly')[0]}<span class="text-white font-semibold">scale effortlessly</span>{headline.split('scale effortlessly')[1] || '.'} {tagline}
-      </p>
+      <div class="space-y-4 max-w-2xl">
+        <p class="text-xl md:text-2xl text-slate-400 leading-relaxed font-light">
+          {headline.split('scale effortlessly')[0]}<span class="text-white font-semibold">scale effortlessly</span>{headline.split('scale effortlessly')[1] || '.'}
+        </p>
+        <p class="text-base md:text-lg text-slate-400 leading-relaxed">
+          Principal engineer with <span class="text-white font-medium">14+ years</span> building digital products at
+          <span class="text-white font-medium">FTSE 100 enterprises</span> and
+          <span class="text-white font-medium">early-stage startups</span>.
+          Specialized in <span class="text-indigo-400">React</span>, <span class="text-indigo-400">AWS</span>, and
+          <span class="text-indigo-400">Identity/Auth systems</span> —
+          architecting platforms that serve <span class="text-white font-medium">millions of daily users</span> at
+          Tesco, Chase UK, and Cisco.
+        </p>
+        <p class="text-sm md:text-base text-slate-500">
+          Recently focused on integrating <span class="text-slate-400">GenAI</span> (Claude, Amazon Bedrock) into enterprise workflows,
+          delivering <span class="text-slate-400">40% performance improvements</span> and
+          <span class="text-slate-400">60% security gains</span> through modern cloud architecture.
+        </p>
+      </div>
     </div>
 
     <div class="relative z-10 mt-12 flex flex-wrap gap-6 items-center border-t border-slate-800 pt-8">
@@ -79,11 +95,6 @@ const github = profiles.find(p => p.network === 'GitHub');
   <!-- Status Card -->
   <section class="bento-card md:col-span-4 p-8 flex flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-950" aria-labelledby="status-heading">
     <div class="space-y-6">
-      <div class="flex justify-between items-start">
-        <h2 id="status-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Profile</h2>
-        <span class="text-[10px] font-mono text-green-400 bg-green-500/10 px-2 py-0.5 rounded">AVAILABLE</span>
-      </div>
-
       <div class="space-y-4">
         <div class="border-b border-slate-800 pb-3">
           <p class="text-[10px] font-mono text-slate-500 uppercase mb-2">Tech Stack</p>
