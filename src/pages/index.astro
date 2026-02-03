@@ -5,7 +5,6 @@ import ViewToggle from '../components/ViewToggle.astro';
 
 // Classic view components
 import Header from '../components/Header.astro';
-import Profile from '../components/Profile.astro';
 import Achievements from '../components/Achievements.astro';
 import Skills from '../components/Skills.astro';
 import Education from '../components/Education.astro';
@@ -44,17 +43,6 @@ const { basics, philosophy, achievements, achievementSummary, work, skills, educ
       location={basics.location}
       profiles={basics.profiles}
     />
-
-    <!-- Profile Section -->
-    <div class="mb-6">
-      <div class="section-box p-6">
-        <Profile
-          summary={basics.summary}
-          name={basics.name}
-          label={basics.label}
-        />
-      </div>
-    </div>
 
     <!-- Row 1: Achievements & Technical Ecosystem -->
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 mb-6 items-stretch">
