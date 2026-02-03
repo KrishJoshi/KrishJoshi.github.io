@@ -56,20 +56,20 @@
   "achievementSummary": "Principal engineer with 14+ years building digital products at scale—from early-stage startups to FTSE 100 enterprises. Specialized in React, React Native, and AWS, with deep expertise in identity/authentication systems (WebAuthn/Passkeys, OAuth2/OIDC, MFA). Recently integrating AI-assisted development tools (Claude, Amazon Bedrock) into engineering workflows.",
   "achievements": [
     {
-      "title": "Secured 2M+ Users with Modern Auth",
-      "description": "Architected Tesco's WebAuthn/Passkeys & OAuth2 platform. Reduced account compromise by 60% while simultaneously increasing login conversion rates for 2M+ daily users."
+      "title": "GenAI & AWS Architecture (Climatise)",
+      "description": "Architected a sustainability platform using Amazon Bedrock/Claude and SageMaker. Achieved Amazon Well-Architected status for scalability and security."
     },
     {
-      "title": "FAPI 2.0 Compliant Open Banking",
-      "description": "Engineered fully compliant authentication flows for CaspianOne, achieving strict FAPI 2.0, PSD2, and Canadian banking standards."
+      "title": "FAPI 2.0 Open Banking (CaspianOne)",
+      "description": "Delivered regulatory-compliant authentication flows for Open Banking, meeting strict PSD2, FAPI 2.0, and Canadian banking standards."
     },
     {
-      "title": "40% Faster Cold Starts on AWS",
-      "description": "Optimised serverless architecture across 12 microservices, reducing Lambda cold starts by 40% and decreasing monthly infrastructure spend."
+      "title": "Monolith to Micro-Apps (Tesco)",
+      "description": "Orchestrated the migration of massive legacy systems to Kubernetes-based micro-apps. Enabled seamless scaling for 2M+ daily users and reduced deployment friction."
     },
     {
-      "title": "Weekly → Daily Releases",
-      "description": "Modernized Tesco's release pipeline, accelerating deployment cadence from weekly to daily via advanced CI/CD automation and feature flagging."
+      "title": "Global Platform Modernization (Cisco)",
+      "description": "Led the Angular-to-React migration for Cisco's global dCloud platform (4-year tenure), achieving 95% test coverage across distributed teams."
     }
   ],
   "work": [
