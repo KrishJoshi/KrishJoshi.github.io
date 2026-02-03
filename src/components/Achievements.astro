@@ -9,24 +9,24 @@ interface Props {
 }
 
 const { achievements } = Astro.props;
+
+const icons = ['verified_user', 'account_balance', 'speed', 'rocket_launch'];
 ---
 
 <section class="section-box p-6 flex flex-col">
-  <h2 class="text-2xl md:text-3xl font-black tracking-tight mb-6">LEADERSHIP & ARCHITECTURE</h2>
-  <div class="mb-4">
-    <h3 class="text-sm font-bold tracking-wide text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2">
-      <span class="text-gray-900 dark:text-gray-100">/</span> MAJOR ACHIEVEMENTS
-    </h3>
-  </div>
-  <div class="space-y-5 flex-1">
-    {achievements.map(a => (
-      <div class="mb-5 last:mb-0">
-        <div class="flex items-start gap-2">
-          <span class="text-gray-900 dark:text-gray-100 font-bold mt-0.5">•</span>
-          <div>
-            <div class="font-bold text-sm uppercase tracking-wide mb-1">{a.title}</div>
-            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{a.description}</p>
-          </div>
+  <h2 class="text-2xl md:text-3xl font-black tracking-tight mb-5 flex items-center gap-3">
+    <span class="material-symbols-outlined text-2xl">emoji_events</span>
+    KEY ACHIEVEMENTS
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+    {achievements.map((a, i) => (
+      <div class="achievement-card flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
+        <div class="w-9 h-9 rounded-lg bg-gray-900 dark:bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-white dark:text-indigo-400 text-base">{icons[i % icons.length]}</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm text-gray-900 dark:text-white mb-0.5">{a.title}</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-snug">{a.description}</p>
         </div>
       </div>
     ))}

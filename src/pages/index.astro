@@ -16,6 +16,7 @@ import Footer from '../components/Footer.astro';
 // Interactive view components
 import PortfolioHeader from '../components/PortfolioHeader.astro';
 import Philosophy from '../components/Philosophy.astro';
+import PortfolioAchievements from '../components/PortfolioAchievements.astro';
 import PortfolioSkills from '../components/PortfolioSkills.astro';
 import PortfolioExperience from '../components/PortfolioExperience.astro';
 
@@ -85,6 +86,9 @@ const { basics, philosophy, achievements, work, skills, education, certificates 
       statement={philosophy.statement}
       principles={philosophy.principles}
     />
+
+    <!-- Key Achievements -->
+    <PortfolioAchievements achievements={achievements} />
 
     <!-- Skills with filtering -->
     <PortfolioSkills skills={skills} />

@@ -55,16 +55,20 @@
   ],
   "achievements": [
     {
-      "title": "Identity & Authentication at Scale",
-      "description": "Implemented WebAuthn (Passkeys) and OAuth2/MFA flows at Tesco serving 2M+ daily users, reducing account compromise by 60%."
+      "title": "Secured 2M+ Users with Modern Auth",
+      "description": "Architected WebAuthn/Passkeys and OAuth2/MFA authentication platform at Tesco — cut account compromise by 60% and improved login conversion."
     },
     {
-      "title": "AWS Platform & Operations",
-      "description": "Built and operated cloud-native services on AWS with Terraform IaC, achieving 40% Lambda cold-start reduction at CaspianOne."
+      "title": "FAPI 2.0 Compliant Open Banking",
+      "description": "Delivered regulatory-compliant authentication flows for CaspianOne's Open Banking platform, meeting PSD2 and Canadian standards."
     },
     {
-      "title": "Platform Modernization & DevOps",
-      "description": "Transformed Tesco's release process from weekly to daily deployments. Led migrations at Cisco achieving 95% test coverage."
+      "title": "40% Faster Cold Starts on AWS",
+      "description": "Optimised serverless architecture across 12 microservices — reduced Lambda cold starts by 40% and cut infrastructure costs."
+    },
+    {
+      "title": "Weekly → Daily Releases",
+      "description": "Transformed release cadence at Tesco from weekly to daily deployments through CI/CD automation and feature flagging."
     }
   ],
   "work": [
