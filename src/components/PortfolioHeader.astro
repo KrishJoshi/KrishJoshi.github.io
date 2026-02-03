@@ -80,31 +80,58 @@ const github = profiles.find(p => p.network === 'GitHub');
   <section class="bento-card md:col-span-4 p-8 flex flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-950" aria-labelledby="status-heading">
     <div class="space-y-6">
       <div class="flex justify-between items-start">
-        <h2 id="status-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Status</h2>
-        <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">ONLINE</span>
+        <h2 id="status-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Profile</h2>
+        <span class="text-[10px] font-mono text-green-400 bg-green-500/10 px-2 py-0.5 rounded">AVAILABLE</span>
       </div>
 
       <div class="space-y-4">
-        <div class="flex justify-between items-end border-b border-slate-800 pb-3">
-          <div>
-            <p class="text-[10px] font-mono text-slate-500 uppercase">Core Expertise</p>
-            <p class="text-white font-medium">AWS Solutions Architect</p>
+        <div class="border-b border-slate-800 pb-3">
+          <p class="text-[10px] font-mono text-slate-500 uppercase mb-2">Tech Stack</p>
+          <div class="space-y-1">
+            <p class="text-white text-sm font-medium">React • AWS • TypeScript</p>
+            <p class="text-slate-400 text-xs">WebAuthn • OAuth2 • Bedrock</p>
           </div>
-          <span class="text-indigo-400 font-mono text-xs">Professional</span>
         </div>
-        <div class="flex justify-between items-end border-b border-slate-800 pb-3">
-          <div>
-            <p class="text-[10px] font-mono text-slate-500 uppercase">Total Experience</p>
-            <p class="text-white font-medium">14+ Years</p>
+
+        <div class="border-b border-slate-800 pb-3">
+          <p class="text-[10px] font-mono text-slate-500 uppercase mb-2">Recent Companies</p>
+          <div class="flex flex-wrap gap-1">
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Tesco</span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Chase UK</span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Cisco</span>
           </div>
-          <span class="text-indigo-400 font-mono text-xs">Senior+</span>
         </div>
-        <div class="flex justify-between items-end border-b border-slate-800 pb-3">
-          <div>
-            <p class="text-[10px] font-mono text-slate-500 uppercase">Current Focus</p>
-            <p class="text-white font-medium">{currentFocus}</p>
+
+        <div class="border-b border-slate-800 pb-3">
+          <p class="text-[10px] font-mono text-slate-500 uppercase mb-2">Scale</p>
+          <div class="space-y-1">
+            <div class="flex justify-between items-center">
+              <span class="text-slate-400 text-xs">Daily Users</span>
+              <span class="text-white text-sm font-mono">2M+</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-slate-400 text-xs">Experience</span>
+              <span class="text-white text-sm font-mono">14+ yrs</span>
+            </div>
           </div>
-          <span class="text-indigo-400 font-mono text-xs">Active</span>
+        </div>
+
+        <div>
+          <p class="text-[10px] font-mono text-slate-500 uppercase mb-2">Recent Impact</p>
+          <ul class="space-y-1">
+            <li class="text-xs text-slate-400 flex items-start gap-1">
+              <span class="text-green-400">→</span>
+              <span>GenAI platform with Claude</span>
+            </li>
+            <li class="text-xs text-slate-400 flex items-start gap-1">
+              <span class="text-green-400">→</span>
+              <span>40% Lambda optimization</span>
+            </li>
+            <li class="text-xs text-slate-400 flex items-start gap-1">
+              <span class="text-green-400">→</span>
+              <span>60% security improvement</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
