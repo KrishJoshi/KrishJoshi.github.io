@@ -40,8 +40,8 @@ const [before, after] = statement.split('hardened infrastructure');
     <!-- Interactive Architecture Diagram -->
     <div class="relative bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl h-[340px] overflow-hidden" id="arch-diagram">
       <!-- Animated grid background -->
-      <div class="absolute inset-0 opacity-10">
-        <svg class="w-full h-full" viewBox="0 0 400 340">
+      <div class="absolute inset-0 opacity-[0.07]">
+        <svg class="w-full h-full" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
           <defs>
             <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
               <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
@@ -51,25 +51,11 @@ const [before, after] = statement.split('hardened infrastructure');
         </svg>
       </div>
 
-      <!-- SVG Connection Lines & Particles -->
-      <svg class="absolute inset-0 w-full h-full z-0" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid meet">
+      <!-- SVG Connection Lines - positioned behind nodes -->
+      <svg class="absolute inset-0 w-full h-full" style="z-index: 1;">
         <defs>
-          <!-- Gradient for lines -->
-          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.8" />
-            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.4" />
-          </linearGradient>
-          <!-- Glow filter -->
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <!-- Particle glow -->
-          <filter id="particle-glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feGaussianBlur stdDeviation="2" result="blur"/>
             <feMerge>
               <feMergeNode in="blur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -77,156 +63,146 @@ const [before, after] = statement.split('hardened infrastructure');
           </filter>
         </defs>
 
-        <!-- Connection paths -->
-        <!-- Users to CloudFront -->
-        <path id="path1" d="M 60 50 Q 60 75 200 75" fill="none" stroke="url(#line-gradient)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/>
-        <!-- CloudFront to API Gateway -->
-        <path id="path2" d="M 200 90 L 200 115" fill="none" stroke="url(#line-gradient)" stroke-width="1.5" opacity="0.6"/>
-        <!-- API Gateway to Lambda -->
-        <path id="path3" d="M 180 145 Q 120 165 120 185" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
-        <!-- API Gateway to EKS -->
-        <path id="path4" d="M 220 145 Q 280 165 280 185" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+        <!-- CloudFront to API Gateway (vertical) -->
+        <line x1="50%" y1="52" x2="50%" y2="85" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+
+        <!-- API Gateway to Lambda (diagonal left) -->
+        <path d="M 43% 115 L 30% 155" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+
+        <!-- API Gateway to EKS (diagonal right) -->
+        <path d="M 57% 115 L 70% 155" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+
         <!-- Lambda to DynamoDB -->
-        <path id="path5" d="M 120 220 Q 120 245 160 260" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
-        <!-- EKS to RDS -->
-        <path id="path6" d="M 280 220 Q 280 245 240 260" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
-        <!-- Lambda to Bedrock -->
-        <path id="path7" d="M 100 205 Q 50 205 50 245" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
-        <!-- EKS to Redis -->
-        <path id="path8" d="M 300 205 Q 350 205 350 245" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.6"/>
+        <path d="M 30% 195 L 50% 230" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+
+        <!-- EKS to DynamoDB -->
+        <path d="M 70% 195 L 50% 230" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+
+        <!-- Lambda to Bedrock (left) -->
+        <path d="M 22% 175 L 12% 230" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+
+        <!-- EKS to Redis (right) -->
+        <path d="M 78% 175 L 88% 230" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.5"/>
 
         <!-- Animated particles -->
-        <g filter="url(#particle-glow)">
-          <!-- Particle on path 1 -->
-          <circle r="3" fill="#6366f1">
-            <animateMotion dur="2s" repeatCount="indefinite">
-              <mpath href="#path1"/>
-            </animateMotion>
+        <g filter="url(#glow)">
+          <!-- CloudFront to API Gateway particle -->
+          <circle r="4" fill="#6366f1">
+            <animate attributeName="cy" values="52;85;52" dur="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="cx" values="50%;50%;50%" dur="1.5s" repeatCount="indefinite"/>
           </circle>
-          <!-- Particle on path 2 -->
-          <circle r="3" fill="#6366f1">
-            <animateMotion dur="1s" repeatCount="indefinite">
-              <mpath href="#path2"/>
-            </animateMotion>
+
+          <!-- API Gateway to Lambda particle -->
+          <circle r="3" fill="#10b981">
+            <animate attributeName="cx" values="43%;30%;43%" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="cy" values="115;155;115" dur="2s" repeatCount="indefinite"/>
           </circle>
-          <!-- Particle on path 3 -->
-          <circle r="2.5" fill="#10b981">
-            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.3s">
-              <mpath href="#path3"/>
-            </animateMotion>
+
+          <!-- API Gateway to EKS particle -->
+          <circle r="3" fill="#10b981">
+            <animate attributeName="cx" values="57%;70%;57%" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+            <animate attributeName="cy" values="115;155;115" dur="2s" repeatCount="indefinite" begin="0.5s"/>
           </circle>
-          <!-- Particle on path 4 -->
-          <circle r="2.5" fill="#10b981">
-            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.8s">
-              <mpath href="#path4"/>
-            </animateMotion>
+
+          <!-- Lambda to DynamoDB particle -->
+          <circle r="3" fill="#a855f7">
+            <animate attributeName="cx" values="30%;50%;30%" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+            <animate attributeName="cy" values="195;230;195" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
           </circle>
-          <!-- Particle on path 5 -->
-          <circle r="2" fill="#a855f7">
-            <animateMotion dur="1.2s" repeatCount="indefinite" begin="0.5s">
-              <mpath href="#path5"/>
-            </animateMotion>
+
+          <!-- EKS to DynamoDB particle -->
+          <circle r="3" fill="#a855f7">
+            <animate attributeName="cx" values="70%;50%;70%" dur="1.8s" repeatCount="indefinite" begin="0.8s"/>
+            <animate attributeName="cy" values="195;230;195" dur="1.8s" repeatCount="indefinite" begin="0.8s"/>
           </circle>
-          <!-- Particle on path 6 -->
-          <circle r="2" fill="#a855f7">
-            <animateMotion dur="1.2s" repeatCount="indefinite" begin="1s">
-              <mpath href="#path6"/>
-            </animateMotion>
+
+          <!-- Bedrock particle -->
+          <circle r="2.5" fill="#f59e0b">
+            <animate attributeName="cx" values="22%;12%;22%" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="cy" values="175;230;175" dur="2.5s" repeatCount="indefinite"/>
           </circle>
-          <!-- AI Particle -->
-          <circle r="2" fill="#f59e0b">
-            <animateMotion dur="2s" repeatCount="indefinite" begin="0.2s">
-              <mpath href="#path7"/>
-            </animateMotion>
-          </circle>
-          <!-- Cache particle -->
-          <circle r="2" fill="#ef4444">
-            <animateMotion dur="1.3s" repeatCount="indefinite" begin="0.6s">
-              <mpath href="#path8"/>
-            </animateMotion>
+
+          <!-- Redis particle -->
+          <circle r="2.5" fill="#ef4444">
+            <animate attributeName="cx" values="78%;88%;78%" dur="2s" repeatCount="indefinite" begin="0.4s"/>
+            <animate attributeName="cy" values="175;230;175" dur="2s" repeatCount="indefinite" begin="0.4s"/>
           </circle>
         </g>
       </svg>
 
-      <!-- Architecture Nodes -->
-      <div class="relative z-10 h-full p-4">
-        <!-- Row 1: Users & CDN -->
-        <div class="flex justify-between items-start mb-2">
-          <!-- Users -->
-          <div class="arch-node group" data-tooltip="2M+ Daily Users (Tesco Scale)">
-            <div class="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center group-hover:border-indigo-500 group-hover:bg-slate-800 transition-all cursor-pointer">
-              <span class="material-symbols-outlined text-slate-400 group-hover:text-indigo-400 transition-colors">group</span>
-            </div>
-            <span class="text-[9px] font-mono text-slate-500 mt-1 block text-center">Users</span>
-          </div>
+      <!-- Architecture Nodes - absolutely positioned -->
+      <div class="absolute inset-0" style="z-index: 2;">
 
-          <!-- CloudFront -->
+        <!-- Row 1: CloudFront (centered at top) -->
+        <div class="absolute left-1/2 -translate-x-1/2 top-4">
           <div class="arch-node group" data-tooltip="Edge CDN - Global Distribution">
-            <div class="w-16 h-10 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer">
-              <span class="text-[9px] font-mono text-indigo-400 font-semibold">CloudFront</span>
+            <div class="px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer backdrop-blur-sm">
+              <span class="text-[10px] font-mono text-indigo-400 font-semibold">CloudFront</span>
             </div>
           </div>
+        </div>
 
-          <!-- Monitoring -->
-          <div class="arch-node group" data-tooltip="OpenTelemetry + X-Ray Tracing">
-            <div class="w-12 h-12 rounded-xl bg-slate-800/80 border border-cyan-500/50 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-slate-800 transition-all cursor-pointer">
-              <span class="material-symbols-outlined text-cyan-400 text-lg">monitoring</span>
+        <!-- Monitoring (top right) -->
+        <div class="absolute right-4 top-4">
+          <div class="arch-node group" data-tooltip="OpenTelemetry + X-Ray">
+            <div class="w-10 h-10 rounded-lg bg-slate-800/80 border border-cyan-500/50 flex items-center justify-center group-hover:border-cyan-400 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-cyan-400 text-base">monitoring</span>
             </div>
-            <span class="text-[9px] font-mono text-slate-500 mt-1 block text-center">Traces</span>
           </div>
         </div>
 
         <!-- Row 2: API Gateway -->
-        <div class="flex justify-center my-3">
-          <div class="arch-node group" data-tooltip="FAPI/OAuth2 Compliant Gateway">
-            <div class="px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center gap-2 group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer">
+        <div class="absolute left-1/2 -translate-x-1/2 top-[85px]">
+          <div class="arch-node group" data-tooltip="FAPI/OAuth2 Compliant">
+            <div class="px-3 py-1.5 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center gap-1.5 group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer backdrop-blur-sm">
               <span class="material-symbols-outlined text-indigo-400 text-sm">api</span>
-              <span class="text-[10px] font-mono text-indigo-400">API Gateway</span>
+              <span class="text-[9px] font-mono text-indigo-400">API Gateway</span>
             </div>
           </div>
         </div>
 
-        <!-- Row 3: Compute -->
-        <div class="flex justify-center gap-8 my-3">
-          <!-- Lambda -->
-          <div class="arch-node group" data-tooltip="Serverless Functions (TypeScript/Go)">
-            <div class="w-20 h-14 rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer">
+        <!-- Row 3: Lambda (left) and EKS (right) -->
+        <div class="absolute left-[18%] top-[150px]">
+          <div class="arch-node group" data-tooltip="Serverless (TypeScript/Go)">
+            <div class="w-[72px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer backdrop-blur-sm">
               <span class="text-[10px] font-mono text-emerald-400 font-semibold">Lambda</span>
-              <span class="text-[8px] text-emerald-400/70">TS / Go</span>
-            </div>
-          </div>
-
-          <!-- EKS -->
-          <div class="arch-node group" data-tooltip="Kubernetes Microservices (Tesco)">
-            <div class="w-20 h-14 rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer">
-              <span class="text-[10px] font-mono text-emerald-400 font-semibold">EKS</span>
-              <span class="text-[8px] text-emerald-400/70">React SSR</span>
+              <span class="text-[7px] text-emerald-400/70">TS / Go</span>
             </div>
           </div>
         </div>
 
-        <!-- Row 4: Data & AI -->
-        <div class="flex justify-between items-end px-2">
-          <!-- Bedrock/AI -->
-          <div class="arch-node group" data-tooltip="Claude AI via Amazon Bedrock">
-            <div class="w-14 h-12 rounded-lg bg-amber-500/20 border border-amber-500/50 border-dashed flex flex-col items-center justify-center group-hover:border-amber-400 group-hover:bg-amber-500/30 transition-all cursor-pointer">
-              <span class="material-symbols-outlined text-amber-400 text-sm">psychology</span>
-              <span class="text-[8px] font-mono text-amber-400">Bedrock</span>
+        <div class="absolute right-[18%] top-[150px]">
+          <div class="arch-node group" data-tooltip="Kubernetes (Tesco Microservices)">
+            <div class="w-[72px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer backdrop-blur-sm">
+              <span class="text-[10px] font-mono text-emerald-400 font-semibold">EKS</span>
+              <span class="text-[7px] text-emerald-400/70">React SSR</span>
             </div>
           </div>
+        </div>
 
-          <!-- DynamoDB -->
+        <!-- Row 4: Bedrock (far left), DynamoDB (center), Redis (far right) -->
+        <div class="absolute left-3 top-[225px]">
+          <div class="arch-node group" data-tooltip="Claude AI via Bedrock">
+            <div class="w-[52px] h-[38px] rounded-lg bg-amber-500/20 border border-amber-500/50 border-dashed flex flex-col items-center justify-center group-hover:border-amber-400 group-hover:bg-amber-500/30 transition-all cursor-pointer backdrop-blur-sm">
+              <span class="material-symbols-outlined text-amber-400 text-sm">psychology</span>
+              <span class="text-[7px] font-mono text-amber-400">Bedrock</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute left-1/2 -translate-x-1/2 top-[225px]">
           <div class="arch-node group" data-tooltip="NoSQL - High Throughput">
-            <div class="w-20 h-12 rounded-lg bg-purple-500/20 border border-purple-500/50 flex flex-col items-center justify-center group-hover:border-purple-400 group-hover:bg-purple-500/30 transition-all cursor-pointer">
+            <div class="w-[80px] h-[38px] rounded-lg bg-purple-500/20 border border-purple-500/50 flex items-center justify-center group-hover:border-purple-400 group-hover:bg-purple-500/30 transition-all cursor-pointer backdrop-blur-sm">
               <span class="text-[10px] font-mono text-purple-400 font-semibold">DynamoDB</span>
             </div>
           </div>
+        </div>
 
-          <!-- Redis -->
+        <div class="absolute right-3 top-[225px]">
           <div class="arch-node group" data-tooltip="Session & Cache Layer">
-            <div class="w-14 h-12 rounded-lg bg-red-500/20 border border-red-500/50 flex flex-col items-center justify-center group-hover:border-red-400 group-hover:bg-red-500/30 transition-all cursor-pointer">
-              <span class="text-[9px] font-mono text-red-400 font-semibold">Redis</span>
-              <span class="text-[7px] text-red-400/70">Cache</span>
+            <div class="w-[52px] h-[38px] rounded-lg bg-red-500/20 border border-red-500/50 flex flex-col items-center justify-center group-hover:border-red-400 group-hover:bg-red-500/30 transition-all cursor-pointer backdrop-blur-sm">
+              <span class="text-[8px] font-mono text-red-400 font-semibold">Redis</span>
+              <span class="text-[6px] text-red-400/70">Cache</span>
             </div>
           </div>
         </div>
@@ -249,7 +225,7 @@ const [before, after] = statement.split('hardened infrastructure');
       </div>
 
       <!-- Tooltip -->
-      <div id="arch-tooltip" class="absolute hidden px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white shadow-xl z-50 pointer-events-none max-w-[200px]">
+      <div id="arch-tooltip" class="absolute hidden px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white shadow-xl pointer-events-none max-w-[180px]" style="z-index: 50;">
       </div>
     </div>
   </div>
@@ -258,12 +234,6 @@ const [before, after] = statement.split('hardened infrastructure');
 <style>
   .arch-node {
     position: relative;
-  }
-
-  @keyframes pulse-ring {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 0.4; }
-    100% { transform: scale(1); opacity: 0.8; }
   }
 </style>
 
@@ -288,8 +258,8 @@ const [before, after] = statement.split('hardened infrastructure');
           if (rect) {
             const x = (e as MouseEvent).clientX - rect.left;
             const y = (e as MouseEvent).clientY - rect.top;
-            tooltip.style.left = `${x + 10}px`;
-            tooltip.style.top = `${y - 30}px`;
+            tooltip.style.left = `${Math.min(x + 10, rect.width - 190)}px`;
+            tooltip.style.top = `${y - 35}px`;
           }
         }
       });
