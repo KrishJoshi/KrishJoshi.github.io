@@ -36,9 +36,11 @@ const github = profiles.find(p => p.network === 'GitHub');
     </div>
     <div class="relative z-10">
       <div class="flex items-center gap-4 mb-6">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20" aria-hidden="true">
-          <span class="material-symbols-outlined text-white text-3xl">terminal</span>
-        </div>
+        <img
+          src="/profile.png"
+          alt={name}
+          class="w-16 h-16 rounded-2xl object-cover shadow-lg ring-2 ring-indigo-500/20"
+        />
         <div>
           <h1 id="hero-name" class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter">{name}</h1>
         </div>

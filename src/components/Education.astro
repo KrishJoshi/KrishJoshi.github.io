@@ -13,6 +13,12 @@ interface Props {
 }
 
 const { education } = Astro.props;
+
+// Map institution names to images
+const institutionImages: Record<string, string> = {
+  'University of Manchester': '/education/manchester-uni.jpg',
+  'Richmond upon Thames College': '/education/richmond-college.jpg'
+};
 ---
 
 <section class="section-box p-6">
@@ -23,11 +29,27 @@ const { education } = Astro.props;
   <div class="space-y-4">
     {education.map((edu, i) => (
       <div class={i > 0 ? 'pt-4 border-t border-gray-200 dark:border-gray-700' : ''}>
-        <div class="font-bold text-sm uppercase">{edu.institution}</div>
-        <div class="text-sm text-gray-600 dark:text-gray-400">
-          {edu.studyType ? `${edu.studyType} ` : ''}{edu.area}{edu.score ? ` (${edu.score})` : ''}
+        <div class="flex items-start gap-3">
+          {institutionImages[edu.institution] && (
+            <img
+              src={institutionImages[edu.institution]}
+              alt={edu.institution}
+              class="w-12 h-12 rounded-lg object-cover flex-shrink-0"
+            />
+          )}
+          {!institutionImages[edu.institution] && (
+            <div class="w-12 h-12 rounded-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-gray-400 dark:text-gray-500">school</span>
+            </div>
+          )}
+          <div class="flex-1">
+            <div class="font-bold text-sm uppercase">{edu.institution}</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              {edu.studyType ? `${edu.studyType} ` : ''}{edu.area}{edu.score ? ` (${edu.score})` : ''}
+            </div>
+            <div class="text-xs text-gray-500 font-medium mt-1">{edu.startDate} — {edu.endDate}</div>
+          </div>
         </div>
-        <div class="text-xs text-gray-500 font-medium mt-1">{edu.startDate} — {edu.endDate}</div>
       </div>
     ))}
   </div>
