@@ -10,7 +10,7 @@
     "url": "https://krishj.com",
     "availability": "Available for Contract Roles",
     "currentFocus": "Identity & Cloud Infrastructure",
-    "summary": "Principal engineer with 14+ years building secure, scalable systems in regulated environments including financial services. Deep expertise in identity and authentication — implementing WebAuthn/Passkeys, OAuth2/OIDC flows, and MFA platforms serving millions of users at Tesco and Chase UK. Strong AWS and TypeScript/Node.js (NestJS) background with hands-on experience deploying and operating cloud-native services using Infrastructure as Code. Previously delivered solutions at Vanguard. Methodical engineering mindset with focus on security, reliability, and operational excellence.",
+    "summary": "Principal engineer with 14+ years of hands-on experience building digital products at scale, from early-stage startups to FTSE 100 enterprises. My career has evolved from full-stack .NET development through to frontend architecture and cloud platform leadership, with deep expertise across the entire software delivery lifecycle. I specialise in React, React Native, and AWS, and have architected systems serving millions of daily users at companies like Tesco, Chase UK, and Cisco. I have significant experience with identity and authentication systems, having implemented WebAuthn/Passkeys, OAuth2/OIDC flows, and MFA platforms at enterprise scale. Recently, I've been at the forefront of integrating AI-assisted development tools—including Claude and Amazon Bedrock—into engineering workflows, dramatically accelerating delivery while maintaining enterprise-grade quality and security standards.",
     "location": {
       "city": "London",
       "countryCode": "UK"

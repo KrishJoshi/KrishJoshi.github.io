@@ -6,7 +6,7 @@ interface Props {
 const { summary } = Astro.props;
 
 // Bold specific keywords
-const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'GraphQL', 'Claude', 'AI', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco'];
+const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'GraphQL', 'Claude', 'AI', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA'];
 let formattedSummary = summary;
 boldWords.forEach(word => {
   formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);
@@ -15,6 +15,7 @@ boldWords.forEach(word => {
 const expertiseAreas = [
   'Frontend Architecture',
   'Cloud Infrastructure',
+  'Identity & Authentication',
   'Team Leadership',
   'AI Integration',
   'DevOps & CI/CD',
