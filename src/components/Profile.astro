@@ -1,0 +1,38 @@
+---
+interface Props {
+  summary: string;
+}
+
+const { summary } = Astro.props;
+
+// Bold specific keywords
+const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'GraphQL', 'Claude', 'AI', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco'];
+let formattedSummary = summary;
+boldWords.forEach(word => {
+  formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);
+});
+
+const expertiseAreas = [
+  'Frontend Architecture',
+  'Cloud Infrastructure',
+  'Team Leadership',
+  'AI Integration',
+  'DevOps & CI/CD',
+  'Security & Compliance'
+];
+---
+
+<div class="flex flex-col">
+  <span class="section-title-pill mb-4">Profile</span>
+  <div class="text-gray-700 dark:text-gray-300 leading-relaxed mt-4 flex-1">
+    <p class="mb-4 leading-relaxed" set:html={formattedSummary} />
+    <div class="mt-6">
+      <h4 class="text-sm font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Core Expertise</h4>
+      <div class="flex flex-wrap gap-2">
+        {expertiseAreas.map(area => (
+          <span class="bg-gray-900 dark:bg-gray-700 text-white px-3 py-1.5 rounded-full text-xs font-semibold">{area}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

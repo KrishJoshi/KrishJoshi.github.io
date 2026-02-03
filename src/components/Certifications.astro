@@ -1,0 +1,29 @@
+---
+interface Certificate {
+  name: string;
+  date: string;
+  issuer: string;
+  icon?: string;
+}
+
+interface Props {
+  certificates: Certificate[];
+}
+
+const { certificates } = Astro.props;
+---
+
+<section class="section-box p-6">
+  <h2 class="text-2xl font-black tracking-tight mb-6">CERTIFICATIONS</h2>
+  <div class="space-y-4">
+    {certificates.map(cert => (
+      <div class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-xl mt-0.5">{cert.icon || 'verified'}</span>
+        <div>
+          <div class="font-bold text-sm uppercase">{cert.name}</div>
+          <div class="text-xs text-gray-500 dark:text-gray-400">{cert.issuer} • {cert.date}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

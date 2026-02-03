@@ -1,0 +1,257 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Krish Joshi",
+    "label": "Principal Engineer & AWS Certified Architect",
+    "email": "me@krishj.com",
+    "phone": "+44 7794 438962",
+    "url": "https://krishj.com",
+    "summary": "Principal engineer with 14+ years of hands-on experience building digital products at scale, from early-stage startups to FTSE 100 enterprises. My career has evolved from full-stack .NET development through to frontend architecture and cloud platform leadership, with deep expertise across the entire software delivery lifecycle. I specialise in React, React Native, and AWS, and have architected systems serving millions of daily users at companies like Tesco, Chase UK, and Cisco. Recently, I've been at the forefront of integrating AI-assisted development tools—including Claude and Amazon Bedrock—into engineering workflows, dramatically accelerating delivery while maintaining enterprise-grade quality and security standards.",
+    "location": {
+      "city": "London",
+      "countryCode": "UK"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "krishjoshi",
+        "url": "https://linkedin.com/in/krishjoshi"
+      },
+      {
+        "network": "GitHub",
+        "username": "KrishJoshi",
+        "url": "https://github.com/KrishJoshi"
+      }
+    ]
+  },
+  "achievements": [
+    {
+      "title": "Architected AI Sustainability Platform",
+      "description": "Built a core platform at Climatise passing Amazon's Well-Architected Review, leveraging SageMaker and Claude (Bedrock) for carbon emission optimization."
+    },
+    {
+      "title": "Scale: 2 Million+ Daily Users",
+      "description": "Orchestrated Tesco's account migration from monolith to micro-apps, implementing WebAuthn and OAuth2, reducing compromise by 60%."
+    },
+    {
+      "title": "Platform Modernization & DevOps",
+      "description": "Transformed Tesco's release process from weekly to daily. Led React/Redux migrations at Cisco improving performance by 40% and reaching 95% test coverage."
+    }
+  ],
+  "work": [
+    {
+      "name": "CaspianOne Open Banking",
+      "location": "London",
+      "position": "Principal Developer (Contract)",
+      "startDate": "2024-06",
+      "endDate": "2024-10",
+      "summary": "Short-term engagement to optimise a multi-service Open Banking platform for the Canadian market.",
+      "highlights": [
+        "Refactored serverless applications, significantly reducing **AWS infrastructure costs** through improved cold start times.",
+        "Implemented **OpenTelemetry** instrumentation for distributed tracing across microservices.",
+        "Ensured **FAPI compliance** across authentication flows while improving OAuth/OIDC response times."
+      ],
+      "keywords": ["AWS Lambda", "OpenTelemetry", "FAPI/OIDC"]
+    },
+    {
+      "name": "Climatise",
+      "location": "London",
+      "position": "Lead Frontend Developer / AWS Architect",
+      "startDate": "2023-07",
+      "endDate": "2024-06",
+      "summary": "Founding engineer at a sustainability AI startup building carbon tracking platforms from scratch.",
+      "highlights": [
+        "Designed architecture using **Amazon Bedrock (Claude)** and SageMaker for carbon analysis.",
+        "Recruited and managed cross-functional engineering teams.",
+        "Managed full **Terraform** infrastructure across three environments."
+      ],
+      "keywords": ["Bedrock", "Next.js", "Terraform"]
+    },
+    {
+      "name": "Tesco",
+      "location": "London",
+      "position": "Senior Full Stack Developer",
+      "startDate": "2021-08",
+      "endDate": "2023-07",
+      "summary": "Orchestrating the migration of Tesco's account-related pages from a monolithic system to a suite of agile micro apps.",
+      "highlights": [
+        "Migrated monolith account pages to **Kubernetes-hosted microservices**.",
+        "Enhanced security with OAuth2 and **WebAuthn (Passkeys)**.",
+        "Implemented SSR React apps with high performance and 90%+ test coverage."
+      ],
+      "keywords": ["React", "Kubernetes", "Azure DevOps"]
+    },
+    {
+      "name": "Chase UK (10x Future Tech)",
+      "location": "London",
+      "position": "Senior Developer",
+      "startDate": "2020-09",
+      "endDate": "2021-09",
+      "summary": "Collaborating closely with Chase Bank's UK operations to successfully launch their cutting-edge cloud-native platform.",
+      "highlights": [
+        "Launched UK digital bank on cloud-native platform.",
+        "Delivered unified web/mobile experiences via React & **React Native**.",
+        "Streamlined operations using **AWS Lambda** and Step Functions."
+      ],
+      "keywords": ["React Native", "AWS Lambda", "NextJS"]
+    },
+    {
+      "name": "Cisco",
+      "location": "London",
+      "position": "Senior Developer",
+      "startDate": "2016-08",
+      "endDate": "2020-10",
+      "summary": "Migrated dCloud platform from Angular to React. Designed microservices and visualised network topologies with D3.js.",
+      "highlights": [
+        "Collaborated with geographically dispersed team, achieving **95% test coverage**.",
+        "Led migration from Angular to **React**, improving performance by 40%.",
+        "Ensured DDA and **GDPR** compliance, developed mobile interfaces using React Native."
+      ],
+      "keywords": ["React", "React Native", "D3.js"]
+    },
+    {
+      "name": "Vanguard",
+      "location": "London",
+      "position": "Senior Developer (Consulting)",
+      "startDate": "2018-11",
+      "endDate": "2019-08",
+      "summary": "Upgraded portal to Angular 7. Created automated compliance screenshot tools via AWS Lambda.",
+      "highlights": [
+        "Using **AWS Lambda** to create compliance screenshots of the entire website.",
+        "Dynamic load balancer to route pages to either AngularJS or Angular 7 application for redundancy and **A/B testing**."
+      ],
+      "keywords": ["Angular", "AWS Lambda", "TypeScript"]
+    },
+    {
+      "name": "Havas",
+      "location": "London",
+      "position": "Senior Frontend Developer",
+      "startDate": "2016-04",
+      "endDate": "2016-07",
+      "summary": "Executed rapid development projects for high-profile clients.",
+      "highlights": [
+        "Created an **Angular** website for Heathrow Airport.",
+        "Built a **Vanilla JS** site for Chivas."
+      ],
+      "keywords": ["Angular", "JavaScript"]
+    },
+    {
+      "name": "House of Fraser",
+      "location": "London",
+      "position": "Lead Frontend Developer",
+      "startDate": "2015-03",
+      "endDate": "2016-03",
+      "summary": "Led frontend team focusing on e-commerce improvements.",
+      "highlights": [
+        "Enhanced web functionalities focusing on **user journey** improvements.",
+        "Led frontend team with **C#** and jQuery."
+      ],
+      "keywords": ["Angular JS", "jQuery", "C#"]
+    },
+    {
+      "name": "Deloitte",
+      "location": "London",
+      "position": "Full Stack Developer",
+      "startDate": "2014-06",
+      "endDate": "2015-03",
+      "summary": "Enhanced web functionalities focusing on user journey improvements.",
+      "highlights": [
+        "Built web applications with **C#** and Angular JS.",
+        "Worked with **MS SQL** databases."
+      ],
+      "keywords": ["C#", "Angular JS", "MS SQL"]
+    },
+    {
+      "name": "SBC Systems",
+      "location": "London",
+      "position": "Intern Full Stack Developer",
+      "startDate": "2012-06",
+      "endDate": "2013-03",
+      "summary": "Hired as an intern to help create an employee management system for large organizations.",
+      "highlights": [
+        "Built systems for **Scottish Widows**, Pret A Manger and Universal Studios.",
+        "Created an **Excel data importer** for SBC's pension management system."
+      ],
+      "keywords": ["C#", ".NET", "MS SQL"]
+    },
+    {
+      "name": "Zoopla",
+      "location": "London",
+      "position": "Junior Developer",
+      "startDate": "2010-06",
+      "endDate": "2011-07",
+      "summary": "Started career after doing freelance work for the company.",
+      "highlights": [
+        "Working with **C#** and jQuery to improve user journeys through the website."
+      ],
+      "keywords": ["C#", "jQuery", ".NET"]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Principal Stack",
+      "keywords": [
+        { "icon": "code", "text": "React 18 / Next.js 14", "filter": "React", "companies": ["Tesco", "Chase UK", "Cisco", "Climatise", "CaspianOne"] },
+        { "icon": "terminal", "text": "TypeScript / Node.js", "filter": "TypeScript", "companies": ["CaspianOne", "Climatise", "Tesco", "Chase UK", "Vanguard"] },
+        { "icon": "smartphone", "text": "React Native", "filter": "React Native", "companies": ["Chase UK", "Cisco"] }
+      ]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "keywords": [
+        { "icon": "cloud", "text": "AWS Certified Architect", "filter": "AWS", "companies": ["CaspianOne", "Climatise", "Chase UK", "Vanguard"] },
+        { "icon": "settings_input_component", "text": "Terraform / Infrastructure", "filter": "Terraform", "companies": ["Climatise", "CaspianOne"] },
+        { "icon": "precision_manufacturing", "text": "GitHub Actions / CI/CD", "filter": "CI/CD", "companies": ["Climatise", "Tesco", "Cisco"] }
+      ]
+    },
+    {
+      "name": "AI Leadership",
+      "keywords": [
+        { "icon": "psychology", "text": "Amazon Bedrock / Claude", "filter": "AI/ML", "companies": ["Climatise"] },
+        { "icon": "radio_button_unchecked", "text": "AI-Powered Workflows", "filter": "AI/ML", "companies": ["Climatise", "CaspianOne"] }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Manchester",
+      "area": "Computer Science",
+      "studyType": "BSc",
+      "startDate": "2011",
+      "endDate": "2014",
+      "score": "2:1"
+    },
+    {
+      "institution": "Richmond upon Thames College",
+      "area": "Physics, Chemistry, Maths, Computing, Electronics",
+      "studyType": "A-Levels",
+      "startDate": "2007",
+      "endDate": "2009"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Solution Architect",
+      "date": "Nov 2020",
+      "issuer": "Amazon",
+      "icon": "workspace_premium"
+    },
+    {
+      "name": "Prince2 Agile",
+      "date": "Dec 2020",
+      "issuer": "Axelos",
+      "icon": "speed"
+    },
+    {
+      "name": "MVC Development in C#",
+      "date": "Sept 2014",
+      "issuer": "Learning Tree",
+      "icon": "code_blocks"
+    }
+  ],
+  "meta": {
+    "theme": "elegant",
+    "version": "1.0.0",
+    "lastModified": "2026-02-02"
+  }
+}

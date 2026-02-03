@@ -1,0 +1,197 @@
+---
+interface Job {
+  name: string;
+  location: string;
+  position: string;
+  startDate: string;
+  endDate?: string;
+  summary?: string;
+  highlights?: string[];
+  keywords?: string[];
+}
+
+interface Skill {
+  name: string;
+  keywords: { filter?: string; companies?: string[] }[];
+}
+
+interface Props {
+  work: Job[];
+  skills: Skill[];
+}
+
+const { work, skills } = Astro.props;
+
+// Extract all filters from skills
+const allFilters = new Set<string>();
+skills.forEach(cat => {
+  cat.keywords.forEach(kw => {
+    if (kw.filter) allFilters.add(kw.filter);
+  });
+});
+
+function formatDateRange(start: string, end?: string): string {
+  const formatDate = (dateStr?: string) => {
+    if (!dateStr) return 'PRESENT';
+    const [year] = dateStr.split('-');
+    return year;
+  };
+  return `${formatDate(start)} — ${formatDate(end)}`;
+}
+
+function parseBold(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+
+const mainJobs = work.slice(0, 5);
+const secondaryJobs = work.slice(5, 11);
+---
+
+<div id="experience-section">
+  <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+    <span class="section-title-pill">Experience</span>
+    <div id="filter-controls" class="flex flex-wrap gap-2">
+      {Array.from(allFilters).map(filter => (
+        <button
+          data-filter={filter}
+          class="filter-btn px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-full text-xs font-semibold uppercase hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        >
+          {filter}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div id="experience" class="space-y-6">
+    {mainJobs.map(job => (
+      <article class="job-card border-t border-gray-300 dark:border-gray-700 pt-6 first:border-0 first:pt-0" data-company={job.name}>
+        <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+          <h3 class="text-2xl font-black tracking-tight">{job.name.toUpperCase()}</h3>
+          <span class="date-badge">{formatDateRange(job.startDate, job.endDate)}</span>
+        </div>
+        <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-3">{job.position}</p>
+        {job.summary && <p class="text-sm text-gray-600 dark:text-gray-400 italic mb-4">{job.summary}</p>}
+        {job.highlights?.length && (
+          <ul class="space-y-2 mb-4">
+            {job.highlights.map(h => (
+              <li class="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                <span class="text-gray-400 mt-0.5">•</span>
+                <span set:html={parseBold(h)} />
+              </li>
+            ))}
+          </ul>
+        )}
+        {job.keywords?.length && (
+          <div class="flex flex-wrap gap-2">
+            {job.keywords.map(k => (
+              <span class="border border-gray-900 dark:border-gray-400 px-3 py-1 text-xs font-bold uppercase">{k}</span>
+            ))}
+          </div>
+        )}
+      </article>
+    ))}
+
+    {secondaryJobs.length > 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-gray-300 dark:border-gray-700 pt-6">
+        {secondaryJobs.map(job => (
+          <article class="job-card" data-company={job.name}>
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+              <h3 class="text-xl font-black tracking-tight">{job.name.toUpperCase()}</h3>
+              <span class="date-badge text-[10px]">{formatDateRange(job.startDate, job.endDate)}</span>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">{job.position}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">{job.summary || ''}</p>
+            {job.keywords?.length && (
+              <div class="flex flex-wrap gap-1.5">
+                {job.keywords.map(k => (
+                  <span class="border border-gray-900 dark:border-gray-400 px-2 py-0.5 text-[10px] font-bold uppercase">{k}</span>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
+
+<script>
+  // Filter state
+  let activeFilter: string | null = null;
+  let filterCompaniesMap: Record<string, string[]> = {};
+
+  // Build filter to companies mapping from skill items
+  document.querySelectorAll('.skill-item').forEach(item => {
+    const filter = (item as HTMLElement).dataset.filter;
+    const companies = (item as HTMLElement).dataset.companies?.split(',') || [];
+    if (filter) {
+      filterCompaniesMap[filter] = companies;
+    }
+  });
+
+  function applyFilter(filter: string | null) {
+    activeFilter = filter;
+    const companies = filter ? (filterCompaniesMap[filter] || []) : [];
+
+    // Update job visibility
+    document.querySelectorAll('.job-card').forEach(card => {
+      const company = (card as HTMLElement).dataset.company || '';
+      if (!filter) {
+        (card as HTMLElement).style.display = '';
+        (card as HTMLElement).style.opacity = '1';
+      } else {
+        const matches = companies.some(c =>
+          company.toLowerCase().includes(c.toLowerCase()) ||
+          c.toLowerCase().includes(company.split(' ')[0].toLowerCase())
+        );
+        (card as HTMLElement).style.opacity = matches ? '1' : '0.3';
+      }
+    });
+
+    // Update filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      const btnFilter = (btn as HTMLElement).dataset.filter;
+      if (btnFilter === filter) {
+        btn.classList.add('bg-gray-900', 'text-white', 'dark:bg-white', 'dark:text-gray-900');
+        btn.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800');
+      } else {
+        btn.classList.remove('bg-gray-900', 'text-white', 'dark:bg-white', 'dark:text-gray-900');
+        btn.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800');
+      }
+    });
+
+    // Show/hide clear button
+    updateClearButton();
+  }
+
+  function updateClearButton() {
+    let clearBtn = document.getElementById('clear-filter-btn');
+    if (activeFilter && !clearBtn) {
+      clearBtn = document.createElement('button');
+      clearBtn.id = 'clear-filter-btn';
+      clearBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full text-xs font-bold uppercase hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors';
+      clearBtn.innerHTML = `<span class="material-symbols-outlined text-sm">close</span> Clear`;
+      clearBtn.addEventListener('click', () => applyFilter(null));
+      document.getElementById('filter-controls')?.prepend(clearBtn);
+    } else if (!activeFilter && clearBtn) {
+      clearBtn.remove();
+    }
+  }
+
+  // Filter button clicks
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = (btn as HTMLElement).dataset.filter || null;
+      applyFilter(activeFilter === filter ? null : filter);
+    });
+  });
+
+  // Listen for filter events from skills component
+  window.addEventListener('applyFilter', ((e: CustomEvent) => {
+    const { filter, companies } = e.detail;
+    if (filter) {
+      filterCompaniesMap[filter] = companies;
+    }
+    applyFilter(filter);
+  }) as EventListener);
+</script>

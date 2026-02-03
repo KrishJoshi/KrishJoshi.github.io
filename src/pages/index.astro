@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Header from '../components/Header.astro';
+import Achievements from '../components/Achievements.astro';
+import Skills from '../components/Skills.astro';
+import Profile from '../components/Profile.astro';
+import Education from '../components/Education.astro';
+import Certifications from '../components/Certifications.astro';
+import Experience from '../components/Experience.astro';
+import Footer from '../components/Footer.astro';
+
+import resume from '../data/resume.json';
+
+const { basics, achievements, work, skills, education, certificates } = resume;
+---
+
+<Layout title={`${basics.name} | ${basics.label}`}>
+  <ThemeToggle />
+
+  <div class="max-w-[900px] mx-auto px-6 py-10">
+    <Header
+      name={basics.name}
+      label={basics.label}
+      email={basics.email}
+      phone={basics.phone}
+      location={basics.location}
+      profiles={basics.profiles}
+    />
+
+    <!-- Row 1: Leadership & Technical Ecosystem -->
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 mb-6 items-stretch">
+      <Achievements achievements={achievements} />
+      <Skills skills={skills} />
+    </div>
+
+    <!-- Row 2: Profile & Education/Certifications -->
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 mb-6 items-stretch">
+      <Profile summary={basics.summary} />
+      <div class="space-y-6">
+        <Education education={education} />
+        <Certifications certificates={certificates} />
+      </div>
+    </div>
+
+    <!-- Row 3: Experience -->
+    <Experience work={work} skills={skills} />
+
+    <Footer location={basics.location} />
+  </div>
+</Layout>

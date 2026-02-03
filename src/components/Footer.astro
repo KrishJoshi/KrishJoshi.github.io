@@ -1,0 +1,16 @@
+---
+interface Props {
+  location: { city: string; countryCode: string };
+}
+
+const { location } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 pt-8 border-t-2 border-gray-300 dark:border-gray-700">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-widest text-gray-400 dark:text-gray-500 uppercase">
+    <span>&copy; {year} Krish Joshi</span>
+    <span>Built with Astro + Tailwind</span>
+    <span>{location.city}, {location.countryCode}</span>
+  </div>
+</footer>

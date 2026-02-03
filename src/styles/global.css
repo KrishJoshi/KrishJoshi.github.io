@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom styles */
+.section-box {
+  border: 1.5px solid #1a1a1a;
+  border-radius: 24px;
+}
+
+.dark .section-box {
+  border-color: #4b5563;
+}
+
+.section-title-pill {
+  display: inline-block;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 800;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dark .section-title-pill {
+  border-color: #9ca3af;
+  color: #f3f4f6;
+}
+
+.date-badge {
+  background: #1a1a1a;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.dark .date-badge {
+  background: #f3f4f6;
+  color: #1a1a1a;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    font-size: 11px !important;
+  }
+
+  .no-print { display: none !important; }
+
+  .section-box {
+    border-radius: 12px !important;
+  }
+
+  .date-badge {
+    background: #1a1a1a !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 0.75cm;
+}

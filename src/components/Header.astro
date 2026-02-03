@@ -1,0 +1,41 @@
+---
+interface Props {
+  name: string;
+  label: string;
+  email: string;
+  phone: string;
+  location: { city: string; countryCode: string };
+  profiles: { network: string; url: string }[];
+}
+
+const { name, label, email, phone, location, profiles } = Astro.props;
+---
+
+<header class="text-center mb-12">
+  <h1 class="text-5xl md:text-6xl font-black tracking-tight mb-3">{name.toUpperCase()}</h1>
+  <p class="text-sm md:text-base font-semibold tracking-wide text-gray-600 dark:text-gray-400 uppercase mb-6">{label}</p>
+
+  <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4">
+    <a href={`tel:${phone}`} class="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+      <span class="material-symbols-outlined text-base">phone</span>
+      <span class="text-xs font-medium">{phone}</span>
+    </a>
+
+    <a href={`mailto:${email}`} class="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+      <span class="material-symbols-outlined text-base">mail</span>
+      <span class="text-xs font-medium">{email}</span>
+    </a>
+
+    <span class="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-200 dark:border-gray-700">
+      <span class="material-symbols-outlined text-base">location_on</span>
+      <span class="text-xs font-medium">{location.city}, {location.countryCode}</span>
+    </span>
+
+    {profiles.map(p => (
+      <a href={p.url} target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-base">{p.network === 'LinkedIn' ? 'work' : 'code'}</span>
+        <span class="text-xs font-medium">{p.network}</span>
+      </a>
+    ))}
+  </div>
+</header>
