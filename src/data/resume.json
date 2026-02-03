@@ -4,13 +4,13 @@
     "name": "Krish Joshi",
     "label": "Principal Engineer & Cloud Architect",
     "headline": "Engineering systems that scale effortlessly",
-    "tagline": "Specializing in Cloud-Native Architectures, AI Integration, and Distributed Systems.",
+    "tagline": "Specializing in Cloud-Native Architectures, Identity/Authentication, and Distributed Systems.",
     "email": "me@krishj.com",
     "phone": "+44 7794 438962",
     "url": "https://krishj.com",
-    "availability": "Available for Strategic Roles",
-    "currentFocus": "AI & Open Banking",
-    "summary": "Principal engineer with 14+ years of hands-on experience building digital products at scale, from early-stage startups to FTSE 100 enterprises. My career has evolved from full-stack .NET development through to frontend architecture and cloud platform leadership, with deep expertise across the entire software delivery lifecycle. I specialise in React, React Native, and AWS, and have architected systems serving millions of daily users at companies like Tesco, Chase UK, and Cisco. Recently, I've been at the forefront of integrating AI-assisted development tools—including Claude and Amazon Bedrock—into engineering workflows, dramatically accelerating delivery while maintaining enterprise-grade quality and security standards.",
+    "availability": "Available for Contract Roles",
+    "currentFocus": "Identity & Cloud Infrastructure",
+    "summary": "Principal engineer with 14+ years building secure, scalable systems in regulated environments including financial services. Deep expertise in identity and authentication — implementing WebAuthn/Passkeys, OAuth2/OIDC flows, and MFA platforms serving millions of users at Tesco and Chase UK. Strong AWS and TypeScript/Node.js (NestJS) background with hands-on experience deploying and operating cloud-native services using Infrastructure as Code. Previously delivered solutions at Vanguard. Methodical engineering mindset with focus on security, reliability, and operational excellence.",
     "location": {
       "city": "London",
       "countryCode": "UK"
@@ -39,7 +39,7 @@
       {
         "icon": "shield",
         "title": "Secure by Design",
-        "description": "IAM least-privilege and encrypted data planes as standard."
+        "description": "IAM least-privilege, OAuth2/OIDC, and encrypted data planes as standard."
       },
       {
         "icon": "visibility",
@@ -55,16 +55,16 @@
   ],
   "achievements": [
     {
-      "title": "Architected AI Sustainability Platform",
-      "description": "Built a core platform at Climatise passing Amazon's Well-Architected Review, leveraging SageMaker and Claude (Bedrock) for carbon emission optimization."
+      "title": "Identity & Authentication at Scale",
+      "description": "Implemented WebAuthn (Passkeys) and OAuth2/MFA flows at Tesco serving 2M+ daily users, reducing account compromise by 60%."
     },
     {
-      "title": "Scale: 2 Million+ Daily Users",
-      "description": "Orchestrated Tesco's account migration from monolith to micro-apps, implementing WebAuthn and OAuth2, reducing compromise by 60%."
+      "title": "AWS Platform & Operations",
+      "description": "Built and operated cloud-native services on AWS with Terraform IaC, achieving 40% Lambda cold-start reduction at CaspianOne."
     },
     {
       "title": "Platform Modernization & DevOps",
-      "description": "Transformed Tesco's release process from weekly to daily. Led React/Redux migrations at Cisco improving performance by 40% and reaching 95% test coverage."
+      "description": "Transformed Tesco's release process from weekly to daily deployments. Led migrations at Cisco achieving 95% test coverage."
     }
   ],
   "work": [
@@ -86,18 +86,18 @@
     {
       "name": "Climatise",
       "location": "London",
-      "position": "Lead Frontend Developer / AWS Architect",
+      "position": "Lead Engineer / AWS Architect",
       "startDate": "2023-07",
       "endDate": "2024-06",
-      "summary": "Founding engineer at a sustainability AI startup — designed and built the entire cloud infrastructure and frontend platform from zero, enabling businesses to track and reduce carbon emissions using machine learning.",
+      "summary": "Founding engineer at a sustainability AI startup — designed and built the entire cloud infrastructure and backend services from zero, enabling businesses to track and reduce carbon emissions using machine learning.",
       "highlights": [
+        "Built **NestJS/TypeScript backend services** with REST APIs for carbon tracking, deployed on AWS Lambda with automated testing and CI/CD via GitHub Actions.",
         "Architected a platform that **passed Amazon's Well-Architected Review** on first submission, leveraging SageMaker and Claude (Bedrock) for carbon emission analysis.",
-        "Built and recruited a **cross-functional engineering team** of 6, establishing coding standards, CI/CD pipelines, and agile delivery practices.",
-        "Owned full **Terraform IaC** across dev/staging/prod, managing Cognito, AppSync, Aurora, Lambda, and S3 with zero-downtime deployments.",
-        "Integrated **Amazon Bedrock (Claude)** for intelligent carbon recommendations, reducing manual analysis time by 80%."
+        "Owned full **Terraform IaC** across dev/staging/prod, managing Cognito (Auth), Aurora, Lambda, and DynamoDB with zero-downtime deployments.",
+        "Ran and maintained services in production including **database migrations**, CloudFormation updates, and vendor service integrations."
       ],
-      "keywords": ["Bedrock", "Next.js", "Terraform", "SageMaker", "GraphQL"],
-      "stack": "React, Next.js, TypeScript, Terraform, AWS Cognito, AWS AppSync, DynamoDB, Aurora, Tailwind CSS, GraphQL"
+      "keywords": ["NestJS", "TypeScript", "AWS", "Terraform", "REST APIs"],
+      "stack": "NestJS, Node.js, TypeScript, REST APIs, AWS Lambda, Cognito, DynamoDB, Aurora, Terraform, GitHub Actions"
     },
     {
       "name": "Tesco",
@@ -105,15 +105,15 @@
       "position": "Senior Full Stack Developer",
       "startDate": "2021-08",
       "endDate": "2023-07",
-      "summary": "Part of the platform team migrating Tesco's account ecosystem from a legacy monolith to cloud-native microservices — serving 2M+ daily users across login, registration, and account management.",
+      "summary": "Part of the Identity & Account platform team — building and operating authentication services for 2M+ daily users across login, MFA, registration, and account management.",
       "highlights": [
-        "Led migration of account pages to **Kubernetes-hosted microservices**, enabling horizontal scaling and reducing deployment time from hours to minutes.",
-        "Implemented **WebAuthn (Passkeys)** and OAuth2 flows, reducing account compromise incidents by 60% and improving login conversion rates.",
-        "Delivered SSR React applications with **90%+ test coverage** and sub-200ms page loads, using Playwright for E2E testing.",
-        "Transformed release process from **weekly to daily deployments** through Azure DevOps pipeline optimization and feature flagging."
+        "Implemented **WebAuthn (Passkeys) and OAuth2/MFA flows**, reducing account compromise incidents by 60% and improving login conversion rates.",
+        "Built and operated **authentication microservices** on Kubernetes, including database migrations and production deployments.",
+        "Wrote **automated tests achieving 90%+ coverage** using Playwright for E2E and Jest for unit testing, improving reliability.",
+        "Transformed release process from **weekly to daily deployments** through CI/CD pipeline optimization and feature flagging."
       ],
-      "keywords": ["React", "Kubernetes", "Azure DevOps", "WebAuthn", "OAuth2"],
-      "stack": "React (SSR, Redux, TypeScript, Formik, Storybook), Next.js, Node.js, Express, Playwright, Kubernetes, Azure Pipelines, Snyk"
+      "keywords": ["WebAuthn", "OAuth2", "MFA", "Kubernetes", "CI/CD"],
+      "stack": "TypeScript, Node.js, React (SSR), Kubernetes, Azure Pipelines, Playwright, Jest"
     },
     {
       "name": "Chase UK (10x Future Tech)",
@@ -153,14 +153,15 @@
       "position": "Senior Developer (Consulting)",
       "startDate": "2018-11",
       "endDate": "2019-08",
-      "summary": "Seconded from Cisco to lead a digital transformation project for one of the world's largest asset managers — upgrading their customer portal while maintaining zero downtime.",
+      "summary": "Seconded from Cisco to lead a digital transformation project for one of the world's largest asset managers — upgrading the European client portal in a highly regulated financial environment.",
       "highlights": [
-        "Architected **AWS Lambda-powered compliance tool** that automatically captured screenshots of every page for regulatory audit trails.",
-        "Built **dynamic load balancer** enabling seamless A/B testing between AngularJS and Angular 7 versions, allowing gradual migration with instant rollback.",
-        "Migrated customer portal to **Angular 7** with full TypeScript adoption, improving developer productivity and reducing runtime errors."
+        "Delivered solutions in a **highly regulated financial services environment**, working closely with security and compliance stakeholders.",
+        "Architected **AWS Lambda-powered compliance tool** for regulatory audit trails, ensuring FCA and MiFID II adherence.",
+        "Built **dynamic load balancer** enabling seamless A/B testing and gradual migration with instant rollback capability.",
+        "Migrated customer portal to **TypeScript** with comprehensive automated testing, improving reliability and developer productivity."
       ],
-      "keywords": ["Angular", "AWS Lambda", "TypeScript", "Puppeteer"],
-      "stack": "AngularJS, Angular 7, TypeScript, Karma, Protractor, Grunt, SASS, AWS Lambda, Puppeteer"
+      "keywords": ["TypeScript", "AWS Lambda", "Regulated Environment", "CI/CD"],
+      "stack": "TypeScript, Angular, AWS Lambda, Karma, Protractor, CI/CD Pipelines"
     },
     {
       "name": "Havas",
@@ -237,26 +238,26 @@
   ],
   "skills": [
     {
-      "name": "Principal Stack",
+      "name": "Backend & Identity",
       "keywords": [
-        { "icon": "code", "text": "React 18 / Next.js 14", "filter": "React", "companies": ["Tesco", "Chase UK", "Cisco", "Climatise", "CaspianOne"] },
-        { "icon": "terminal", "text": "TypeScript / Node.js", "filter": "TypeScript", "companies": ["CaspianOne", "Climatise", "Tesco", "Chase UK", "Vanguard"] },
-        { "icon": "smartphone", "text": "React Native", "filter": "React Native", "companies": ["Chase UK", "Cisco"] }
+        { "icon": "terminal", "text": "TypeScript / Node.js / NestJS", "filter": "TypeScript", "companies": ["CaspianOne", "Climatise", "Tesco", "Chase UK", "Vanguard"] },
+        { "icon": "verified_user", "text": "OAuth2 / OIDC / WebAuthn / MFA", "filter": "Auth", "companies": ["CaspianOne", "Tesco", "Chase UK"] },
+        { "icon": "api", "text": "REST APIs / Microservices", "filter": "APIs", "companies": ["CaspianOne", "Climatise", "Tesco", "Cisco"] }
       ]
     },
     {
       "name": "Cloud & DevOps",
       "keywords": [
-        { "icon": "cloud", "text": "AWS Certified Architect", "filter": "AWS", "companies": ["CaspianOne", "Climatise", "Chase UK", "Vanguard"] },
-        { "icon": "settings_input_component", "text": "Terraform / Infrastructure", "filter": "Terraform", "companies": ["Climatise", "CaspianOne"] },
-        { "icon": "precision_manufacturing", "text": "GitHub Actions / CI/CD", "filter": "CI/CD", "companies": ["Climatise", "Tesco", "Cisco"] }
+        { "icon": "cloud", "text": "AWS (Lambda, API Gateway, DynamoDB)", "filter": "AWS", "companies": ["CaspianOne", "Climatise", "Chase UK", "Vanguard"] },
+        { "icon": "settings_input_component", "text": "Terraform / CloudFormation / IaC", "filter": "Terraform", "companies": ["Climatise", "CaspianOne"] },
+        { "icon": "precision_manufacturing", "text": "GitHub Actions / CI/CD Pipelines", "filter": "CI/CD", "companies": ["Climatise", "Tesco", "Cisco"] }
       ]
     },
     {
-      "name": "AI Leadership",
+      "name": "Quality & Operations",
       "keywords": [
-        { "icon": "psychology", "text": "Amazon Bedrock / Claude", "filter": "AI/ML", "companies": ["Climatise"] },
-        { "icon": "radio_button_unchecked", "text": "AI-Powered Workflows", "filter": "AI/ML", "companies": ["Climatise", "CaspianOne"] }
+        { "icon": "science", "text": "Automated Testing (Jest, Playwright)", "filter": "Testing", "companies": ["Tesco", "Cisco", "Climatise"] },
+        { "icon": "storage", "text": "Database Migrations & Operations", "filter": "Operations", "companies": ["Climatise", "Tesco"] }
       ]
     }
   ],
