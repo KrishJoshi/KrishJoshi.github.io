@@ -5,7 +5,7 @@ interface Props {
   email: string;
   phone: string;
   location: { city: string; countryCode: string };
-  profiles: { network: string; url: string }[];
+  profiles: { network: string; username?: string; url: string }[];
 }
 
 const { name, label, email, phone, location, profiles } = Astro.props;
@@ -34,7 +34,8 @@ const { name, label, email, phone, location, profiles } = Astro.props;
     {profiles.map(p => (
       <a href={p.url} target="_blank" rel="noopener" class="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
         <span class="material-symbols-outlined text-base">{p.network === 'LinkedIn' ? 'work' : 'code'}</span>
-        <span class="text-xs font-medium">{p.network}</span>
+        <span class="text-xs font-medium screen-only">{p.network}</span>
+        <span class="text-xs font-medium print-only">{p.username || p.network}</span>
       </a>
     ))}
   </div>

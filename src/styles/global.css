@@ -235,6 +235,20 @@ body.portfolio-mode:not(.light-interactive) {
   transition: width 1s ease-out;
 }
 
+/* Screen/Print visibility helpers */
+.print-only {
+  display: none !important;
+}
+
+@media print {
+  .screen-only {
+    display: none !important;
+  }
+  .print-only {
+    display: inline !important;
+  }
+}
+
 /* Print styles - Compact 2-page CV */
 @media print {
   * {
