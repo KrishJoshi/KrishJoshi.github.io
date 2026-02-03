@@ -50,14 +50,15 @@ const { basics, philosophy, achievements, achievementSummary, work, skills, educ
       <Skills skills={skills} />
     </div>
 
-    <!-- Row 2: Education & Certifications -->
-    <div class="grid grid-cols-1 lg:grid-cols-[320px_320px] gap-6 mb-6">
-      <Education education={education} />
-      <Certifications certificates={certificates} />
-    </div>
 
     <!-- Row 3: Experience -->
     <Experience work={work} skills={skills} />
+
+    <!-- Row 2: Education & Certifications -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+      <Education education={education} />
+      <Certifications certificates={certificates} />
+    </div>
 
     <Footer location={basics.location} />
   </div>

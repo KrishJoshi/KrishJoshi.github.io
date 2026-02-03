@@ -34,8 +34,9 @@ boldWords.forEach(word => {
   <!-- Achievement Cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {achievements.map((a, i) => (
-      <div class="achievement-card p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-indigo-500/30 transition-all">
+      <div class="principle-box p-4 rounded-2xl bg-slate-900/50 border border-slate-800 transition-all">
         <div class="flex items-start gap-3">
+
           <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
             <span class="material-symbols-outlined text-indigo-400 text-lg">{icons[i % icons.length]}</span>
           </div>

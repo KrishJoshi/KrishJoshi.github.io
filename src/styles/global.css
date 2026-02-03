@@ -165,10 +165,6 @@ body.portfolio-mode:not(.light-interactive) {
   border-color: #e5e7eb;
 }
 
-:root:not(.dark) body.portfolio-mode .border-l-emerald-500 {
-  border-left-color: #059669;
-}
-
 /* Light mode gradient button */
 :root:not(.dark) body.portfolio-mode .from-indigo-500 {
   --tw-gradient-from: #4f46e5;

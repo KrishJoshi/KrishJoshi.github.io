@@ -49,9 +49,34 @@
     ]
   },
   "expertise": [
-    { "name": "Cloud Architecture", "level": 95, "skills": ["Serverless", "Terraform", "EKS", "IAM"] },
-    { "name": "Engineering Management", "level": 88, "skills": ["System Design", "SDLC", "CI/CD"] },
-    { "name": "Frontend Mastery", "level": 92, "skills": ["React 18", "Next.js", "TypeScript"] }
+    {
+      "name": "Cloud Architecture",
+      "level": 95,
+      "skills": [
+        "Serverless",
+        "Terraform",
+        "EKS",
+        "IAM"
+      ]
+    },
+    {
+      "name": "Engineering Management",
+      "level": 88,
+      "skills": [
+        "System Design",
+        "SDLC",
+        "CI/CD"
+      ]
+    },
+    {
+      "name": "Frontend Mastery",
+      "level": 92,
+      "skills": [
+        "React 18",
+        "Next.js",
+        "TypeScript"
+      ]
+    }
   ],
   "achievementSummary": "Principal engineer with 14+ years building digital products at scale—from early-stage startups to FTSE 100 enterprises. Specialized in React, React Native, and AWS, with deep expertise in identity/authentication systems (WebAuthn/Passkeys, OAuth2/OIDC, MFA). Recently integrating AI-assisted development tools (Claude, Amazon Bedrock) into engineering workflows.",
   "achievements": [
@@ -85,7 +110,14 @@
         "Implemented end-to-end **OpenTelemetry instrumentation** across 12 microservices, enabling distributed tracing and reducing mean-time-to-diagnosis by 60%.",
         "Architected **FAPI 2.0 compliant** authentication flows, ensuring PSD2 and Canadian Open Banking regulatory adherence while improving OAuth/OIDC response times."
       ],
-      "keywords": ["AWS Lambda", "OpenTelemetry", "FAPI/OIDC", "DynamoDB", "API Gateway"],
+      "keywords": [
+        "AWS Lambda",
+        "NextJS",
+        "OpenTelemetry",
+        "FAPI/OIDC",
+        "DynamoDB",
+        "API Gateway"
+      ],
       "stack": "TypeScript, AWS Lambda, DynamoDB, API Gateway, OpenTelemetry, Terraform, GitHub Actions"
     },
     {
@@ -101,7 +133,13 @@
         "Owned full **Terraform IaC** across dev/staging/prod, managing Cognito (Auth), Aurora, Lambda, and DynamoDB with zero-downtime deployments.",
         "Ran and maintained services in production including **database migrations**, CloudFormation updates, and vendor service integrations."
       ],
-      "keywords": ["NestJS", "TypeScript", "AWS", "Terraform", "REST APIs"],
+      "keywords": [
+        "NestJS",
+        "TypeScript",
+        "AWS",
+        "Terraform",
+        "REST APIs"
+      ],
       "stack": "NestJS, Node.js, TypeScript, REST APIs, AWS Lambda, Cognito, DynamoDB, Aurora, Terraform, GitHub Actions"
     },
     {
@@ -117,7 +155,14 @@
         "Wrote **automated tests achieving 90%+ coverage** using Playwright for E2E and Jest for unit testing, improving reliability.",
         "Transformed release process from **weekly to daily deployments** through CI/CD pipeline optimization and feature flagging."
       ],
-      "keywords": ["WebAuthn", "OAuth2", "MFA", "Kubernetes", "CI/CD"],
+      "keywords": [
+        "NextJS",
+        "WebAuthn",
+        "OAuth2",
+        "MFA",
+        "Kubernetes",
+        "CI/CD"
+      ],
       "stack": "TypeScript, Node.js, React (SSR), Kubernetes, Azure Pipelines, Playwright, Jest"
     },
     {
@@ -133,7 +178,13 @@
         "Built **serverless orchestration** using AWS Lambda and Step Functions to streamline long-running operations like account onboarding.",
         "Created reusable component library with **Material UI and Storybook**, adopted by 4 other product teams."
       ],
-      "keywords": ["React Native", "AWS Lambda", "NextJS", "Apigee", "OAuth"],
+      "keywords": [
+        "React Native",
+        "AWS Lambda",
+        "NextJS",
+        "Apigee",
+        "OAuth"
+      ],
       "stack": "React (Redux, TypeScript, Formik, Storybook), React Native, Next.js, Node.js, Express, Cypress, AWS Lambda, Step Functions, Jenkins"
     },
     {
@@ -149,7 +200,14 @@
         "Designed **microservices architecture** and API layer schemas using Node.js and Express, enabling scalable network topology visualization with D3.js.",
         "Ensured **DDA and GDPR compliance** across the platform while developing React Native mobile interfaces for field engineers."
       ],
-      "keywords": ["React", "React Native", "D3.js", "Node.js", "Microservices"],
+      "keywords": [
+        "React",
+        "React Native",
+        "D3.js",
+        "Node.js",
+        "Microservices",
+        "AngularJS"
+      ],
       "stack": "Node.js, Express, React (TypeScript, Redux, Storybook, D3, Jest), React Native, AngularJS (Karma, Protractor, Selenium), Bootstrap, SASS, Jenkins"
     },
     {
@@ -165,7 +223,13 @@
         "Built **dynamic load balancer** enabling seamless A/B testing and gradual migration with instant rollback capability.",
         "Migrated customer portal to **TypeScript** with comprehensive automated testing, improving reliability and developer productivity."
       ],
-      "keywords": ["TypeScript", "AWS Lambda", "Regulated Environment", "CI/CD"],
+      "keywords": [
+        "TypeScript",
+        "AWS Lambda",
+        "Regulated Environment",
+        "CI/CD",
+        "Angular"
+      ],
       "stack": "TypeScript, Angular, AWS Lambda, Karma, Protractor, CI/CD Pipelines"
     },
     {
@@ -179,7 +243,11 @@
         "Built **Heathrow Airport's passenger information portal** using Angular, handling real-time flight data and wayfinding.",
         "Developed **Chivas brand website** with Vanilla JS and GSAP animations, delivering a premium interactive experience."
       ],
-      "keywords": ["Angular", "JavaScript", "GSAP"],
+      "keywords": [
+        "Angular",
+        "JavaScript",
+        "GSAP"
+      ],
       "stack": "Angular, JavaScript, GSAP, SASS, Grunt"
     },
     {
@@ -194,7 +262,12 @@
         "Led a team of 4 frontend developers, introducing **code review practices** and component-based architecture with AngularJS.",
         "Integrated frontend with **.NET backend** APIs, working closely with C# developers on the full stack."
       ],
-      "keywords": ["AngularJS", "jQuery", "C#", "E-commerce"],
+      "keywords": [
+        "AngularJS",
+        "jQuery",
+        "C#",
+        "E-commerce"
+      ],
       "stack": "AngularJS, jQuery, SASS, Grunt, C#, Java"
     },
     {
@@ -208,7 +281,11 @@
         "Developed **full-stack web applications** using C# MVC and AngularJS for internal consulting tools.",
         "Built **SQL Server reporting dashboards** providing real-time analytics for project management."
       ],
-      "keywords": ["C#", "AngularJS", "MS SQL"],
+      "keywords": [
+        "C#",
+        "AngularJS",
+        "MS SQL"
+      ],
       "stack": "C#, AngularJS, jQuery, MS SQL, SASS, Grunt"
     },
     {
@@ -223,7 +300,12 @@
         "Created an **Excel data importer** that automated pension data migration, reducing manual processing time by 90%.",
         "Worked with bespoke **STAR language** for pension calculations alongside standard .NET stack."
       ],
-      "keywords": ["C#", ".NET", "MS SQL", "Enterprise"],
+      "keywords": [
+        "C#",
+        ".NET",
+        "MS SQL",
+        "Enterprise"
+      ],
       "stack": "C#, .NET, MS SQL, jQuery, STAR"
     },
     {
@@ -237,7 +319,12 @@
         "Improved **property search user journeys** through frontend optimizations using C# and jQuery.",
         "Contributed to features serving **millions of monthly property searches** across the UK."
       ],
-      "keywords": ["C#", "jQuery", ".NET", "Property Tech"],
+      "keywords": [
+        "C#",
+        "jQuery",
+        ".NET",
+        "Property Tech"
+      ],
       "stack": "C#, .NET, MS SQL, jQuery"
     }
   ],
@@ -245,24 +332,98 @@
     {
       "name": "Backend & Identity",
       "keywords": [
-        { "icon": "terminal", "text": "TypeScript / Node.js / NestJS", "filter": "TypeScript", "companies": ["CaspianOne", "Climatise", "Tesco", "Chase UK", "Vanguard"] },
-        { "icon": "verified_user", "text": "OAuth2 / OIDC / WebAuthn / MFA", "filter": "Auth", "companies": ["CaspianOne", "Tesco", "Chase UK"] },
-        { "icon": "api", "text": "REST APIs / Microservices", "filter": "APIs", "companies": ["CaspianOne", "Climatise", "Tesco", "Cisco"] }
+        {
+          "icon": "terminal",
+          "text": "TypeScript / Node.js / NestJS",
+          "filter": "TypeScript",
+          "companies": [
+            "CaspianOne",
+            "Climatise",
+            "Tesco",
+            "Chase UK",
+            "Vanguard"
+          ]
+        },
+        {
+          "icon": "verified_user",
+          "text": "OAuth2 / OIDC / WebAuthn / MFA",
+          "filter": "Auth",
+          "companies": [
+            "CaspianOne",
+            "Tesco",
+            "Chase UK"
+          ]
+        },
+        {
+          "icon": "api",
+          "text": "REST APIs / Microservices",
+          "filter": "APIs",
+          "companies": [
+            "CaspianOne",
+            "Climatise",
+            "Tesco",
+            "Cisco"
+          ]
+        }
       ]
     },
     {
       "name": "Cloud & DevOps",
       "keywords": [
-        { "icon": "cloud", "text": "AWS (Lambda, API Gateway, DynamoDB)", "filter": "AWS", "companies": ["CaspianOne", "Climatise", "Chase UK", "Vanguard"] },
-        { "icon": "settings_input_component", "text": "Terraform / CloudFormation / IaC", "filter": "Terraform", "companies": ["Climatise", "CaspianOne"] },
-        { "icon": "precision_manufacturing", "text": "GitHub Actions / CI/CD Pipelines", "filter": "CI/CD", "companies": ["Climatise", "Tesco", "Cisco"] }
+        {
+          "icon": "cloud",
+          "text": "AWS (Lambda, API Gateway, DynamoDB)",
+          "filter": "AWS",
+          "companies": [
+            "CaspianOne",
+            "Climatise",
+            "Chase UK",
+            "Vanguard"
+          ]
+        },
+        {
+          "icon": "settings_input_component",
+          "text": "Terraform / CloudFormation / IaC",
+          "filter": "Terraform",
+          "companies": [
+            "Climatise",
+            "CaspianOne"
+          ]
+        },
+        {
+          "icon": "precision_manufacturing",
+          "text": "GitHub Actions / CI/CD Pipelines",
+          "filter": "CI/CD",
+          "companies": [
+            "Climatise",
+            "Tesco",
+            "Cisco"
+          ]
+        }
       ]
     },
     {
       "name": "Quality & Operations",
       "keywords": [
-        { "icon": "science", "text": "Automated Testing (Jest, Playwright)", "filter": "Testing", "companies": ["Tesco", "Cisco", "Climatise"] },
-        { "icon": "storage", "text": "Database Migrations & Operations", "filter": "Operations", "companies": ["Climatise", "Tesco"] }
+        {
+          "icon": "science",
+          "text": "Automated Testing (Jest, Playwright)",
+          "filter": "Testing",
+          "companies": [
+            "Tesco",
+            "Cisco",
+            "Climatise"
+          ]
+        },
+        {
+          "icon": "storage",
+          "text": "Database Migrations & Operations",
+          "filter": "Operations",
+          "companies": [
+            "Climatise",
+            "Tesco"
+          ]
+        }
       ]
     }
   ],
