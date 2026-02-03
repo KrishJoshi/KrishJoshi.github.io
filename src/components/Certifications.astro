@@ -14,7 +14,10 @@ const { certificates } = Astro.props;
 ---
 
 <section class="section-box p-6">
-  <h2 class="text-2xl font-black tracking-tight mb-6">CERTIFICATIONS</h2>
+  <h2 class="text-xs font-bold text-gray-500 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm">workspace_premium</span>
+    Certifications
+  </h2>
   <div class="space-y-4">
     {certificates.map(cert => (
       <div class="flex items-start gap-3">

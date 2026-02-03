@@ -16,7 +16,10 @@ const { education } = Astro.props;
 ---
 
 <section class="section-box p-6">
-  <h2 class="text-2xl font-black tracking-tight mb-6">EDUCATION</h2>
+  <h2 class="text-xs font-bold text-gray-500 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm">school</span>
+    Education
+  </h2>
   <div class="space-y-4">
     {education.map((edu, i) => (
       <div class={i > 0 ? 'pt-4 border-t border-gray-200 dark:border-gray-700' : ''}>
