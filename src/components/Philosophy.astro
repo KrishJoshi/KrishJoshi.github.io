@@ -37,238 +37,365 @@ const [before, after] = statement.split('hardened infrastructure');
       </div>
     </div>
 
-    <!-- Interactive Architecture Diagram -->
-    <figure class="relative bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl h-[340px] overflow-hidden" id="arch-diagram" role="img" aria-label="Interactive cloud architecture diagram showing CloudFront, API Gateway, Lambda, EKS, DynamoDB, Bedrock AI, and Redis components with animated data flow">
-      <!-- Animated grid background -->
-      <div class="absolute inset-0 opacity-[0.07]">
-        <svg class="w-full h-full" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="400" height="340" fill="url(#grid-pattern)"/>
-        </svg>
-      </div>
-
-      <!-- SVG Connection Lines - positioned behind nodes -->
-      <svg class="absolute inset-0 w-full h-full" style="z-index: 1;">
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
-        <!-- CloudFront to API Gateway (vertical) -->
-        <line x1="50%" y1="52" x2="50%" y2="85" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
-
-        <!-- API Gateway to Lambda (diagonal left) -->
-        <path d="M 43% 115 L 30% 155" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
-
-        <!-- API Gateway to EKS (diagonal right) -->
-        <path d="M 57% 115 L 70% 155" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
-
-        <!-- Lambda to DynamoDB -->
-        <path d="M 30% 195 L 50% 230" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-
-        <!-- EKS to DynamoDB -->
-        <path d="M 70% 195 L 50% 230" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
-
-        <!-- Lambda to Bedrock (left) -->
-        <path d="M 22% 175 L 12% 230" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
-
-        <!-- EKS to Redis (right) -->
-        <path d="M 78% 175 L 88% 230" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.5"/>
-
-        <!-- Animated particles -->
-        <g filter="url(#glow)">
-          <!-- CloudFront to API Gateway particle -->
-          <circle r="4" fill="#6366f1">
-            <animate attributeName="cy" values="52;85;52" dur="1.5s" repeatCount="indefinite"/>
-            <animate attributeName="cx" values="50%;50%;50%" dur="1.5s" repeatCount="indefinite"/>
-          </circle>
-
-          <!-- API Gateway to Lambda particle -->
-          <circle r="3" fill="#10b981">
-            <animate attributeName="cx" values="43%;30%;43%" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="cy" values="115;155;115" dur="2s" repeatCount="indefinite"/>
-          </circle>
-
-          <!-- API Gateway to EKS particle -->
-          <circle r="3" fill="#10b981">
-            <animate attributeName="cx" values="57%;70%;57%" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-            <animate attributeName="cy" values="115;155;115" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-          </circle>
-
-          <!-- Lambda to DynamoDB particle -->
-          <circle r="3" fill="#a855f7">
-            <animate attributeName="cx" values="30%;50%;30%" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
-            <animate attributeName="cy" values="195;230;195" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
-          </circle>
-
-          <!-- EKS to DynamoDB particle -->
-          <circle r="3" fill="#a855f7">
-            <animate attributeName="cx" values="70%;50%;70%" dur="1.8s" repeatCount="indefinite" begin="0.8s"/>
-            <animate attributeName="cy" values="195;230;195" dur="1.8s" repeatCount="indefinite" begin="0.8s"/>
-          </circle>
-
-          <!-- Bedrock particle -->
-          <circle r="2.5" fill="#f59e0b">
-            <animate attributeName="cx" values="22%;12%;22%" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="cy" values="175;230;175" dur="2.5s" repeatCount="indefinite"/>
-          </circle>
-
-          <!-- Redis particle -->
-          <circle r="2.5" fill="#ef4444">
-            <animate attributeName="cx" values="78%;88%;78%" dur="2s" repeatCount="indefinite" begin="0.4s"/>
-            <animate attributeName="cy" values="175;230;175" dur="2s" repeatCount="indefinite" begin="0.4s"/>
-          </circle>
-        </g>
-      </svg>
-
-      <!-- Architecture Nodes - absolutely positioned -->
-      <div class="absolute inset-0" style="z-index: 2;">
-
-        <!-- Row 1: CloudFront (centered at top) -->
-        <div class="absolute left-1/2 -translate-x-1/2 top-4">
-          <div class="arch-node group" data-tooltip="Edge CDN - Global Distribution">
-            <div class="px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer backdrop-blur-sm">
-              <span class="text-[10px] font-mono text-indigo-400 font-semibold">CloudFront</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Monitoring (top right) -->
-        <div class="absolute right-4 top-4">
-          <div class="arch-node group" data-tooltip="OpenTelemetry + X-Ray">
-            <div class="w-10 h-10 rounded-lg bg-slate-800/80 border border-cyan-500/50 flex items-center justify-center group-hover:border-cyan-400 transition-all cursor-pointer">
-              <span class="material-symbols-outlined text-cyan-400 text-base">monitoring</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2: API Gateway -->
-        <div class="absolute left-1/2 -translate-x-1/2 top-[85px]">
-          <div class="arch-node group" data-tooltip="FAPI/OAuth2 Compliant">
-            <div class="px-3 py-1.5 rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex items-center gap-1.5 group-hover:border-indigo-400 group-hover:bg-indigo-500/30 transition-all cursor-pointer backdrop-blur-sm">
-              <span class="material-symbols-outlined text-indigo-400 text-sm">api</span>
-              <span class="text-[9px] font-mono text-indigo-400">API Gateway</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 3: Lambda (left) and EKS (right) -->
-        <div class="absolute left-[18%] top-[150px]">
-          <div class="arch-node group" data-tooltip="Serverless (TypeScript/Go)">
-            <div class="w-[72px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer backdrop-blur-sm">
-              <span class="text-[10px] font-mono text-emerald-400 font-semibold">Lambda</span>
-              <span class="text-[7px] text-emerald-400/70">TS / Go</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="absolute right-[18%] top-[150px]">
-          <div class="arch-node group" data-tooltip="Kubernetes (Tesco Microservices)">
-            <div class="w-[72px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center group-hover:border-emerald-400 group-hover:bg-emerald-500/30 transition-all cursor-pointer backdrop-blur-sm">
-              <span class="text-[10px] font-mono text-emerald-400 font-semibold">EKS</span>
-              <span class="text-[7px] text-emerald-400/70">React SSR</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 4: Bedrock (far left), DynamoDB (center), Redis (far right) -->
-        <div class="absolute left-3 top-[225px]">
-          <div class="arch-node group" data-tooltip="Claude AI via Bedrock">
-            <div class="w-[52px] h-[38px] rounded-lg bg-amber-500/20 border border-amber-500/50 border-dashed flex flex-col items-center justify-center group-hover:border-amber-400 group-hover:bg-amber-500/30 transition-all cursor-pointer backdrop-blur-sm">
-              <span class="material-symbols-outlined text-amber-400 text-sm">psychology</span>
-              <span class="text-[7px] font-mono text-amber-400">Bedrock</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="absolute left-1/2 -translate-x-1/2 top-[225px]">
-          <div class="arch-node group" data-tooltip="NoSQL - High Throughput">
-            <div class="w-[80px] h-[38px] rounded-lg bg-purple-500/20 border border-purple-500/50 flex items-center justify-center group-hover:border-purple-400 group-hover:bg-purple-500/30 transition-all cursor-pointer backdrop-blur-sm">
-              <span class="text-[10px] font-mono text-purple-400 font-semibold">DynamoDB</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="absolute right-3 top-[225px]">
-          <div class="arch-node group" data-tooltip="Session & Cache Layer">
-            <div class="w-[52px] h-[38px] rounded-lg bg-red-500/20 border border-red-500/50 flex flex-col items-center justify-center group-hover:border-red-400 group-hover:bg-red-500/30 transition-all cursor-pointer backdrop-blur-sm">
-              <span class="text-[8px] font-mono text-red-400 font-semibold">Redis</span>
-              <span class="text-[6px] text-red-400/70">Cache</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Status bar -->
-        <div class="absolute bottom-3 left-0 right-0 flex justify-center items-center gap-4">
-          <div class="flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
-            <span class="text-[8px] font-mono text-slate-500">2M req/day</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse"></span>
-            <span class="text-[8px] font-mono text-slate-500">&lt;50ms p99</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
-            <span class="text-[8px] font-mono text-slate-500">AI-Enhanced</span>
-          </div>
+    <!-- Architecture Carousel -->
+    <div class="relative bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl h-[340px] overflow-hidden" id="arch-carousel">
+      <!-- Architecture Type Indicator -->
+      <div class="absolute top-4 left-4 z-20">
+        <div class="px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-700 backdrop-blur-sm">
+          <span id="arch-type" class="text-[10px] font-mono text-slate-400"></span>
         </div>
       </div>
 
-      <!-- Tooltip -->
-      <div id="arch-tooltip" class="absolute hidden px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white shadow-xl pointer-events-none max-w-[180px]" style="z-index: 50;" role="tooltip">
+      <!-- Navigation Dots -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        <button class="arch-dot w-2 h-2 rounded-full bg-indigo-500" data-index="0" aria-label="View AWS Serverless architecture"></button>
+        <button class="arch-dot w-2 h-2 rounded-full bg-slate-600" data-index="1" aria-label="View Kubernetes microservices architecture"></button>
+        <button class="arch-dot w-2 h-2 rounded-full bg-slate-600" data-index="2" aria-label="View fintech banking architecture"></button>
+        <button class="arch-dot w-2 h-2 rounded-full bg-slate-600" data-index="3" aria-label="View full-stack architecture"></button>
       </div>
-    </figure>
+
+      <!-- Architecture Slides Container -->
+      <div id="arch-slides" class="relative w-full h-full transition-transform duration-700 ease-in-out" style="transform: translateX(0%)">
+
+        <!-- Slide 1: AWS Serverless (Climatise) -->
+        <div class="arch-slide absolute inset-0 w-full h-full" data-name="AWS Serverless (Climatise)">
+          <div class="absolute inset-0 opacity-[0.07]">
+            <svg class="w-full h-full" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="grid-1" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="340" fill="url(#grid-1)"/>
+            </svg>
+          </div>
+
+          <svg class="absolute inset-0 w-full h-full" style="z-index: 1;">
+            <line x1="50%" y1="60" x2="50%" y2="100" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+            <path d="M 50% 130 L 30% 180" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+            <path d="M 50% 130 L 70% 180" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+            <path d="M 30% 210 L 50% 250" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+            <circle r="4" fill="#6366f1">
+              <animate attributeName="cy" values="60;100;60" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="cx" values="50%;50%;50%" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="#10b981">
+              <animate attributeName="cx" values="50%;30%;50%" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="130;180;130" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+
+          <div class="absolute inset-0" style="z-index: 2;">
+            <div class="absolute left-1/2 -translate-x-1/2 top-[50px]">
+              <div class="px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/50 backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-indigo-400">CloudFront</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[100px]">
+              <div class="px-3 py-1.5 rounded-lg bg-indigo-500/20 border border-indigo-500/50 backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-indigo-400">API Gateway</span>
+              </div>
+            </div>
+            <div class="absolute left-[18%] top-[170px]">
+              <div class="w-[72px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-emerald-400">Lambda</span>
+                <span class="text-[7px] text-emerald-400/70">Node.js</span>
+              </div>
+            </div>
+            <div class="absolute right-[18%] top-[170px]">
+              <div class="w-[72px] h-[40px] rounded-lg bg-amber-500/20 border border-amber-500/50 border-dashed flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-amber-400">Bedrock</span>
+                <span class="text-[7px] text-amber-400/70">Claude AI</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[245px]">
+              <div class="w-[80px] h-[35px] rounded-lg bg-purple-500/20 border border-purple-500/50 flex items-center justify-center backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-purple-400">DynamoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Kubernetes (Tesco) -->
+        <div class="arch-slide absolute inset-0 w-full h-full" data-name="Kubernetes Microservices (Tesco)" style="left: 100%">
+          <div class="absolute inset-0 opacity-[0.07]">
+            <svg class="w-full h-full" viewBox="0 0 400 340">
+              <defs>
+                <pattern id="grid-2" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="340" fill="url(#grid-2)"/>
+            </svg>
+          </div>
+
+          <svg class="absolute inset-0 w-full h-full" style="z-index: 1;">
+            <line x1="50%" y1="60" x2="50%" y2="100" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+            <path d="M 50% 140 L 25% 200" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+            <path d="M 50% 140 L 50% 200" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+            <path d="M 50% 140 L 75% 200" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+            <circle r="3" fill="#10b981">
+              <animate attributeName="cy" values="60;100;60" dur="1.8s" repeatCount="indefinite"/>
+              <animate attributeName="cx" values="50%;50%;50%" dur="1.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="#6366f1">
+              <animate attributeName="cx" values="50%;25%;50%" dur="2.2s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="140;200;140" dur="2.2s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+
+          <div class="absolute inset-0" style="z-index: 2;">
+            <div class="absolute left-1/2 -translate-x-1/2 top-[50px]">
+              <div class="px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/50 backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-emerald-400">Load Balancer</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[100px]">
+              <div class="px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/50 backdrop-blur-sm flex items-center gap-1.5">
+                <span class="text-[11px] font-mono text-emerald-400 font-bold">EKS Cluster</span>
+              </div>
+            </div>
+            <div class="absolute left-[12%] top-[190px]">
+              <div class="w-[70px] h-[40px] rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-indigo-400">Auth Pod</span>
+                <span class="text-[7px] text-indigo-400/70">React SSR</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[190px]">
+              <div class="w-[70px] h-[40px] rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-indigo-400">Account</span>
+                <span class="text-[7px] text-indigo-400/70">Node.js</span>
+              </div>
+            </div>
+            <div class="absolute right-[12%] top-[190px]">
+              <div class="w-[70px] h-[40px] rounded-lg bg-indigo-500/20 border border-indigo-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-indigo-400">Profile</span>
+                <span class="text-[7px] text-indigo-400/70">TypeScript</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[260px]">
+              <div class="w-[90px] h-[35px] rounded-lg bg-purple-500/20 border border-purple-500/50 flex items-center justify-center backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-purple-400">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Banking/Fintech (CaspianOne) -->
+        <div class="arch-slide absolute inset-0 w-full h-full" data-name="FAPI Banking Stack (CaspianOne)" style="left: 200%">
+          <div class="absolute inset-0 opacity-[0.07]">
+            <svg class="w-full h-full" viewBox="0 0 400 340">
+              <defs>
+                <pattern id="grid-3" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="340" fill="url(#grid-3)"/>
+            </svg>
+          </div>
+
+          <svg class="absolute inset-0 w-full h-full" style="z-index: 1;">
+            <line x1="50%" y1="60" x2="50%" y2="100" stroke="#f59e0b" stroke-width="2" opacity="0.5"/>
+            <path d="M 50% 130 L 30% 180" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+            <path d="M 50% 130 L 70% 180" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+            <circle r="4" fill="#f59e0b">
+              <animate attributeName="cy" values="60;100;60" dur="1.6s" repeatCount="indefinite"/>
+              <animate attributeName="cx" values="50%;50%;50%" dur="1.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="#10b981">
+              <animate attributeName="cx" values="50%;30%;50%" dur="2.1s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="130;180;130" dur="2.1s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+
+          <div class="absolute inset-0" style="z-index: 2;">
+            <div class="absolute right-4 top-[50px]">
+              <div class="w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/50 flex items-center justify-center backdrop-blur-sm">
+                <span class="material-symbols-outlined text-amber-400 text-base">shield</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[50px]">
+              <div class="px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/50 backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-amber-400">FAPI 2.0 Gateway</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[100px]">
+              <div class="px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/50 backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-amber-400">OAuth2 / OIDC</span>
+              </div>
+            </div>
+            <div class="absolute left-[18%] top-[170px]">
+              <div class="w-[72px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-emerald-400">Auth λ</span>
+                <span class="text-[7px] text-emerald-400/70">TypeScript</span>
+              </div>
+            </div>
+            <div class="absolute right-[18%] top-[170px]">
+              <div class="w-[72px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-emerald-400">Banking λ</span>
+                <span class="text-[7px] text-emerald-400/70">Node.js</span>
+              </div>
+            </div>
+            <div class="absolute left-[30%] top-[245px]">
+              <div class="w-[65px] h-[35px] rounded-lg bg-purple-500/20 border border-purple-500/50 flex items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-purple-400">Aurora</span>
+              </div>
+            </div>
+            <div class="absolute right-[30%] top-[245px]">
+              <div class="w-[65px] h-[35px] rounded-lg bg-red-500/20 border border-red-500/50 flex items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-red-400">Redis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Full-Stack (Cisco/Chase) -->
+        <div class="arch-slide absolute inset-0 w-full h-full" data-name="Full-Stack Platform (Cisco/Chase)" style="left: 300%">
+          <div class="absolute inset-0 opacity-[0.07]">
+            <svg class="w-full h-full" viewBox="0 0 400 340">
+              <defs>
+                <pattern id="grid-4" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="340" fill="url(#grid-4)"/>
+            </svg>
+          </div>
+
+          <svg class="absolute inset-0 w-full h-full" style="z-index: 1;">
+            <line x1="50%" y1="60" x2="50%" y2="110" stroke="#06b6d4" stroke-width="2" opacity="0.5"/>
+            <line x1="50%" y1="150" x2="50%" y2="200" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+            <circle r="4" fill="#06b6d4">
+              <animate attributeName="cy" values="60;110;60" dur="1.7s" repeatCount="indefinite"/>
+              <animate attributeName="cx" values="50%;50%;50%" dur="1.7s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="#8b5cf6">
+              <animate attributeName="cy" values="150;200;150" dur="1.9s" repeatCount="indefinite"/>
+              <animate attributeName="cx" values="50%;50%;50%" dur="1.9s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+
+          <div class="absolute inset-0" style="z-index: 2;">
+            <div class="absolute left-1/2 -translate-x-1/2 top-[50px]">
+              <div class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/50 backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-cyan-400">React App</span>
+              </div>
+            </div>
+            <div class="absolute left-[25%] top-[110px]">
+              <div class="w-[80px] h-[35px] rounded-lg bg-cyan-500/20 border border-cyan-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-cyan-400">Next.js SSR</span>
+              </div>
+            </div>
+            <div class="absolute right-[25%] top-[110px]">
+              <div class="w-[70px] h-[35px] rounded-lg bg-cyan-500/20 border border-cyan-500/50 flex items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-cyan-400">React Native</span>
+              </div>
+            </div>
+            <div class="absolute left-1/2 -translate-x-1/2 top-[150px]">
+              <div class="px-4 py-2 rounded-lg bg-violet-500/20 border border-violet-500/50 backdrop-blur-sm">
+                <span class="text-[10px] font-mono text-violet-400">Express API</span>
+              </div>
+            </div>
+            <div class="absolute left-[30%] top-[210px]">
+              <div class="w-[65px] h-[40px] rounded-lg bg-purple-500/20 border border-purple-500/50 flex flex-col items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-purple-400">MongoDB</span>
+              </div>
+            </div>
+            <div class="absolute right-[30%] top-[210px]">
+              <div class="w-[65px] h-[40px] rounded-lg bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center backdrop-blur-sm">
+                <span class="text-[9px] font-mono text-emerald-400">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
-  .arch-node {
-    position: relative;
+  .arch-dot {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .arch-dot:hover {
+    transform: scale(1.2);
+  }
+
+  .arch-slide {
+    transition: opacity 0.5s ease-in-out;
   }
 </style>
 
 <script>
-  // Tooltip functionality
   document.addEventListener('DOMContentLoaded', () => {
-    const tooltip = document.getElementById('arch-tooltip');
-    const nodes = document.querySelectorAll('.arch-node[data-tooltip]');
+    const slides = document.querySelectorAll('.arch-slide');
+    const dots = document.querySelectorAll('.arch-dot');
+    const typeLabel = document.getElementById('arch-type');
+    const slidesContainer = document.getElementById('arch-slides');
 
-    nodes.forEach(node => {
-      node.addEventListener('mouseenter', (e) => {
-        const text = (node as HTMLElement).dataset.tooltip;
-        if (tooltip && text) {
-          tooltip.textContent = text;
-          tooltip.classList.remove('hidden');
+    let currentIndex = 0;
+    let autoplayInterval: number;
+
+    function updateArchitecture(index: number) {
+      currentIndex = index;
+
+      // Update slides container position
+      if (slidesContainer) {
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-slate-600');
+          dot.classList.add('bg-indigo-500');
+        } else {
+          dot.classList.remove('bg-indigo-500');
+          dot.classList.add('bg-slate-600');
         }
       });
 
-      node.addEventListener('mousemove', (e) => {
-        if (tooltip) {
-          const rect = document.getElementById('arch-diagram')?.getBoundingClientRect();
-          if (rect) {
-            const x = (e as MouseEvent).clientX - rect.left;
-            const y = (e as MouseEvent).clientY - rect.top;
-            tooltip.style.left = `${Math.min(x + 10, rect.width - 190)}px`;
-            tooltip.style.top = `${y - 35}px`;
-          }
-        }
-      });
+      // Update type label
+      const currentSlide = slides[index] as HTMLElement;
+      if (typeLabel && currentSlide) {
+        typeLabel.textContent = currentSlide.dataset.name || '';
+      }
+    }
 
-      node.addEventListener('mouseleave', () => {
-        if (tooltip) {
-          tooltip.classList.add('hidden');
-        }
+    function nextSlide() {
+      const next = (currentIndex + 1) % slides.length;
+      updateArchitecture(next);
+    }
+
+    function startAutoplay() {
+      autoplayInterval = window.setInterval(nextSlide, 4000);
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
+
+    // Dot click handlers
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        stopAutoplay();
+        updateArchitecture(index);
+        startAutoplay();
       });
     });
+
+    // Initialize
+    updateArchitecture(0);
+    startAutoplay();
+
+    // Pause on hover
+    const carousel = document.getElementById('arch-carousel');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+    }
   });
 </script>
