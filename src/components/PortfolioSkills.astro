@@ -1,0 +1,153 @@
+---
+interface Skill {
+  name: string;
+  keywords: { icon: string; text: string; filter?: string; companies?: string[] }[];
+}
+
+interface Props {
+  skills: Skill[];
+}
+
+const { skills } = Astro.props;
+
+// Extract all unique filters for the filter bar
+const allFilters = new Set<string>();
+skills.forEach(cat => {
+  cat.keywords.forEach(kw => {
+    if (kw.filter) allFilters.add(kw.filter);
+  });
+});
+---
+
+<section class="bento-card p-6 mb-6" aria-labelledby="skills-heading">
+  <div class="flex items-center gap-2 mb-4">
+    <span class="material-symbols-outlined text-indigo-400" aria-hidden="true">code</span>
+    <h2 id="skills-heading" class="text-lg font-bold text-white">Technical Ecosystem</h2>
+  </div>
+
+  <!-- Filter Pills -->
+  <div id="portfolio-filter-controls" class="flex flex-wrap gap-2 mb-6" role="group" aria-label="Filter experience by technology">
+    {Array.from(allFilters).map(filter => (
+      <button
+        data-filter={filter}
+        class="portfolio-filter-btn px-3 py-1.5 border border-slate-600 rounded-full text-xs font-semibold uppercase hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-slate-400"
+        aria-pressed="false"
+      >
+        {filter}
+      </button>
+    ))}
+  </div>
+
+  <!-- Skills Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {skills.map(category => (
+      <div>
+        <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">{category.name}</h3>
+        <ul class="space-y-1" role="list">
+          {category.keywords.map(kw => (
+            <li>
+              <button
+                class="portfolio-skill-item flex items-center gap-3 w-full p-2 -mx-2 rounded-lg hover:bg-white/10 transition-all cursor-pointer group text-left focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                data-filter={kw.filter}
+                data-companies={kw.companies?.join(',')}
+                aria-label={`Filter by ${kw.text}`}
+              >
+                <span class="material-symbols-outlined text-lg text-indigo-400 group-hover:scale-110 transition-transform" aria-hidden="true">{kw.icon}</span>
+                <span class="text-sm text-slate-300 group-hover:text-white transition-colors">{kw.text}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  // Filter state for portfolio view
+  let activePortfolioFilter: string | null = null;
+  let portfolioFilterCompaniesMap: Record<string, string[]> = {};
+
+  // Build filter to companies mapping from skill items
+  document.querySelectorAll('.portfolio-skill-item').forEach(item => {
+    const filter = (item as HTMLElement).dataset.filter;
+    const companies = (item as HTMLElement).dataset.companies?.split(',') || [];
+    if (filter) {
+      portfolioFilterCompaniesMap[filter] = companies;
+    }
+  });
+
+  function applyPortfolioFilter(filter: string | null) {
+    activePortfolioFilter = filter;
+    const companies = filter ? (portfolioFilterCompaniesMap[filter] || []) : [];
+
+    // Update job visibility in portfolio view
+    document.querySelectorAll('#portfolio-experience .portfolio-job-card').forEach(card => {
+      const company = (card as HTMLElement).dataset.company || '';
+      if (!filter) {
+        (card as HTMLElement).style.opacity = '1';
+        (card as HTMLElement).style.transform = 'scale(1)';
+      } else {
+        const matches = companies.some(c =>
+          company.toLowerCase().includes(c.toLowerCase()) ||
+          c.toLowerCase().includes(company.split(' ')[0].toLowerCase())
+        );
+        (card as HTMLElement).style.opacity = matches ? '1' : '0.3';
+        (card as HTMLElement).style.transform = matches ? 'scale(1)' : 'scale(0.98)';
+      }
+    });
+
+    // Update filter buttons
+    document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+      const btnFilter = (btn as HTMLElement).dataset.filter;
+      if (btnFilter === filter) {
+        btn.classList.add('bg-indigo-500/30', 'border-indigo-500', 'text-white');
+        btn.classList.remove('border-slate-600', 'text-slate-400');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('bg-indigo-500/30', 'border-indigo-500', 'text-white');
+        btn.classList.add('border-slate-600', 'text-slate-400');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // Show/hide clear button
+    updatePortfolioClearButton();
+  }
+
+  function updatePortfolioClearButton() {
+    let clearBtn = document.getElementById('portfolio-clear-filter-btn');
+    const filterControls = document.getElementById('portfolio-filter-controls');
+
+    if (activePortfolioFilter && !clearBtn && filterControls) {
+      clearBtn = document.createElement('button');
+      clearBtn.id = 'portfolio-clear-filter-btn';
+      clearBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 bg-indigo-500 text-white rounded-full text-xs font-bold uppercase hover:bg-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900';
+      clearBtn.innerHTML = `<span class="material-symbols-outlined text-sm" aria-hidden="true">close</span> Clear`;
+      clearBtn.setAttribute('aria-label', 'Clear filter');
+      clearBtn.addEventListener('click', () => applyPortfolioFilter(null));
+      filterControls.prepend(clearBtn);
+    } else if (!activePortfolioFilter && clearBtn) {
+      clearBtn.remove();
+    }
+  }
+
+  // Filter button clicks
+  document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = (btn as HTMLElement).dataset.filter || null;
+      applyPortfolioFilter(activePortfolioFilter === filter ? null : filter);
+    });
+  });
+
+  // Skill item clicks
+  document.querySelectorAll('.portfolio-skill-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const filter = (item as HTMLElement).dataset.filter || null;
+      applyPortfolioFilter(activePortfolioFilter === filter ? null : filter);
+
+      // Scroll to experience
+      document.getElementById('portfolio-experience')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>

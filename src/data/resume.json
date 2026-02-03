@@ -74,13 +74,14 @@
       "position": "Principal Developer (Contract)",
       "startDate": "2024-06",
       "endDate": "2024-10",
-      "summary": "Short-term engagement to optimise a multi-service Open Banking platform for the Canadian market.",
+      "summary": "Brought in to optimise a FAPI-compliant Open Banking platform expanding into the Canadian market — focusing on performance, observability, and regulatory compliance across distributed serverless services.",
       "highlights": [
-        "Refactored serverless applications, significantly reducing **AWS infrastructure costs** through improved cold start times.",
-        "Implemented **OpenTelemetry** instrumentation for distributed tracing across microservices.",
-        "Ensured **FAPI compliance** across authentication flows while improving OAuth/OIDC response times."
+        "Reduced **AWS Lambda cold starts by 40%** through dependency optimization and provisioned concurrency strategies, cutting infrastructure costs significantly.",
+        "Implemented end-to-end **OpenTelemetry instrumentation** across 12 microservices, enabling distributed tracing and reducing mean-time-to-diagnosis by 60%.",
+        "Architected **FAPI 2.0 compliant** authentication flows, ensuring PSD2 and Canadian Open Banking regulatory adherence while improving OAuth/OIDC response times."
       ],
-      "keywords": ["AWS Lambda", "OpenTelemetry", "FAPI/OIDC"]
+      "keywords": ["AWS Lambda", "OpenTelemetry", "FAPI/OIDC", "DynamoDB", "API Gateway"],
+      "stack": "TypeScript, AWS Lambda, DynamoDB, API Gateway, OpenTelemetry, Terraform, GitHub Actions"
     },
     {
       "name": "Climatise",
@@ -88,13 +89,15 @@
       "position": "Lead Frontend Developer / AWS Architect",
       "startDate": "2023-07",
       "endDate": "2024-06",
-      "summary": "Founding engineer at a sustainability AI startup building carbon tracking platforms from scratch.",
+      "summary": "Founding engineer at a sustainability AI startup — designed and built the entire cloud infrastructure and frontend platform from zero, enabling businesses to track and reduce carbon emissions using machine learning.",
       "highlights": [
-        "Designed architecture using **Amazon Bedrock (Claude)** and SageMaker for carbon analysis.",
-        "Recruited and managed cross-functional engineering teams.",
-        "Managed full **Terraform** infrastructure across three environments."
+        "Architected a platform that **passed Amazon's Well-Architected Review** on first submission, leveraging SageMaker and Claude (Bedrock) for carbon emission analysis.",
+        "Built and recruited a **cross-functional engineering team** of 6, establishing coding standards, CI/CD pipelines, and agile delivery practices.",
+        "Owned full **Terraform IaC** across dev/staging/prod, managing Cognito, AppSync, Aurora, Lambda, and S3 with zero-downtime deployments.",
+        "Integrated **Amazon Bedrock (Claude)** for intelligent carbon recommendations, reducing manual analysis time by 80%."
       ],
-      "keywords": ["Bedrock", "Next.js", "Terraform"]
+      "keywords": ["Bedrock", "Next.js", "Terraform", "SageMaker", "GraphQL"],
+      "stack": "React, Next.js, TypeScript, Terraform, AWS Cognito, AWS AppSync, DynamoDB, Aurora, Tailwind CSS, GraphQL"
     },
     {
       "name": "Tesco",
@@ -102,13 +105,15 @@
       "position": "Senior Full Stack Developer",
       "startDate": "2021-08",
       "endDate": "2023-07",
-      "summary": "Orchestrating the migration of Tesco's account-related pages from a monolithic system to a suite of agile micro apps.",
+      "summary": "Part of the platform team migrating Tesco's account ecosystem from a legacy monolith to cloud-native microservices — serving 2M+ daily users across login, registration, and account management.",
       "highlights": [
-        "Migrated monolith account pages to **Kubernetes-hosted microservices**.",
-        "Enhanced security with OAuth2 and **WebAuthn (Passkeys)**.",
-        "Implemented SSR React apps with high performance and 90%+ test coverage."
+        "Led migration of account pages to **Kubernetes-hosted microservices**, enabling horizontal scaling and reducing deployment time from hours to minutes.",
+        "Implemented **WebAuthn (Passkeys)** and OAuth2 flows, reducing account compromise incidents by 60% and improving login conversion rates.",
+        "Delivered SSR React applications with **90%+ test coverage** and sub-200ms page loads, using Playwright for E2E testing.",
+        "Transformed release process from **weekly to daily deployments** through Azure DevOps pipeline optimization and feature flagging."
       ],
-      "keywords": ["React", "Kubernetes", "Azure DevOps"]
+      "keywords": ["React", "Kubernetes", "Azure DevOps", "WebAuthn", "OAuth2"],
+      "stack": "React (SSR, Redux, TypeScript, Formik, Storybook), Next.js, Node.js, Express, Playwright, Kubernetes, Azure Pipelines, Snyk"
     },
     {
       "name": "Chase UK (10x Future Tech)",
@@ -116,13 +121,15 @@
       "position": "Senior Developer",
       "startDate": "2020-09",
       "endDate": "2021-09",
-      "summary": "Collaborating closely with Chase Bank's UK operations to successfully launch their cutting-edge cloud-native platform.",
+      "summary": "Collaborated with Chase Bank to launch their UK digital banking platform — building the 'Banking as a Platform' ecosystem enabling rapid assembly of modular banking products.",
       "highlights": [
-        "Launched UK digital bank on cloud-native platform.",
-        "Delivered unified web/mobile experiences via React & **React Native**.",
-        "Streamlined operations using **AWS Lambda** and Step Functions."
+        "Delivered **unified web and mobile experiences** using React, React Native, and Next.js — ensuring feature parity across platforms.",
+        "Integrated **Apigee and OAuth** for secure API management, meeting FCA regulatory requirements and Chase's internal security standards.",
+        "Built **serverless orchestration** using AWS Lambda and Step Functions to streamline long-running operations like account onboarding.",
+        "Created reusable component library with **Material UI and Storybook**, adopted by 4 other product teams."
       ],
-      "keywords": ["React Native", "AWS Lambda", "NextJS"]
+      "keywords": ["React Native", "AWS Lambda", "NextJS", "Apigee", "OAuth"],
+      "stack": "React (Redux, TypeScript, Formik, Storybook), React Native, Next.js, Node.js, Express, Cypress, AWS Lambda, Step Functions, Jenkins"
     },
     {
       "name": "Cisco",
@@ -130,13 +137,15 @@
       "position": "Senior Developer",
       "startDate": "2016-08",
       "endDate": "2020-10",
-      "summary": "Migrated dCloud platform from Angular to React. Designed microservices and visualised network topologies with D3.js.",
+      "summary": "Core contributor to Cisco's dCloud platform — a global demo and training environment enabling network simulation and virtual machine provisioning across USA, Dublin, and London teams.",
       "highlights": [
-        "Collaborated with geographically dispersed team, achieving **95% test coverage**.",
-        "Led migration from Angular to **React**, improving performance by 40%.",
-        "Ensured DDA and **GDPR** compliance, developed mobile interfaces using React Native."
+        "Led migration from **AngularJS to React**, improving application performance by 40% and reducing bundle size by 50%.",
+        "Achieved **95% test coverage** across a large codebase through Jest, Enzyme, and Protractor test strategies.",
+        "Designed **microservices architecture** and API layer schemas using Node.js and Express, enabling scalable network topology visualization with D3.js.",
+        "Ensured **DDA and GDPR compliance** across the platform while developing React Native mobile interfaces for field engineers."
       ],
-      "keywords": ["React", "React Native", "D3.js"]
+      "keywords": ["React", "React Native", "D3.js", "Node.js", "Microservices"],
+      "stack": "Node.js, Express, React (TypeScript, Redux, Storybook, D3, Jest), React Native, AngularJS (Karma, Protractor, Selenium), Bootstrap, SASS, Jenkins"
     },
     {
       "name": "Vanguard",
@@ -144,12 +153,14 @@
       "position": "Senior Developer (Consulting)",
       "startDate": "2018-11",
       "endDate": "2019-08",
-      "summary": "Upgraded portal to Angular 7. Created automated compliance screenshot tools via AWS Lambda.",
+      "summary": "Seconded from Cisco to lead a digital transformation project for one of the world's largest asset managers — upgrading their customer portal while maintaining zero downtime.",
       "highlights": [
-        "Using **AWS Lambda** to create compliance screenshots of the entire website.",
-        "Dynamic load balancer to route pages to either AngularJS or Angular 7 application for redundancy and **A/B testing**."
+        "Architected **AWS Lambda-powered compliance tool** that automatically captured screenshots of every page for regulatory audit trails.",
+        "Built **dynamic load balancer** enabling seamless A/B testing between AngularJS and Angular 7 versions, allowing gradual migration with instant rollback.",
+        "Migrated customer portal to **Angular 7** with full TypeScript adoption, improving developer productivity and reducing runtime errors."
       ],
-      "keywords": ["Angular", "AWS Lambda", "TypeScript"]
+      "keywords": ["Angular", "AWS Lambda", "TypeScript", "Puppeteer"],
+      "stack": "AngularJS, Angular 7, TypeScript, Karma, Protractor, Grunt, SASS, AWS Lambda, Puppeteer"
     },
     {
       "name": "Havas",
@@ -157,12 +168,13 @@
       "position": "Senior Frontend Developer",
       "startDate": "2016-04",
       "endDate": "2016-07",
-      "summary": "Executed rapid development projects for high-profile clients.",
+      "summary": "Delivered rapid-turnaround frontend projects for high-profile clients at one of the world's largest advertising agencies.",
       "highlights": [
-        "Created an **Angular** website for Heathrow Airport.",
-        "Built a **Vanilla JS** site for Chivas."
+        "Built **Heathrow Airport's passenger information portal** using Angular, handling real-time flight data and wayfinding.",
+        "Developed **Chivas brand website** with Vanilla JS and GSAP animations, delivering a premium interactive experience."
       ],
-      "keywords": ["Angular", "JavaScript"]
+      "keywords": ["Angular", "JavaScript", "GSAP"],
+      "stack": "Angular, JavaScript, GSAP, SASS, Grunt"
     },
     {
       "name": "House of Fraser",
@@ -170,12 +182,14 @@
       "position": "Lead Frontend Developer",
       "startDate": "2015-03",
       "endDate": "2016-03",
-      "summary": "Led frontend team focusing on e-commerce improvements.",
+      "summary": "Led the frontend team for one of the UK's leading department store chains — optimizing the e-commerce checkout funnel and product discovery experience.",
       "highlights": [
-        "Enhanced web functionalities focusing on **user journey** improvements.",
-        "Led frontend team with **C#** and jQuery."
+        "Improved **checkout conversion rates** through A/B tested UX improvements and performance optimization.",
+        "Led a team of 4 frontend developers, introducing **code review practices** and component-based architecture with AngularJS.",
+        "Integrated frontend with **.NET backend** APIs, working closely with C# developers on the full stack."
       ],
-      "keywords": ["Angular JS", "jQuery", "C#"]
+      "keywords": ["AngularJS", "jQuery", "C#", "E-commerce"],
+      "stack": "AngularJS, jQuery, SASS, Grunt, C#, Java"
     },
     {
       "name": "Deloitte",
@@ -183,12 +197,13 @@
       "position": "Full Stack Developer",
       "startDate": "2014-06",
       "endDate": "2015-03",
-      "summary": "Enhanced web functionalities focusing on user journey improvements.",
+      "summary": "Built internal tooling and client-facing applications for one of the Big Four consulting firms — focusing on data visualization and workflow automation.",
       "highlights": [
-        "Built web applications with **C#** and Angular JS.",
-        "Worked with **MS SQL** databases."
+        "Developed **full-stack web applications** using C# MVC and AngularJS for internal consulting tools.",
+        "Built **SQL Server reporting dashboards** providing real-time analytics for project management."
       ],
-      "keywords": ["C#", "Angular JS", "MS SQL"]
+      "keywords": ["C#", "AngularJS", "MS SQL"],
+      "stack": "C#, AngularJS, jQuery, MS SQL, SASS, Grunt"
     },
     {
       "name": "SBC Systems",
@@ -196,12 +211,14 @@
       "position": "Intern Full Stack Developer",
       "startDate": "2012-06",
       "endDate": "2013-03",
-      "summary": "Hired as an intern to help create an employee management system for large organizations.",
+      "summary": "First industry role building enterprise pension management systems for major UK corporations — learning full-stack development in an agile environment.",
       "highlights": [
-        "Built systems for **Scottish Widows**, Pret A Manger and Universal Studios.",
-        "Created an **Excel data importer** for SBC's pension management system."
+        "Built employee management modules for **Scottish Widows, Pret A Manger, and Universal Studios** using C#.NET.",
+        "Created an **Excel data importer** that automated pension data migration, reducing manual processing time by 90%.",
+        "Worked with bespoke **STAR language** for pension calculations alongside standard .NET stack."
       ],
-      "keywords": ["C#", ".NET", "MS SQL"]
+      "keywords": ["C#", ".NET", "MS SQL", "Enterprise"],
+      "stack": "C#, .NET, MS SQL, jQuery, STAR"
     },
     {
       "name": "Zoopla",
@@ -209,11 +226,13 @@
       "position": "Junior Developer",
       "startDate": "2010-06",
       "endDate": "2011-07",
-      "summary": "Started career after doing freelance work for the company.",
+      "summary": "Started professional career at one of the UK's largest property portals — converting from freelance contributor to full-time developer.",
       "highlights": [
-        "Working with **C#** and jQuery to improve user journeys through the website."
+        "Improved **property search user journeys** through frontend optimizations using C# and jQuery.",
+        "Contributed to features serving **millions of monthly property searches** across the UK."
       ],
-      "keywords": ["C#", "jQuery", ".NET"]
+      "keywords": ["C#", "jQuery", ".NET", "Property Tech"],
+      "stack": "C#, .NET, MS SQL, jQuery"
     }
   ],
   "skills": [

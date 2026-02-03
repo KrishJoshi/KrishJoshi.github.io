@@ -13,9 +13,10 @@ import Certifications from '../components/Certifications.astro';
 import Experience from '../components/Experience.astro';
 import Footer from '../components/Footer.astro';
 
-// Portfolio view components
+// Interactive view components
 import PortfolioHeader from '../components/PortfolioHeader.astro';
 import Philosophy from '../components/Philosophy.astro';
+import PortfolioSkills from '../components/PortfolioSkills.astro';
 import PortfolioExperience from '../components/PortfolioExperience.astro';
 
 import resume from '../data/resume.json';
@@ -24,11 +25,16 @@ const { basics, philosophy, achievements, work, skills, education, certificates 
 ---
 
 <Layout title={`${basics.name} | ${basics.label}`}>
+  <!-- Skip link for keyboard users -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-1/2 focus:-translate-x-1/2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:outline-none">
+    Skip to main content
+  </a>
+
   <ThemeToggle />
   <ViewToggle />
 
-  <!-- Classic CV View -->
-  <div id="classic-view" class="max-w-[900px] mx-auto px-6 py-10">
+  <!-- Printable CV View (hidden by default) -->
+  <div id="classic-view" class="hidden max-w-[900px] mx-auto px-6 py-10">
     <Header
       name={basics.name}
       label={basics.label}
@@ -59,8 +65,9 @@ const { basics, philosophy, achievements, work, skills, education, certificates 
     <Footer location={basics.location} />
   </div>
 
-  <!-- Portfolio View -->
-  <div id="portfolio-view" class="hidden max-w-7xl mx-auto px-4 py-8 lg:py-16">
+  <!-- Interactive View (default) -->
+  <main id="main-content">
+  <div id="portfolio-view" class="max-w-7xl mx-auto px-4 py-8 lg:py-16">
     <!-- Header row: Hero (8 cols) + Status Card (4 cols) -->
     <PortfolioHeader
       name={basics.name}
@@ -79,50 +86,57 @@ const { basics, philosophy, achievements, work, skills, education, certificates 
       principles={philosophy.principles}
     />
 
+    <!-- Skills with filtering -->
+    <PortfolioSkills skills={skills} />
+
     <!-- Experience section -->
     <PortfolioExperience work={work} />
 
     <!-- Education & Certs in portfolio style -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-      <div class="bento-card p-6">
+      <section class="bento-card p-6" aria-labelledby="education-heading">
         <div class="flex items-center gap-2 mb-4">
-          <span class="material-symbols-outlined text-indigo-400">school</span>
-          <h3 class="text-lg font-bold text-white">Education</h3>
+          <span class="material-symbols-outlined text-indigo-400" aria-hidden="true">school</span>
+          <h2 id="education-heading" class="text-lg font-bold text-white">Education</h2>
         </div>
-        {education.map((edu: any) => (
-          <div class="flex items-center gap-4 mb-4 last:mb-0">
-            <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center">
-              <span class="material-symbols-outlined text-slate-400">account_balance</span>
-            </div>
-            <div>
-              <div class="font-bold text-white text-sm">{edu.institution}</div>
-              <div class="text-xs text-slate-400">{edu.studyType} {edu.area} {edu.score ? `(${edu.score})` : ''}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+        <ul role="list" aria-label="Educational qualifications">
+          {education.map((edu: any) => (
+            <li class="flex items-center gap-4 mb-4 last:mb-0">
+              <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center" aria-hidden="true">
+                <span class="material-symbols-outlined text-slate-400">account_balance</span>
+              </div>
+              <div>
+                <div class="font-bold text-white text-sm">{edu.institution}</div>
+                <div class="text-xs text-slate-400">{edu.studyType} {edu.area} {edu.score ? `(${edu.score})` : ''}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      <div class="bento-card p-6">
+      <section class="bento-card p-6" aria-labelledby="certifications-heading">
         <div class="flex items-center gap-2 mb-4">
-          <span class="material-symbols-outlined text-indigo-400">workspace_premium</span>
-          <h3 class="text-lg font-bold text-white">Certifications</h3>
+          <span class="material-symbols-outlined text-indigo-400" aria-hidden="true">workspace_premium</span>
+          <h2 id="certifications-heading" class="text-lg font-bold text-white">Certifications</h2>
         </div>
-        {certificates.map((cert: any) => (
-          <div class="flex items-center gap-4 mb-4 last:mb-0">
-            <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center">
-              <span class="material-symbols-outlined text-emerald-400">{cert.icon || 'verified'}</span>
-            </div>
-            <div>
-              <div class="font-bold text-white text-sm">{cert.name}</div>
-              <div class="text-xs text-slate-400">{cert.issuer} • {cert.date}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+        <ul role="list" aria-label="Professional certifications">
+          {certificates.map((cert: any) => (
+            <li class="flex items-center gap-4 mb-4 last:mb-0">
+              <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center" aria-hidden="true">
+                <span class="material-symbols-outlined text-emerald-400">{cert.icon || 'verified'}</span>
+              </div>
+              <div>
+                <div class="font-bold text-white text-sm">{cert.name}</div>
+                <div class="text-xs text-slate-400">{cert.issuer} • {cert.date}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
 
     <!-- Portfolio Footer -->
-    <footer class="mt-16 pt-8 border-t border-slate-700/50">
+    <footer class="mt-16 pt-8 border-t border-slate-700/50" role="contentinfo">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-widest text-slate-500 uppercase">
         <span>&copy; {new Date().getFullYear()} {basics.name}</span>
         <span>Built with Astro + Tailwind</span>
@@ -130,4 +144,5 @@ const { basics, philosophy, achievements, work, skills, education, certificates 
       </div>
     </footer>
   </div>
+  </main>
 </Layout>

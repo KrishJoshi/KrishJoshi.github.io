@@ -16,13 +16,13 @@ const { statement, principles } = Astro.props;
 const [before, after] = statement.split('hardened infrastructure');
 ---
 
-<section class="bento-card p-8 overflow-hidden mb-6">
+<section class="bento-card p-8 overflow-hidden mb-6" aria-labelledby="philosophy-heading">
   <div class="grid md:grid-cols-2 gap-12 items-center">
     <div>
-      <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm">architecture</span>
+      <h2 id="philosophy-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm" aria-hidden="true">architecture</span>
         The Architectural Philosophy
-      </h3>
+      </h2>
       <p class="text-2xl font-light text-white leading-relaxed mb-8">
         "{before}<span class="text-indigo-400 font-medium">hardened infrastructure</span>{after}"
       </p>
@@ -38,7 +38,7 @@ const [before, after] = statement.split('hardened infrastructure');
     </div>
 
     <!-- Interactive Architecture Diagram -->
-    <div class="relative bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl h-[340px] overflow-hidden" id="arch-diagram">
+    <figure class="relative bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl h-[340px] overflow-hidden" id="arch-diagram" role="img" aria-label="Interactive cloud architecture diagram showing CloudFront, API Gateway, Lambda, EKS, DynamoDB, Bedrock AI, and Redis components with animated data flow">
       <!-- Animated grid background -->
       <div class="absolute inset-0 opacity-[0.07]">
         <svg class="w-full h-full" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
@@ -225,9 +225,9 @@ const [before, after] = statement.split('hardened infrastructure');
       </div>
 
       <!-- Tooltip -->
-      <div id="arch-tooltip" class="absolute hidden px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white shadow-xl pointer-events-none max-w-[180px]" style="z-index: 50;">
+      <div id="arch-tooltip" class="absolute hidden px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs text-white shadow-xl pointer-events-none max-w-[180px]" style="z-index: 50;" role="tooltip">
       </div>
-    </div>
+    </figure>
   </div>
 </section>
 

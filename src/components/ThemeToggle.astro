@@ -1,13 +1,50 @@
 ---
-// Fixed buttons for theme toggle and print
+// Fixed buttons for theme toggle and print - repositioned for mobile
 ---
 
-<div class="fixed top-6 right-6 flex gap-2 z-50 no-print">
-  <button id="theme-toggle" class="w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-md border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-    <span class="material-symbols-outlined text-xl dark:hidden">dark_mode</span>
-    <span class="material-symbols-outlined text-xl hidden dark:block">light_mode</span>
+<div class="fixed top-4 right-4 md:top-6 md:right-6 flex gap-2 z-50 no-print">
+  <button
+    id="theme-toggle"
+    class="theme-toggle-btn w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    aria-label="Toggle dark mode"
+    type="button"
+  >
+    <!-- Show moon icon in light mode (click to go dark) -->
+    <span id="theme-icon-dark" class="material-symbols-outlined text-lg md:text-xl theme-icon-moon" aria-hidden="true">dark_mode</span>
+    <!-- Show sun icon in dark mode (click to go light) -->
+    <span id="theme-icon-light" class="material-symbols-outlined text-lg md:text-xl theme-icon-sun" aria-hidden="true">light_mode</span>
   </button>
-  <button id="print-btn" class="w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-md border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-    <span class="material-symbols-outlined text-xl">print</span>
+  <button
+    id="print-btn"
+    class="theme-toggle-btn w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    aria-label="Print CV"
+    type="button"
+  >
+    <span class="material-symbols-outlined text-lg md:text-xl" aria-hidden="true">print</span>
   </button>
 </div>
+
+<style is:global>
+  /* Theme toggle button dark mode styles */
+  .dark .theme-toggle-btn {
+    background-color: #1f2937 !important;
+    border-color: #374151 !important;
+  }
+  .dark .theme-toggle-btn:hover {
+    background-color: #374151 !important;
+  }
+
+  /* Icon visibility based on dark mode */
+  .theme-icon-moon {
+    display: block !important;
+  }
+  .theme-icon-sun {
+    display: none !important;
+  }
+  .dark .theme-icon-moon {
+    display: none !important;
+  }
+  .dark .theme-icon-sun {
+    display: block !important;
+  }
+</style>

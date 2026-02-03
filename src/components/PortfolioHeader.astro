@@ -23,7 +23,7 @@ const github = profiles.find(p => p.network === 'GitHub');
 
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
   <!-- Hero Section -->
-  <header class="bento-card md:col-span-8 p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden">
+  <header class="bento-card md:col-span-8 p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden" aria-labelledby="hero-name">
     <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
       <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
         <defs>
@@ -36,11 +36,11 @@ const github = profiles.find(p => p.network === 'GitHub');
     </div>
     <div class="relative z-10">
       <div class="flex items-center gap-4 mb-6">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20" aria-hidden="true">
           <span class="material-symbols-outlined text-white text-3xl">terminal</span>
         </div>
         <div>
-          <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter">{name}</h1>
+          <h1 id="hero-name" class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter">{name}</h1>
         </div>
       </div>
       <p class="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-2xl font-light">
@@ -56,29 +56,29 @@ const github = profiles.find(p => p.network === 'GitHub');
         </div>
         <span class="font-mono text-xs text-slate-400">{availability}</span>
       </div>
-      <div class="flex gap-4">
+      <nav class="flex gap-4" aria-label="Social links">
         {github && (
-          <a href={github.url} target="_blank" class="text-slate-400 hover:text-white transition-colors">
-            <span class="material-symbols-outlined">code</span>
+          <a href={github.url} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" aria-label="GitHub profile">
+            <span class="material-symbols-outlined" aria-hidden="true">code</span>
           </a>
         )}
         {linkedIn && (
-          <a href={linkedIn.url} target="_blank" class="text-slate-400 hover:text-white transition-colors">
-            <span class="material-symbols-outlined">person</span>
+          <a href={linkedIn.url} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" aria-label="LinkedIn profile">
+            <span class="material-symbols-outlined" aria-hidden="true">person</span>
           </a>
         )}
-        <a href={`mailto:${email}`} class="text-slate-400 hover:text-white transition-colors">
-          <span class="material-symbols-outlined">mail</span>
+        <a href={`mailto:${email}`} class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" aria-label="Send email">
+          <span class="material-symbols-outlined" aria-hidden="true">mail</span>
         </a>
-      </div>
+      </nav>
     </div>
   </header>
 
   <!-- Status Card -->
-  <section class="bento-card md:col-span-4 p-8 flex flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-950">
+  <section class="bento-card md:col-span-4 p-8 flex flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-950" aria-labelledby="status-heading">
     <div class="space-y-6">
       <div class="flex justify-between items-start">
-        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Status</h3>
+        <h2 id="status-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Status</h2>
         <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">ONLINE</span>
       </div>
 
@@ -107,7 +107,7 @@ const github = profiles.find(p => p.network === 'GitHub');
       </div>
     </div>
 
-    <a href={`mailto:${email}`} class="w-full group relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-white rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-800 transition-all">
+    <a href={`mailto:${email}`} class="w-full group relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-white rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-500 focus:ring-offset-2 transition-all" aria-label="Get in touch via email">
       <span class="relative w-full px-5 py-3 transition-all ease-in duration-75 bg-slate-950 rounded-lg group-hover:bg-opacity-0 text-center">
         Get In Touch
       </span>

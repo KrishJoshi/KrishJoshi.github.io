@@ -8,6 +8,7 @@ interface Job {
   summary?: string;
   highlights?: string[];
   keywords?: string[];
+  stack?: string;
 }
 
 interface Skill {
@@ -81,11 +82,10 @@ const secondaryJobs = work.slice(5, 11);
             ))}
           </ul>
         )}
-        {job.keywords?.length && (
-          <div class="flex flex-wrap gap-2">
-            {job.keywords.map(k => (
-              <span class="border border-gray-900 dark:border-gray-400 px-3 py-1 text-xs font-bold uppercase">{k}</span>
-            ))}
+        {job.stack && (
+          <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500">Stack: </span>
+            <span class="text-xs text-gray-600 dark:text-gray-400">{job.stack}</span>
           </div>
         )}
       </article>

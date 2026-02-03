@@ -1,7 +1,35 @@
 @import "tailwindcss";
 
+/* Enable dark mode based on .dark class instead of prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Screen reader only - for skip links */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus,
+.focus\:not-sr-only:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 /* Custom styles */
@@ -44,7 +72,7 @@
   color: #1a1a1a;
 }
 
-/* Portfolio mode styles */
+/* Interactive mode styles - Dark theme (default) */
 body.portfolio-mode {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   min-height: 100vh;
@@ -56,7 +84,7 @@ body.portfolio-mode .section-box {
   backdrop-filter: blur(12px);
 }
 
-/* Bento card style for portfolio */
+/* Bento card style - Dark theme */
 .bento-card {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(71, 85, 105, 0.5);
@@ -67,6 +95,111 @@ body.portfolio-mode .section-box {
 
 .bento-card:hover {
   border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Interactive mode - Light theme (Gemini-inspired) */
+.dark body.portfolio-mode,
+body.portfolio-mode:not(.light-interactive) {
+  /* Keep dark gradient for dark mode */
+}
+
+:root:not(.dark) body.portfolio-mode {
+  background: #ffffff;
+}
+
+:root:not(.dark) .bento-card {
+  background: #ffffff;
+  border: 1.5px solid #1a1a1a;
+  box-shadow: none;
+}
+
+:root:not(.dark) .bento-card:hover {
+  border-color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+:root:not(.dark) body.portfolio-mode .section-box {
+  background: #ffffff;
+  border-color: #1a1a1a;
+}
+
+/* Light mode text colors for interactive view */
+:root:not(.dark) body.portfolio-mode .text-white {
+  color: #1a1a1a;
+}
+
+:root:not(.dark) body.portfolio-mode .text-slate-300,
+:root:not(.dark) body.portfolio-mode .text-slate-400 {
+  color: #4b5563;
+}
+
+:root:not(.dark) body.portfolio-mode .text-slate-500 {
+  color: #6b7280;
+}
+
+:root:not(.dark) body.portfolio-mode .text-indigo-400 {
+  color: #4f46e5;
+}
+
+:root:not(.dark) body.portfolio-mode .text-emerald-400,
+:root:not(.dark) body.portfolio-mode .text-emerald-500 {
+  color: #059669;
+}
+
+:root:not(.dark) body.portfolio-mode .bg-slate-800,
+:root:not(.dark) body.portfolio-mode .bg-slate-900 {
+  background: #f3f4f6;
+}
+
+:root:not(.dark) body.portfolio-mode .bg-slate-900\/30,
+:root:not(.dark) body.portfolio-mode .bg-slate-900\/20 {
+  background: #ffffff;
+}
+
+:root:not(.dark) body.portfolio-mode .bg-slate-950 {
+  background: #f9fafb;
+}
+
+:root:not(.dark) body.portfolio-mode .border-slate-700,
+:root:not(.dark) body.portfolio-mode .border-slate-800 {
+  border-color: #e5e7eb;
+}
+
+:root:not(.dark) body.portfolio-mode .border-l-emerald-500 {
+  border-left-color: #059669;
+}
+
+/* Light mode gradient button */
+:root:not(.dark) body.portfolio-mode .from-indigo-500 {
+  --tw-gradient-from: #4f46e5;
+}
+
+:root:not(.dark) body.portfolio-mode .to-purple-500,
+:root:not(.dark) body.portfolio-mode .to-purple-600 {
+  --tw-gradient-to: #7c3aed;
+}
+
+/* Light mode filter buttons */
+:root:not(.dark) body.portfolio-mode .portfolio-filter-btn {
+  border-color: #d1d5db;
+  color: #4b5563;
+}
+
+:root:not(.dark) body.portfolio-mode .portfolio-filter-btn:hover {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: rgba(79, 70, 229, 0.5);
+}
+
+:root:not(.dark) body.portfolio-mode .portfolio-filter-btn.bg-indigo-500\/30 {
+  background: rgba(79, 70, 229, 0.15);
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+/* Architecture diagram light mode */
+:root:not(.dark) body.portfolio-mode #arch-diagram {
+  background: #f9fafb;
+  border-color: #1a1a1a;
 }
 
 /* Portfolio animations */
