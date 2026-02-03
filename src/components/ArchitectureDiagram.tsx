@@ -132,16 +132,16 @@ export default function ArchitectureDiagram() {
         </svg>
       </div>
 
-      {/* Architecture Name */}
+      {/* Architecture Name - morphing text */}
       <div className="absolute top-4 left-4 z-20">
         <div className="px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-700 backdrop-blur-sm">
           <AnimatePresence mode="wait">
             <motion.span
               key={currentArch.name}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
               className="text-[10px] font-mono text-slate-400"
             >
               {currentArch.name}
@@ -150,25 +150,11 @@ export default function ArchitectureDiagram() {
         </div>
       </div>
 
-      {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {architectures.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all cursor-pointer hover:scale-125 ${
-              index === currentIndex ? 'bg-indigo-500' : 'bg-slate-600'
-            }`}
-            aria-label={`View ${architectures[index].name}`}
-          />
-        ))}
-      </div>
-
       {/* SVG Container for Connections */}
-      <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ zIndex: 1 }}>
         <defs>
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feGaussianBlur stdDeviation="0.5" result="blur"/>
             <feMerge>
               <feMergeNode in="blur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -176,29 +162,34 @@ export default function ArchitectureDiagram() {
           </filter>
         </defs>
 
-        <AnimatePresence mode="wait">
-          {currentArch.connections.map((conn, i) => {
-            const from = getNodePosition(conn.from, currentArch);
-            const to = getNodePosition(conn.to, currentArch);
+        {/* Connections that morph */}
+        {currentArch.connections.map((conn, i) => {
+          const from = getNodePosition(conn.from, currentArch);
+          const to = getNodePosition(conn.to, currentArch);
 
-            return (
-              <motion.line
-                key={`${currentArch.name}-${conn.from}-${conn.to}`}
-                x1={`${from.x}%`}
-                y1={`${from.y}%`}
-                x2={`${to.x}%`}
-                y2={`${to.y}%`}
-                stroke={conn.color}
-                strokeWidth="2"
-                strokeDasharray={conn.dashed ? "4,4" : "0"}
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.5 }}
-                exit={{ pathLength: 0, opacity: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-              />
-            );
-          })}
-        </AnimatePresence>
+          return (
+            <motion.line
+              key={`conn-${i}`}
+              x1={from.x}
+              y1={from.y}
+              x2={to.x}
+              y2={to.y}
+              stroke={conn.color}
+              strokeWidth="0.3"
+              strokeDasharray={conn.dashed ? "1,1" : "0"}
+              initial={false}
+              animate={{
+                x1: from.x,
+                y1: from.y,
+                x2: to.x,
+                y2: to.y,
+                stroke: conn.color,
+                opacity: 0.5
+              }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            />
+          );
+        })}
 
         {/* Animated Particles */}
         <g filter="url(#glow)">
@@ -208,13 +199,13 @@ export default function ArchitectureDiagram() {
 
             return (
               <motion.circle
-                key={`particle-${currentArch.name}-${i}`}
-                r="3"
+                key={`particle-${i}`}
+                r="0.4"
                 fill={conn.color}
-                initial={{ cx: `${from.x}%`, cy: `${from.y}%`, opacity: 0 }}
+                initial={false}
                 animate={{
-                  cx: [`${from.x}%`, `${to.x}%`, `${from.x}%`],
-                  cy: [`${from.y}%`, `${to.y}%`, `${from.y}%`],
+                  cx: [from.x, to.x, from.x],
+                  cy: [from.y, to.y, from.y],
                   opacity: [0, 0.8, 0]
                 }}
                 transition={{
@@ -229,53 +220,61 @@ export default function ArchitectureDiagram() {
         </g>
       </svg>
 
-      {/* Nodes */}
+      {/* Nodes - morphing positions and text */}
       <div className="absolute inset-0" style={{ zIndex: 2 }}>
-        <AnimatePresence mode="wait">
-          {currentArch.nodes.map((node, i) => (
-            <motion.div
-              key={`${currentArch.name}-${node.id}`}
-              className="absolute"
+        {currentArch.nodes.map((node, i) => (
+          <motion.div
+            key={`node-${i}`}
+            className="absolute"
+            initial={false}
+            animate={{
+              left: `${node.x}%`,
+              top: `${node.y}%`,
+            }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            style={{
+              transform: 'translate(-50%, -50%)'
+            }}
+          >
+            <div
+              className={`px-3 py-2 rounded-lg backdrop-blur-sm border ${
+                node.icon === 'dashed' ? 'border-dashed' : ''
+              } hover:scale-105 transition-transform cursor-pointer`}
               style={{
-                left: `${node.x}%`,
-                top: `${node.y}%`,
-                transform: 'translate(-50%, -50%)'
+                backgroundColor: `${node.color}20`,
+                borderColor: `${node.color}80`,
+                minWidth: node.sublabel ? '72px' : '60px'
               }}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
             >
-              <div
-                className={`px-3 py-2 rounded-lg backdrop-blur-sm border ${
-                  node.icon === 'dashed' ? 'border-dashed' : ''
-                } hover:scale-105 transition-transform cursor-pointer`}
-                style={{
-                  backgroundColor: `${node.color}20`,
-                  borderColor: `${node.color}80`,
-                  minWidth: node.sublabel ? '72px' : '60px'
-                }}
-              >
-                <div className="text-center">
-                  <div
-                    className="text-[10px] font-mono font-semibold whitespace-nowrap"
-                    style={{ color: node.color }}
+              <div className="text-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${node.id}-label`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
                   >
-                    {node.label}
-                  </div>
-                  {node.sublabel && (
                     <div
-                      className="text-[7px] font-mono mt-0.5 whitespace-nowrap"
-                      style={{ color: `${node.color}b3` }}
+                      className="text-[10px] font-mono font-semibold whitespace-nowrap"
+                      style={{ color: node.color }}
                     >
-                      {node.sublabel}
+                      {node.label}
                     </div>
-                  )}
-                </div>
+                    {node.sublabel && (
+                      <div
+                        className="text-[7px] font-mono mt-0.5 whitespace-nowrap"
+                        style={{ color: `${node.color}b3` }}
+                      >
+                        {node.sublabel}
+                      </div>
+                    )}
+                  </motion.div>
+                </AnimatePresence>
               </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
