@@ -6,12 +6,20 @@ interface Achievement {
 
 interface Props {
   achievements: Achievement[];
+  summary: string;
 }
 
-const { achievements } = Astro.props;
+const { achievements, summary } = Astro.props;
 
 // Icons for each achievement type
 const icons = ['verified_user', 'account_balance', 'speed', 'rocket_launch'];
+
+// Bold specific keywords in summary
+const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA', 'Claude', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco'];
+let formattedSummary = summary;
+boldWords.forEach(word => {
+  formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);
+});
 ---
 
 <section class="bento-card p-6 mb-6" aria-labelledby="achievements-heading">
@@ -20,6 +28,10 @@ const icons = ['verified_user', 'account_balance', 'speed', 'rocket_launch'];
     <h2 id="achievements-heading" class="text-lg font-bold text-white">Key Achievements</h2>
   </div>
 
+  <!-- Profile Summary -->
+  <div class="mb-6 text-sm text-slate-300 leading-relaxed" set:html={formattedSummary} />
+
+  <!-- Achievement Cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {achievements.map((a, i) => (
       <div class="achievement-card p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-indigo-500/30 transition-all">

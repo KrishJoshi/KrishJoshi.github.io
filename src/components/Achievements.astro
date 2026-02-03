@@ -6,11 +6,19 @@ interface Achievement {
 
 interface Props {
   achievements: Achievement[];
+  summary: string;
 }
 
-const { achievements } = Astro.props;
+const { achievements, summary } = Astro.props;
 
 const icons = ['verified_user', 'account_balance', 'speed', 'rocket_launch'];
+
+// Bold specific keywords in summary
+const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA', 'Claude', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco'];
+let formattedSummary = summary;
+boldWords.forEach(word => {
+  formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);
+});
 ---
 
 <section class="section-box p-6 flex flex-col">
@@ -18,6 +26,11 @@ const icons = ['verified_user', 'account_balance', 'speed', 'rocket_launch'];
     <span class="material-symbols-outlined text-2xl">emoji_events</span>
     KEY ACHIEVEMENTS
   </h2>
+
+  <!-- Profile Summary -->
+  <div class="mb-6 text-xs text-gray-700 dark:text-gray-300 leading-relaxed" set:html={formattedSummary} />
+
+  <!-- Achievement Cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
     {achievements.map((a, i) => (
       <div class="achievement-card flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">

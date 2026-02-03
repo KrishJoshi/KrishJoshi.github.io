@@ -7,7 +7,6 @@ import ViewToggle from '../components/ViewToggle.astro';
 import Header from '../components/Header.astro';
 import Achievements from '../components/Achievements.astro';
 import Skills from '../components/Skills.astro';
-import Profile from '../components/Profile.astro';
 import Education from '../components/Education.astro';
 import Certifications from '../components/Certifications.astro';
 import Experience from '../components/Experience.astro';
@@ -22,7 +21,7 @@ import PortfolioExperience from '../components/PortfolioExperience.astro';
 
 import resume from '../data/resume.json';
 
-const { basics, philosophy, achievements, work, skills, education, certificates } = resume;
+const { basics, philosophy, achievements, achievementSummary, work, skills, education, certificates } = resume;
 ---
 
 <Layout title={`${basics.name} | ${basics.label}`}>
@@ -45,19 +44,16 @@ const { basics, philosophy, achievements, work, skills, education, certificates 
       profiles={basics.profiles}
     />
 
-    <!-- Row 1: Leadership & Technical Ecosystem -->
+    <!-- Row 1: Achievements & Technical Ecosystem -->
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 mb-6 items-stretch">
-      <Achievements achievements={achievements} />
+      <Achievements achievements={achievements} summary={achievementSummary} />
       <Skills skills={skills} />
     </div>
 
-    <!-- Row 2: Profile & Education/Certifications -->
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 mb-6 items-stretch">
-      <Profile summary={basics.summary} />
-      <div class="space-y-6">
-        <Education education={education} />
-        <Certifications certificates={certificates} />
-      </div>
+    <!-- Row 2: Education & Certifications -->
+    <div class="grid grid-cols-1 lg:grid-cols-[320px_320px] gap-6 mb-6">
+      <Education education={education} />
+      <Certifications certificates={certificates} />
     </div>
 
     <!-- Row 3: Experience -->
@@ -88,7 +84,7 @@ const { basics, philosophy, achievements, work, skills, education, certificates 
     />
 
     <!-- Key Achievements -->
-    <PortfolioAchievements achievements={achievements} />
+    <PortfolioAchievements achievements={achievements} summary={achievementSummary} />
 
     <!-- Skills with filtering -->
     <PortfolioSkills skills={skills} />
