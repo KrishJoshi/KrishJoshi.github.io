@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# Post-commit hook: Build and deploy to gh-pages
+# This runs after a commit to main, builds the site locally,
+# and pushes the built version to gh-pages branch
+
+# Get the current branch
+current_branch=$(git symbolic-ref --short HEAD)
+
+# Only run on main branch commits
+if [ "$current_branch" != "main" ]; then
+    exit 0
+fi
+
+echo "🔨 Building site locally..."
+
+# Build the site
+npm run build
+
+if [ $? -ne 0 ]; then
+    echo "❌ Build failed! Deployment skipped."
+    exit 0  # Don't fail the commit
+fi
+
+echo "✅ Build successful!"
+echo "📦 Deploying to gh-pages..."
+
+# Save current directory
+current_dir=$(pwd)
+
+# Create a temporary directory for deployment
+tmp_dir=$(mktemp -d)
+
+# Copy dist contents to temp dir
+cp -r dist/* "$tmp_dir/"
+
+# Add CNAME file for custom domain
+echo "krishj.com" > "$tmp_dir/CNAME"
+
+# Add .nojekyll to disable Jekyll processing (allows _astro directory)
+touch "$tmp_dir/.nojekyll"
+
+# Deploy to gh-pages
+cd "$tmp_dir"
+git init
+git checkout -b gh-pages
+git add -A
+git commit -m "Deploy: $(date '+%Y-%m-%d %H:%M:%S')"
+git remote add origin $(cd "$current_dir" && git remote get-url origin)
+git push -f origin gh-pages
+
+cd "$current_dir"
+rm -rf "$tmp_dir"
+
+echo "✅ Deployed to gh-pages!"
+echo ""
