@@ -70,7 +70,7 @@ const earlierJobs = work.slice(5);
                   <img
                     src={companyLogos[job.name]}
                     alt={`${job.name} logo`}
-                    class="absolute inset-0 w-full h-full object-contain p-1 group-hover/card:opacity-0 transition-opacity duration-500"
+                    class={`absolute inset-0 w-full h-full object-contain group-hover/card:opacity-0 transition-opacity duration-500 ${job.name === 'CaspianOne Open Banking' ? 'p-0' : job.name === 'Climatise' ? 'p-3' : 'p-2'}`}
                   />
                 )}
                 {/* Project Image - hidden by default, expands on hover to card height */}
@@ -136,7 +136,7 @@ const earlierJobs = work.slice(5);
                       <img
                         src={companyLogos[job.name]}
                         alt={`${job.name} logo`}
-                        class="absolute inset-0 w-full h-full object-contain p-1.5 grayscale group-hover/card:opacity-0 transition-opacity duration-500"
+                        class={`absolute inset-0 w-full h-full object-contain grayscale group-hover/card:opacity-0 transition-opacity duration-500 ${job.name === 'CaspianOne Open Banking' ? 'p-0' : job.name === 'Climatise' ? 'p-3' : 'p-2'}`}
                       />
                     )}
                     {projectImages[job.name] && (
