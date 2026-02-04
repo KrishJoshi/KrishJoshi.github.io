@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Chase octagon logo with dark fill -->
-  <path fill="#1a1a1a" d="M100 10c-24.8 0-45 20.2-45 45v45H10v45h45v45c0 24.8 20.2 45 45 45s45-20.2 45-45v-45h45v-45h-45V55c0-24.8-20.2-45-45-45zm28 73l-28 28-28-28 12-12 16 16 16-16 12 12z"/>
-  <text x="100" y="110" font-size="24" font-weight="bold" text-anchor="middle" fill="#1a1a1a">CHASE</text>
-</svg>
