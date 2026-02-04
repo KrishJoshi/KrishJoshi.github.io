@@ -10,7 +10,7 @@
     "url": "https://krishj.com",
     "availability": "Available for Contract Roles",
     "currentFocus": "Identity & Cloud Infrastructure",
-    "summary": "Principal engineer with 14+ years of experience ranging from early-stage startups to FTSE 100 enterprises, specializing in bridging the gap between complex infrastructure and seamless product experiences. My philosophy is simple: developer experience is infrastructure. I build robust ecosystems—leveraging AWS, Serverless, and Identity standards (OAuth/FAPI)—that allow teams to move fast without breaking things. Currently pioneering AI-assisted engineering workflows and architecting the next generation of regulated Open Banking platforms. I lead from the front, establishing strong testing cultures (Playwright/Jest) and architectural standards that turn engineering teams into delivery engines.",
+    "summary": "Principal engineer with 14+ years of experience ranging from early-stage startups to FTSE 100 enterprises, specializing in bridging the gap between complex infrastructure and seamless product experiences. My philosophy is simple: developer experience is infrastructure. I build robust ecosystems\u2014leveraging AWS, Serverless, and Identity standards (OAuth/FAPI)\u2014that allow teams to move fast without breaking things. Currently pioneering AI-assisted engineering workflows and architecting the next generation of regulated Open Banking platforms. I lead from the front, establishing strong testing cultures (Playwright/Jest) and architectural standards that turn engineering teams into delivery engines.",
     "location": {
       "city": "London",
       "countryCode": "UK"
@@ -29,7 +29,7 @@
     ]
   },
   "philosophy": {
-    "statement": "I architect systems that protect their own integrity—enforcing quality through strict type safety, autonomous testing, and self-healing pipelines that empower teams to ship production code with zero anxiety.",
+    "statement": "I architect systems that protect their own integrity\u2014enforcing quality through strict type safety, autonomous testing, and self-healing pipelines that empower teams to ship production code with zero anxiety.",
     "principles": [
       {
         "icon": "bolt",
@@ -78,7 +78,7 @@
       ]
     }
   ],
-  "achievementSummary": "Principal engineer with 14+ years building digital products at scale—from early-stage startups to FTSE 100 enterprises. Specialized in React, React Native, and AWS, with deep expertise in identity/authentication systems (WebAuthn/Passkeys, OAuth2/OIDC, MFA). Recently integrating AI-assisted development tools (Claude, Amazon Bedrock) into engineering workflows.",
+  "achievementSummary": "Principal engineer with 14+ years building digital products at scale\u2014from early-stage startups to FTSE 100 enterprises. Specialized in React, React Native, and AWS, with deep expertise in identity/authentication systems (WebAuthn/Passkeys, OAuth2/OIDC, MFA). Recently integrating AI-assisted development tools (Claude, Amazon Bedrock) into engineering workflows.",
   "achievements": [
     {
       "title": "GenAI & AWS Architecture (Climatise)",
@@ -102,7 +102,7 @@
       "name": "CaspianOne Open Banking",
       "location": "London",
       "position": "Principal Developer (Contract)",
-      "startDate": "2025-06",
+      "startDate": "2025-07",
       "endDate": "",
       "summary": "Joined immediately post-launch to evolve a monolithic PoC into a scalable, production-hardened platform for regulated banking clients. Focused on architectural cleanup, performance optimization, and regulatory compliance in collaboration with the infrastructure team.",
       "highlights": [
@@ -124,12 +124,12 @@
     {
       "name": "Climatise",
       "location": "London",
-      "position": "Lead Founding Engineer / Cloud Architect",
+      "position": "Principal Engineer (React, Lambda, Python)",
       "startDate": "2023-07",
-      "endDate": "2024-06",
+      "endDate": "2025-06",
       "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the cloud infrastructure and backend services from zero to launch.",
       "highlights": [
-        "Designed and built the **entire cloud estate on AWS**, achieving **Amazon Well-Architected status on the first submission**—a rare feat for an early-stage startup.",
+        "Designed and built the **entire cloud estate on AWS**, achieving **Amazon Well-Architected status on the first submission**\u2014a rare feat for an early-stage startup.",
         "Pioneered the integration of **Generative AI (Amazon Bedrock/Claude)** into the core workflow, enabling businesses to automatically track and analyze carbon emissions via unstructured data.",
         "Established a strict **IaC-first workflow using Terraform** to manage Cognito, Aurora, and Lambda across dev/staging/prod environments, ensuring **zero configuration drift**.",
         "Built and led a **team of 5 senior engineers**, establishing code review standards, CI/CD practices, and architectural patterns that enabled the team to ship with confidence."
@@ -146,9 +146,9 @@
     {
       "name": "Tesco",
       "location": "London",
-      "position": "Senior Full Stack Developer (Identity Platform)",
-      "startDate": "2021-08",
-      "endDate": "2023-07",
+      "position": "Senior Developer (React, Node)",
+      "startDate": "2021-09",
+      "endDate": "2024-06",
       "summary": "Core member of the Identity & Account platform team, safeguarding the digital front door for 2M+ daily users. Focused on modernizing legacy authentication flows and improving system reliability at massive scale.",
       "highlights": [
         "Implemented **WebAuthn (Passkeys) and modern MFA flows**, reducing **account compromise incidents by 60%** and significantly improving login conversion rates.",
@@ -167,9 +167,9 @@
       "stack": "TypeScript, Node.js, React (SSR), Kubernetes, Azure Pipelines, Playwright, Jest"
     },
     {
-      "name": "Chase UK (10x Future Tech)",
+      "name": "10x Future Technologies",
       "location": "London",
-      "position": "Senior Developer",
+      "position": "Senior Javascript Developer (React, Node)",
       "startDate": "2020-09",
       "endDate": "2021-09",
       "summary": "Part of the 'Banking as a Platform' team, building the ecosystem that enabled Chase Bank to launch in the UK. Built modular banking products that could be assembled rapidly.",
@@ -193,7 +193,7 @@
       "location": "London",
       "position": "Senior Developer",
       "startDate": "2016-08",
-      "endDate": "2020-10",
+      "endDate": "2020-09",
       "summary": "Core contributor to Cisco's dCloud platform, a global environment enabling network simulation for engineers worldwide. Worked alongside the lead frontend architect to drive a massive modernization effort.",
       "highlights": [
         "Co-led the strategic **migration from Angular 1 to modern React architecture**, executed with **zero downtime** and minimal user disruption, setting the standard for future Cisco web projects.",
@@ -236,9 +236,9 @@
     {
       "name": "Havas",
       "location": "London",
-      "position": "Senior Frontend Developer",
+      "position": "Senior Javascript Developer (AngularJS, Node.JS)",
       "startDate": "2016-04",
-      "endDate": "2016-07",
+      "endDate": "2016-08",
       "summary": "Delivered rapid-turnaround digital transformation projects for high-profile clients.",
       "highlights": [
         "Built **Heathrow Airport's passenger information portal** using Angular, handling real-time flight data and wayfinding.",
@@ -255,7 +255,7 @@
       "name": "House of Fraser",
       "location": "London",
       "position": "Lead Frontend Developer",
-      "startDate": "2015-03",
+      "startDate": "2015-10",
       "endDate": "2016-03",
       "summary": "Led the frontend team optimizing checkout funnels for high-traffic e-commerce.",
       "highlights": [
@@ -272,9 +272,27 @@
       "stack": "AngularJS, jQuery, SASS, Grunt, C#, Java"
     },
     {
+      "name": "House of Fraser",
+      "location": "London",
+      "position": "Frontend Developer",
+      "startDate": "2015-03",
+      "endDate": "2015-08",
+      "summary": "Frontend developer for e-commerce platform before promotion to lead role.",
+      "highlights": [
+        "Built responsive product pages and checkout flows using AngularJS.",
+        "Collaborated with UX team on A/B testing initiatives."
+      ],
+      "keywords": [
+        "AngularJS",
+        "jQuery",
+        "E-commerce"
+      ],
+      "stack": "AngularJS, jQuery, SASS, Grunt"
+    },
+    {
       "name": "Deloitte",
       "location": "London",
-      "position": "Full Stack Developer",
+      "position": "Full-stack Developer",
       "startDate": "2014-06",
       "endDate": "2015-03",
       "summary": "Built internal tooling and data visualization dashboards.",
@@ -292,7 +310,7 @@
     {
       "name": "SBC Systems",
       "location": "London",
-      "position": "Intern Full Stack Developer",
+      "position": "Full-stack Developer",
       "startDate": "2012-06",
       "endDate": "2013-03",
       "summary": "First industry role building enterprise pension management systems for major UK corporations.",
@@ -315,7 +333,7 @@
       "position": "Junior Developer",
       "startDate": "2010-06",
       "endDate": "2011-07",
-      "summary": "Started professional career at one of the UK's largest property portals.",
+      "summary": "Started professional career at a property tech startup.",
       "highlights": [
         "Improved **property search user journeys** through frontend optimizations using C# and jQuery.",
         "Contributed to features serving **millions of monthly property searches** across the UK."
