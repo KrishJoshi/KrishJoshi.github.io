@@ -26,11 +26,21 @@ function formatDateRange(start: string, end?: string): string {
   return `${formatDate(start)} — ${formatDate(end)}`;
 }
 
-// Company logo mapping
+// Company logos (grayscale by default, shown in small circle)
 const companyLogos: Record<string, string> = {
+  'CaspianOne Open Banking': '/portfolio/logos/caspianone.png',
+  'Climatise': '/portfolio/logos/climatise.svg',
+  'Tesco': '/portfolio/logos/tesco.png',
+  'Chase UK': '/portfolio/logos/chase.png',
+  'Cisco': '/portfolio/logos/cisco.png',
+};
+
+// Project images (full-color, shown on card hover as background)
+const projectImages: Record<string, string> = {
   'CaspianOne Open Banking': '/portfolio/caspianone.png',
   'Climatise': '/portfolio/climatise.png',
   'Tesco': '/portfolio/tesco.png',
+  'Chase UK': '/portfolio/chaseuk.png',
   'Cisco': '/portfolio/cisco.png',
 };
 
@@ -48,52 +58,64 @@ const earlierJobs = work.slice(5);
   <!-- Recent/Featured roles -->
   <div class="space-y-4 mb-8" role="list" aria-label="Featured work experience">
     {recentJobs.map(job => (
-      <article class="portfolio-job-card border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-6 bg-gray-50 dark:bg-slate-900/30 backdrop-blur border-l-2 transition-all duration-300" data-company={job.name} role="listitem">
-        <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
-          <div class="flex items-center gap-3">
-            {companyLogos[job.name] && (
-              <button
-                class="company-logo-btn w-12 h-12 rounded-full overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 hover:ring-indigo-500 transition-all cursor-pointer flex-shrink-0 group"
-                data-logo={companyLogos[job.name]}
-                aria-label={`View ${job.name} logo`}
-              >
-                <img
-                  src={companyLogos[job.name]}
-                  alt={`${job.name} logo`}
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                />
-              </button>
-            )}
-            <h3 class="text-xl font-black text-gray-900 dark:text-white">{job.name}</h3>
+      <article class="portfolio-job-card group relative border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-6 bg-gray-50 dark:bg-slate-900/30 backdrop-blur border-l-2 transition-all duration-300 overflow-hidden cursor-pointer" data-company={job.name} role="listitem">
+
+        {/* Project image overlay - hidden by default, shown on hover */}
+        {projectImages[job.name] && (
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl overflow-hidden z-0">
+            <img
+              src={projectImages[job.name]}
+              alt={`${job.name} project`}
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/70 to-gray-900/50"></div>
           </div>
-          <span class="px-3 py-1 bg-gray-200 dark:bg-slate-800 text-gray-600 dark:text-slate-400 rounded-full text-xs font-semibold">
-            {formatDateRange(job.startDate, job.endDate)}
-          </span>
+        )}
+
+        {/* Content - always visible, elevated above overlay */}
+        <div class="relative z-10">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
+            <div class="flex items-center gap-3">
+              {companyLogos[job.name] && (
+                <div class="w-12 h-12 rounded-full overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 group-hover:ring-white/50 transition-all flex-shrink-0">
+                  <img
+                    src={companyLogos[job.name]}
+                    alt={`${job.name} logo`}
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  />
+                </div>
+              )}
+              <h3 class="text-xl font-black text-gray-900 dark:text-white group-hover:text-white transition-colors duration-300">{job.name}</h3>
+            </div>
+            <span class="px-3 py-1 bg-gray-200 dark:bg-slate-800 group-hover:bg-white/20 text-gray-600 dark:text-slate-400 group-hover:text-white rounded-full text-xs font-semibold transition-all duration-300">
+              {formatDateRange(job.startDate, job.endDate)}
+            </span>
+          </div>
+
+          <p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 group-hover:text-emerald-300 mb-3 transition-colors duration-300">{job.position}</p>
+
+          {job.summary && (
+            <p class="text-gray-900 dark:text-slate-300 group-hover:text-white text-sm mb-4 leading-relaxed transition-colors duration-300">{job.summary}</p>
+          )}
+
+          {job.highlights && job.highlights.length > 0 && (
+            <ul class="space-y-2 mb-4">
+              {job.highlights.map(h => (
+                <li class="flex items-start gap-2 text-sm text-gray-900 dark:text-slate-300 group-hover:text-white transition-colors duration-300">
+                  <span class="text-emerald-600 dark:text-emerald-500 group-hover:text-emerald-300 mt-0.5 transition-colors duration-300">◦</span>
+                  <span set:html={h.replace(/\*\*([^*]+)\*\*/g, '<span class="text-indigo-600 dark:text-indigo-400 group-hover:text-indigo-300 font-medium">$1</span>')} />
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {job.stack && (
+            <div class="mt-4 pt-4 border-t border-gray-200 dark:border-slate-700/50 group-hover:border-white/30 transition-colors duration-300">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-slate-500 group-hover:text-white/70 transition-colors duration-300">Stack: </span>
+              <span class="text-xs text-gray-600 dark:text-slate-400 group-hover:text-white/90 transition-colors duration-300">{job.stack}</span>
+            </div>
+          )}
         </div>
-
-        <p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 mb-3">{job.position}</p>
-
-        {job.summary && (
-          <p class="text-gray-900 dark:text-slate-300 text-sm mb-4 leading-relaxed">{job.summary}</p>
-        )}
-
-        {job.highlights && job.highlights.length > 0 && (
-          <ul class="space-y-2 mb-4">
-            {job.highlights.map(h => (
-              <li class="flex items-start gap-2 text-sm text-gray-900 dark:text-slate-300">
-                <span class="text-emerald-600 dark:text-emerald-500 mt-0.5">◦</span>
-                <span set:html={h.replace(/\*\*([^*]+)\*\*/g, '<span class="text-indigo-600 dark:text-indigo-400 font-medium">$1</span>')} />
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {job.stack && (
-          <div class="mt-4 pt-4 border-t border-gray-200 dark:border-slate-700/50">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-slate-500">Stack: </span>
-            <span class="text-xs text-gray-600 dark:text-slate-400">{job.stack}</span>
-          </div>
-        )}
       </article>
     ))}
   </div>
@@ -104,21 +126,47 @@ const earlierJobs = work.slice(5);
       <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-slate-500 mb-4">Earlier Experience</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4" role="list" aria-label="Earlier work experience">
         {earlierJobs.map(job => (
-          <article class="portfolio-job-card border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-5 bg-gray-50 dark:bg-slate-900/20 backdrop-blur transition-all duration-300" data-company={job.name} role="listitem">
-            <div class="flex items-start justify-between gap-2 mb-1">
-              <h4 class="font-bold text-gray-900 dark:text-white text-sm">{job.name}</h4>
-              <span class="text-[10px] text-gray-500 dark:text-slate-500 whitespace-nowrap">{job.startDate.split('-')[0]}</span>
-            </div>
-            <p class="text-xs font-semibold text-emerald-600 dark:text-emerald-400/80 mb-2">{job.position}</p>
-            {job.summary && (
-              <p class="text-xs text-gray-600 dark:text-slate-400 mb-3 leading-relaxed">{job.summary}</p>
-            )}
-            {job.stack && (
-              <div class="pt-2 border-t border-gray-200 dark:border-slate-700/30">
-                <span class="text-[9px] font-bold uppercase tracking-wider text-gray-500 dark:text-slate-500">Stack: </span>
-                <span class="text-[10px] text-gray-500 dark:text-slate-500">{job.stack}</span>
+          <article class="portfolio-job-card group relative border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-5 bg-gray-50 dark:bg-slate-900/20 backdrop-blur transition-all duration-300 overflow-hidden cursor-pointer" data-company={job.name} role="listitem">
+
+            {/* Project image overlay */}
+            {projectImages[job.name] && (
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl overflow-hidden z-0">
+                <img
+                  src={projectImages[job.name]}
+                  alt={`${job.name} project`}
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/70 to-gray-900/50"></div>
               </div>
             )}
+
+            <div class="relative z-10">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <div class="flex items-center gap-2">
+                  {companyLogos[job.name] && (
+                    <div class="w-8 h-8 rounded-full overflow-hidden ring-1 ring-gray-200 dark:ring-slate-700 group-hover:ring-white/50 transition-all flex-shrink-0">
+                      <img
+                        src={companyLogos[job.name]}
+                        alt={`${job.name} logo`}
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      />
+                    </div>
+                  )}
+                  <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-white text-sm transition-colors duration-300">{job.name}</h4>
+                </div>
+                <span class="text-[10px] text-gray-500 dark:text-slate-500 group-hover:text-white/70 whitespace-nowrap transition-colors duration-300">{job.startDate.split('-')[0]}</span>
+              </div>
+              <p class="text-xs font-semibold text-emerald-600 dark:text-emerald-400/80 group-hover:text-emerald-300 mb-2 transition-colors duration-300">{job.position}</p>
+              {job.summary && (
+                <p class="text-xs text-gray-600 dark:text-slate-400 group-hover:text-white/90 mb-3 leading-relaxed transition-colors duration-300">{job.summary}</p>
+              )}
+              {job.stack && (
+                <div class="pt-2 border-t border-gray-200 dark:border-slate-700/30 group-hover:border-white/30 transition-colors duration-300">
+                  <span class="text-[9px] font-bold uppercase tracking-wider text-gray-500 dark:text-slate-500 group-hover:text-white/70 transition-colors duration-300">Stack: </span>
+                  <span class="text-[10px] text-gray-500 dark:text-slate-500 group-hover:text-white/90 transition-colors duration-300">{job.stack}</span>
+                </div>
+              )}
+            </div>
           </article>
         ))}
       </div>
@@ -126,71 +174,3 @@ const earlierJobs = work.slice(5);
   )}
 </section>
 
-<!-- Logo Modal -->
-<div id="logo-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <button
-    id="modal-close"
-    class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
-    aria-label="Close modal"
-  >
-    <span class="material-symbols-outlined text-4xl">close</span>
-  </button>
-  <div class="max-w-4xl w-full">
-    <img
-      id="modal-image"
-      src=""
-      alt=""
-      class="w-full h-auto rounded-2xl shadow-2xl"
-    />
-  </div>
-</div>
-
-<script>
-  function initializeLogoModal() {
-    const modal = document.getElementById('logo-modal');
-    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
-    const modalClose = document.getElementById('modal-close');
-    const logoButtons = document.querySelectorAll('.company-logo-btn');
-
-    logoButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const logoSrc = btn.getAttribute('data-logo');
-        const companyName = btn.getAttribute('aria-label')?.replace('View ', '').replace(' logo', '');
-        if (logoSrc && modal) {
-          modalImage.src = logoSrc;
-          modalImage.alt = `${companyName} logo`;
-          modal.classList.remove('hidden');
-          modal.classList.add('flex');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    });
-
-    const closeModal = () => {
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }
-    };
-
-    modalClose?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-        closeModal();
-      }
-    });
-  }
-
-  // Initialize on load
-  initializeLogoModal();
-
-  // Re-initialize on view switches (for Astro islands/transitions)
-  document.addEventListener('astro:page-load', initializeLogoModal);
-</script>
