@@ -26,6 +26,14 @@ function formatDateRange(start: string, end?: string): string {
   return `${formatDate(start)} — ${formatDate(end)}`;
 }
 
+// Company logo mapping
+const companyLogos: Record<string, string> = {
+  'CaspianOne Open Banking': '/portfolio/caspianone.png',
+  'Climatise': '/portfolio/climatise.png',
+  'Tesco': '/portfolio/tesco.png',
+  'Cisco': '/portfolio/cisco.png',
+};
+
 // Split into recent (featured) and earlier roles - show more featured jobs now we have rich descriptions
 const recentJobs = work.slice(0, 5);
 const earlierJobs = work.slice(5);
@@ -41,8 +49,23 @@ const earlierJobs = work.slice(5);
   <div class="space-y-4 mb-8" role="list" aria-label="Featured work experience">
     {recentJobs.map(job => (
       <article class="portfolio-job-card border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-6 bg-gray-50 dark:bg-slate-900/30 backdrop-blur border-l-2 transition-all duration-300" data-company={job.name} role="listitem">
-        <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
-          <h3 class="text-xl font-black text-gray-900 dark:text-white">{job.name}</h3>
+        <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
+          <div class="flex items-center gap-3">
+            {companyLogos[job.name] && (
+              <button
+                class="company-logo-btn w-12 h-12 rounded-full overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 hover:ring-indigo-500 transition-all cursor-pointer flex-shrink-0 group"
+                data-logo={companyLogos[job.name]}
+                aria-label={`View ${job.name} logo`}
+              >
+                <img
+                  src={companyLogos[job.name]}
+                  alt={`${job.name} logo`}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                />
+              </button>
+            )}
+            <h3 class="text-xl font-black text-gray-900 dark:text-white">{job.name}</h3>
+          </div>
           <span class="px-3 py-1 bg-gray-200 dark:bg-slate-800 text-gray-600 dark:text-slate-400 rounded-full text-xs font-semibold">
             {formatDateRange(job.startDate, job.endDate)}
           </span>
@@ -102,3 +125,72 @@ const earlierJobs = work.slice(5);
     </div>
   )}
 </section>
+
+<!-- Logo Modal -->
+<div id="logo-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <button
+    id="modal-close"
+    class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+    aria-label="Close modal"
+  >
+    <span class="material-symbols-outlined text-4xl">close</span>
+  </button>
+  <div class="max-w-4xl w-full">
+    <img
+      id="modal-image"
+      src=""
+      alt=""
+      class="w-full h-auto rounded-2xl shadow-2xl"
+    />
+  </div>
+</div>
+
+<script>
+  function initializeLogoModal() {
+    const modal = document.getElementById('logo-modal');
+    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+    const modalClose = document.getElementById('modal-close');
+    const logoButtons = document.querySelectorAll('.company-logo-btn');
+
+    logoButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const logoSrc = btn.getAttribute('data-logo');
+        const companyName = btn.getAttribute('aria-label')?.replace('View ', '').replace(' logo', '');
+        if (logoSrc && modal) {
+          modalImage.src = logoSrc;
+          modalImage.alt = `${companyName} logo`;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    const closeModal = () => {
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    };
+
+    modalClose?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  }
+
+  // Initialize on load
+  initializeLogoModal();
+
+  // Re-initialize on view switches (for Astro islands/transitions)
+  document.addEventListener('astro:page-load', initializeLogoModal);
+</script>

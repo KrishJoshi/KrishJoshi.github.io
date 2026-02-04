@@ -18,6 +18,7 @@ import Philosophy from '../components/Philosophy.astro';
 import PortfolioAchievements from '../components/PortfolioAchievements.astro';
 import PortfolioSkills from '../components/PortfolioSkills.astro';
 import PortfolioExperience from '../components/PortfolioExperience.astro';
+import OutsideWork from '../components/OutsideWork.astro';
 
 import resume from '../data/resume.json';
 
@@ -67,10 +68,11 @@ const educationImages: Record<string, string> = {
     <!-- Row 3: Experience -->
     <Experience work={work} skills={skills} />
 
-    <!-- Row 2: Education & Certifications -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+    <!-- Row 4: Education, Certifications & Outside Work -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
       <Education education={education} />
       <Certifications certificates={certificates} />
+      <OutsideWork />
     </div>
 
     <Footer location={basics.location} />
