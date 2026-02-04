@@ -63,7 +63,7 @@ const earlierJobs = work.slice(5);
           <div class="flex items-center gap-3">
             {(companyLogos[job.name] || projectImages[job.name]) && (
               <div
-                class="logo-image-container relative w-20 h-20 rounded-xl overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
+                class="logo-image-container relative w-20 h-20 rounded-full group-hover/card:rounded-xl overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
               >
                 {/* Company Logo - visible by default, fades out on hover */}
                 {companyLogos[job.name] && (
@@ -75,7 +75,7 @@ const earlierJobs = work.slice(5);
                 )}
                 {/* Project Image - hidden by default, expands on hover to card height */}
                 {projectImages[job.name] && (
-                  <div class="project-image-morph absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:rounded-2xl origin-center" style="will-change: transform, opacity;">
+                  <div class="project-image-morph absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-all duration-500 origin-center" style="will-change: transform, opacity;">
                     <img
                       src={projectImages[job.name]}
                       alt={`${job.name} project`}
@@ -130,7 +130,7 @@ const earlierJobs = work.slice(5);
               <div class="flex items-center gap-2">
                 {(companyLogos[job.name] || projectImages[job.name]) && (
                   <div
-                    class="logo-image-container relative w-16 h-16 rounded-lg overflow-hidden ring-1 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
+                    class="logo-image-container relative w-16 h-16 rounded-full group-hover/card:rounded-lg overflow-hidden ring-1 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
                   >
                     {companyLogos[job.name] && (
                       <img
@@ -140,7 +140,7 @@ const earlierJobs = work.slice(5);
                       />
                     )}
                     {projectImages[job.name] && (
-                      <div class="project-image-morph absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:rounded-lg origin-center" style="will-change: transform, opacity;">
+                      <div class="project-image-morph absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-all duration-500 origin-center" style="will-change: transform, opacity;">
                         <img
                           src={projectImages[job.name]}
                           alt={`${job.name} project`}
