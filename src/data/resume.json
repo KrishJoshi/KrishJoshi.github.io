@@ -3,14 +3,14 @@
   "basics": {
     "name": "Krish Joshi",
     "label": "Principal Engineer & Cloud Architect",
-    "headline": "Engineering systems that scale effortlessly",
-    "tagline": "Specializing in Cloud-Native Architectures, Identity/Authentication, and Distributed Systems.",
+    "headline": "I architect systems that are secure by design, scalable by default, and invisible to the user",
+    "tagline": "Building robust cloud ecosystems that allow teams to move fast without breaking things.",
     "email": "me@krishj.com",
     "phone": "+44 7794 438962",
     "url": "https://krishj.com",
     "availability": "Available for Contract Roles",
     "currentFocus": "Identity & Cloud Infrastructure",
-    "summary": "Principal engineer with 14+ years of hands-on experience building digital products at scale, from early-stage startups to FTSE 100 enterprises. My career has evolved from full-stack .NET development through to frontend architecture and cloud platform leadership, with deep expertise across the entire software delivery lifecycle. I specialise in React, React Native, and AWS, and have architected systems serving millions of daily users at companies like Tesco, Chase UK, and Cisco. I have significant experience with identity and authentication systems, having implemented WebAuthn/Passkeys, OAuth2/OIDC flows, and MFA platforms at enterprise scale. Recently, I've been at the forefront of integrating AI-assisted development tools—including Claude and Amazon Bedrock—into engineering workflows, dramatically accelerating delivery while maintaining enterprise-grade quality and security standards.",
+    "summary": "Principal engineer with 14+ years of experience ranging from early-stage startups to FTSE 100 enterprises, specializing in bridging the gap between complex infrastructure and seamless product experiences. My philosophy is simple: developer experience is infrastructure. I build robust ecosystems—leveraging AWS, Serverless, and Identity standards (OAuth/FAPI)—that allow teams to move fast without breaking things. Currently pioneering AI-assisted engineering workflows and architecting the next generation of regulated Open Banking platforms. I lead from the front, establishing strong testing cultures (Playwright/Jest) and architectural standards that turn engineering teams into delivery engines.",
     "location": {
       "city": "London",
       "countryCode": "UK"
@@ -29,7 +29,7 @@
     ]
   },
   "philosophy": {
-    "statement": "I build hardened infrastructure that behaves like living tissue—auto-scaling, self-healing, and observable at every layer.",
+    "statement": "I architect systems that protect their own integrity—enforcing quality through strict type safety, autonomous testing, and self-healing pipelines that empower teams to ship production code with zero anxiety.",
     "principles": [
       {
         "icon": "bolt",
@@ -60,8 +60,8 @@
       ]
     },
     {
-      "name": "Engineering Management",
-      "level": 88,
+      "name": "Engineering Leadership",
+      "level": 90,
       "skills": [
         "System Design",
         "SDLC",
@@ -89,12 +89,12 @@
       "description": "Delivered regulatory-compliant authentication flows for Open Banking, meeting strict PSD2, FAPI 2.0, and Canadian banking standards."
     },
     {
-      "title": "Monolith to Micro-Apps (Tesco)",
-      "description": "Orchestrated the migration of massive legacy systems to Kubernetes-based micro-apps. Enabled seamless scaling for 2M+ daily users and reduced deployment friction."
+      "title": "Identity Platform at Scale (Tesco)",
+      "description": "Safeguarded authentication services for 2M+ daily users. Achieved 90%+ test coverage and enabled daily deployments through comprehensive E2E testing."
     },
     {
       "title": "Global Platform Modernization (Cisco)",
-      "description": "Led the Angular-to-React migration for Cisco's global dCloud platform (4-year tenure), achieving 95% test coverage across distributed teams."
+      "description": "Co-led the Angular-to-React migration for Cisco's global dCloud platform (4-year tenure), achieving 95% test coverage and 40% performance improvement."
     }
   ],
   "work": [
@@ -103,12 +103,13 @@
       "location": "London",
       "position": "Principal Developer (Contract)",
       "startDate": "2024-06",
-      "endDate": "2024-10",
-      "summary": "Brought in to optimise a FAPI-compliant Open Banking platform expanding into the Canadian market — focusing on performance, observability, and regulatory compliance across distributed serverless services.",
+      "endDate": "",
+      "summary": "Joined immediately post-launch to evolve a monolithic PoC into a scalable, production-hardened platform for regulated banking clients. Focused on architectural cleanup, performance optimization, and regulatory compliance in collaboration with the infrastructure team.",
       "highlights": [
-        "Reduced **AWS Lambda cold starts by 40%** through dependency optimization and provisioned concurrency strategies, cutting infrastructure costs significantly.",
-        "Implemented end-to-end **OpenTelemetry instrumentation** across 12 microservices, enabling distributed tracing and reducing mean-time-to-diagnosis by 60%.",
-        "Architected **FAPI 2.0 compliant** authentication flows, ensuring PSD2 and Canadian Open Banking regulatory adherence while improving OAuth/OIDC response times."
+        "**Architectural Maturation:** Refactored legacy monolith into a maintainable distributed system, establishing coding standards and decoupling patterns that enabled safe, rapid iteration.",
+        "**Performance Engineering:** Resolved critical latency issues through dependency optimization and provisioned concurrency, reducing AWS Lambda cold starts by 40% and ensuring sub-second transaction response times.",
+        "**Observability:** Implemented end-to-end OpenTelemetry instrumentation across 12 microservices, reducing mean-time-to-diagnosis by 60% and enabling proactive monitoring.",
+        "**Regulatory Compliance:** Led FAPI 2.0/PSD2 authentication flows, serving as technical authority on OAuth2/OIDC security for Canadian and EU banking standards."
       ],
       "keywords": [
         "AWS Lambda",
@@ -123,15 +124,15 @@
     {
       "name": "Climatise",
       "location": "London",
-      "position": "Lead Engineer / AWS Architect",
+      "position": "Lead Founding Engineer / Cloud Architect",
       "startDate": "2023-07",
       "endDate": "2024-06",
-      "summary": "Founding engineer at a sustainability AI startup — designed and built the entire cloud infrastructure and backend services from zero, enabling businesses to track and reduce carbon emissions using machine learning.",
+      "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the cloud infrastructure and backend services from zero to launch.",
       "highlights": [
-        "Built **NestJS/TypeScript backend services** with REST APIs for carbon tracking, deployed on AWS Lambda with automated testing and CI/CD via GitHub Actions.",
-        "Architected a platform that **passed Amazon's Well-Architected Review** on first submission, leveraging SageMaker and Claude (Bedrock) for carbon emission analysis.",
-        "Owned full **Terraform IaC** across dev/staging/prod, managing Cognito (Auth), Aurora, Lambda, and DynamoDB with zero-downtime deployments.",
-        "Ran and maintained services in production including **database migrations**, CloudFormation updates, and vendor service integrations."
+        "**Zero to One Architecture:** Designed and built the entire cloud estate on AWS, achieving Amazon Well-Architected status on the first submission—a rare feat for an early-stage startup.",
+        "**AI Integration:** Pioneered the integration of Generative AI (Amazon Bedrock/Claude) into the core workflow, enabling businesses to automatically track and analyze carbon emissions via unstructured data.",
+        "**Infrastructure as Code:** Established a strict IaC-first workflow using Terraform to manage Cognito, Aurora, and Lambda across dev/staging/prod environments, ensuring zero configuration drift.",
+        "**Team Building:** Built and led a team of 5 senior engineers, establishing code review standards, CI/CD practices, and architectural patterns that enabled the team to ship with confidence."
       ],
       "keywords": [
         "NestJS",
@@ -145,15 +146,15 @@
     {
       "name": "Tesco",
       "location": "London",
-      "position": "Senior Full Stack Developer",
+      "position": "Senior Full Stack Developer (Identity Platform)",
       "startDate": "2021-08",
       "endDate": "2023-07",
-      "summary": "Part of the Identity & Account platform team — building and operating authentication services for 2M+ daily users across login, MFA, registration, and account management.",
+      "summary": "Core member of the Identity & Account platform team, safeguarding the digital front door for 2M+ daily users. Focused on modernizing legacy authentication flows and improving system reliability at massive scale.",
       "highlights": [
-        "Implemented **WebAuthn (Passkeys) and OAuth2/MFA flows**, reducing account compromise incidents by 60% and improving login conversion rates.",
-        "Built and operated **authentication microservices** on Kubernetes, including database migrations and production deployments.",
-        "Wrote **automated tests achieving 90%+ coverage** using Playwright for E2E and Jest for unit testing, improving reliability.",
-        "Transformed release process from **weekly to daily deployments** through CI/CD pipeline optimization and feature flagging."
+        "**Security & Usability:** Implemented WebAuthn (Passkeys) and modern MFA flows, reducing account compromise incidents by 60% and significantly improving login conversion rates.",
+        "**Platform Migration:** Orchestrated the migration of monolithic legacy systems to agile Kubernetes-based micro-apps, allowing for independent scaling and failure isolation.",
+        "**Testing Excellence:** Established comprehensive E2E testing with Playwright, achieving 90%+ coverage and enabling daily deployments through automated regression suites.",
+        "**CI/CD Optimization:** Transformed release process from weekly to daily deployments through pipeline optimization and feature flagging."
       ],
       "keywords": [
         "NextJS",
@@ -171,12 +172,12 @@
       "position": "Senior Developer",
       "startDate": "2020-09",
       "endDate": "2021-09",
-      "summary": "Collaborated with Chase Bank to launch their UK digital banking platform — building the 'Banking as a Platform' ecosystem enabling rapid assembly of modular banking products.",
+      "summary": "Part of the 'Banking as a Platform' team, building the ecosystem that enabled Chase Bank to launch in the UK. Built modular banking products that could be assembled rapidly.",
       "highlights": [
-        "Delivered **unified web and mobile experiences** using React, React Native, and Next.js — ensuring feature parity across platforms.",
-        "Integrated **Apigee and OAuth** for secure API management, meeting FCA regulatory requirements and Chase's internal security standards.",
-        "Built **serverless orchestration** using AWS Lambda and Step Functions to streamline long-running operations like account onboarding.",
-        "Created reusable component library with **Material UI and Storybook**, adopted by 4 other product teams."
+        "**Ecosystem Development:** Delivered unified web and mobile experiences using React and React Native, ensuring feature parity and code sharing between platforms to reduce developer overhead.",
+        "**Regulatory Security:** Integrated Apigee and OAuth for secure API management, ensuring our architecture met strict FCA regulatory requirements and internal banking security standards.",
+        "**Serverless Orchestration:** Built complex, long-running account onboarding workflows using AWS Step Functions, streamlining the customer journey from days to minutes.",
+        "**Component Library:** Created reusable component library with Material UI and Storybook, adopted by 4 other product teams."
       ],
       "keywords": [
         "React Native",
@@ -193,12 +194,12 @@
       "position": "Senior Developer",
       "startDate": "2016-08",
       "endDate": "2020-10",
-      "summary": "Core contributor to Cisco's dCloud platform — a global demo and training environment enabling network simulation and virtual machine provisioning across USA, Dublin, and London teams.",
+      "summary": "Core contributor to Cisco's dCloud platform, a global environment enabling network simulation for engineers worldwide. Worked alongside the lead frontend architect to drive a massive modernization effort.",
       "highlights": [
-        "Led migration from **AngularJS to React**, improving application performance by 40% and reducing bundle size by 50%.",
-        "Achieved **95% test coverage** across a large codebase through Jest, Enzyme, and Protractor test strategies.",
-        "Designed **microservices architecture** and API layer schemas using Node.js and Express, enabling scalable network topology visualization with D3.js.",
-        "Ensured **DDA and GDPR compliance** across the platform while developing React Native mobile interfaces for field engineers."
+        "**The Great Migration:** Co-led the strategic migration of the legacy Angular 1 platform to a modern React architecture, executed with zero downtime and minimal user disruption, setting the standard for future Cisco web projects.",
+        "**Performance Engineering:** Optimization work on the new stack improved application performance by 40% and reduced bundle sizes by 50%, directly improving the experience for users in low-bandwidth regions.",
+        "**Quality Assurance:** Driving force behind the testing strategy, achieving 95% coverage across a distributed codebase using Jest and Enzyme, establishing testing patterns adopted by the wider team.",
+        "**Microservices Design:** Designed the Node.js API layer schemas that enabled scalable network topology visualization, replacing static diagrams with interactive D3.js models."
       ],
       "keywords": [
         "React",
@@ -216,7 +217,7 @@
       "position": "Senior Developer (Consulting)",
       "startDate": "2018-11",
       "endDate": "2019-08",
-      "summary": "Seconded from Cisco to lead a digital transformation project for one of the world's largest asset managers — upgrading the European client portal in a highly regulated financial environment.",
+      "summary": "Seconded from Cisco to upgrade European client portals in a highly regulated financial environment.",
       "highlights": [
         "Delivered solutions in a **highly regulated financial services environment**, working closely with security and compliance stakeholders.",
         "Architected **AWS Lambda-powered compliance tool** for regulatory audit trails, ensuring FCA and MiFID II adherence.",
@@ -238,7 +239,7 @@
       "position": "Senior Frontend Developer",
       "startDate": "2016-04",
       "endDate": "2016-07",
-      "summary": "Delivered rapid-turnaround frontend projects for high-profile clients at one of the world's largest advertising agencies.",
+      "summary": "Delivered rapid-turnaround digital transformation projects for high-profile clients.",
       "highlights": [
         "Built **Heathrow Airport's passenger information portal** using Angular, handling real-time flight data and wayfinding.",
         "Developed **Chivas brand website** with Vanilla JS and GSAP animations, delivering a premium interactive experience."
@@ -256,7 +257,7 @@
       "position": "Lead Frontend Developer",
       "startDate": "2015-03",
       "endDate": "2016-03",
-      "summary": "Led the frontend team for one of the UK's leading department store chains — optimizing the e-commerce checkout funnel and product discovery experience.",
+      "summary": "Led the frontend team optimizing checkout funnels for high-traffic e-commerce.",
       "highlights": [
         "Improved **checkout conversion rates** through A/B tested UX improvements and performance optimization.",
         "Led a team of 4 frontend developers, introducing **code review practices** and component-based architecture with AngularJS.",
@@ -276,7 +277,7 @@
       "position": "Full Stack Developer",
       "startDate": "2014-06",
       "endDate": "2015-03",
-      "summary": "Built internal tooling and client-facing applications for one of the Big Four consulting firms — focusing on data visualization and workflow automation.",
+      "summary": "Built internal tooling and data visualization dashboards.",
       "highlights": [
         "Developed **full-stack web applications** using C# MVC and AngularJS for internal consulting tools.",
         "Built **SQL Server reporting dashboards** providing real-time analytics for project management."
@@ -294,7 +295,7 @@
       "position": "Intern Full Stack Developer",
       "startDate": "2012-06",
       "endDate": "2013-03",
-      "summary": "First industry role building enterprise pension management systems for major UK corporations — learning full-stack development in an agile environment.",
+      "summary": "First industry role building enterprise pension management systems for major UK corporations.",
       "highlights": [
         "Built employee management modules for **Scottish Widows, Pret A Manger, and Universal Studios** using C#.NET.",
         "Created an **Excel data importer** that automated pension data migration, reducing manual processing time by 90%.",
@@ -314,7 +315,7 @@
       "position": "Junior Developer",
       "startDate": "2010-06",
       "endDate": "2011-07",
-      "summary": "Started professional career at one of the UK's largest property portals — converting from freelance contributor to full-time developer.",
+      "summary": "Started professional career at one of the UK's largest property portals.",
       "highlights": [
         "Improved **property search user journeys** through frontend optimizations using C# and jQuery.",
         "Contributed to features serving **millions of monthly property searches** across the UK."
@@ -467,6 +468,6 @@
   "meta": {
     "theme": "elegant",
     "version": "1.0.0",
-    "lastModified": "2026-02-02"
+    "lastModified": "2026-02-04"
   }
 }
