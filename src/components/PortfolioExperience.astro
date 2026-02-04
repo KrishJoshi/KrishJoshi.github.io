@@ -58,27 +58,24 @@ const earlierJobs = work.slice(5);
   <!-- Recent/Featured roles -->
   <div class="space-y-4 mb-8" role="list" aria-label="Featured work experience">
     {recentJobs.map(job => (
-      <article class="portfolio-job-card group border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-6 bg-gray-50 dark:bg-slate-900/30 backdrop-blur border-l-2 transition-all duration-300" data-company={job.name} role="listitem">
-        <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
+      <article class="portfolio-job-card group/card cursor-pointer border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-6 bg-gray-50 dark:bg-slate-900/30 backdrop-blur border-l-2 transition-all duration-300 hover:border-indigo-500/30 relative overflow-hidden" data-company={job.name} data-project-image={projectImages[job.name]} role="listitem">
+        <div class="flex flex-wrap items-start justify-between gap-3 mb-2 relative z-10">
           <div class="flex items-center gap-3">
             {(companyLogos[job.name] || projectImages[job.name]) && (
-              <button
-                class="logo-image-container relative w-20 h-20 rounded-xl overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 hover:ring-indigo-500 transition-all flex-shrink-0 cursor-pointer group/logo"
-                data-project-image={projectImages[job.name]}
-                data-company-name={job.name}
-                aria-label={`View ${job.name} project`}
+              <div
+                class="logo-image-container relative w-20 h-20 rounded-xl overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
               >
                 {/* Company Logo - visible by default, fades out on hover */}
                 {companyLogos[job.name] && (
                   <img
                     src={companyLogos[job.name]}
                     alt={`${job.name} logo`}
-                    class="absolute inset-0 w-full h-full object-contain p-2 grayscale group-hover/logo:opacity-0 transition-opacity duration-500"
+                    class="absolute inset-0 w-full h-full object-contain p-2 grayscale group-hover/card:opacity-0 transition-opacity duration-500"
                   />
                 )}
-                {/* Project Image - hidden by default, expands on hover */}
+                {/* Project Image - hidden by default, expands on hover to card height */}
                 {projectImages[job.name] && (
-                  <div class="absolute inset-0 opacity-0 group-hover/logo:opacity-100 transition-all duration-500 group-hover/logo:scale-[4] group-hover/logo:rounded-2xl">
+                  <div class="project-image-morph absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:rounded-2xl origin-center" style="will-change: transform, opacity;">
                     <img
                       src={projectImages[job.name]}
                       alt={`${job.name} project`}
@@ -86,7 +83,7 @@ const earlierJobs = work.slice(5);
                     />
                   </div>
                 )}
-              </button>
+              </div>
             )}
             <h3 class="text-xl font-black text-gray-900 dark:text-white">{job.name}</h3>
           </div>
@@ -128,25 +125,22 @@ const earlierJobs = work.slice(5);
       <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-slate-500 mb-4">Earlier Experience</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4" role="list" aria-label="Earlier work experience">
         {earlierJobs.map(job => (
-          <article class="portfolio-job-card border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-5 bg-gray-50 dark:bg-slate-900/20 backdrop-blur transition-all duration-300" data-company={job.name} role="listitem">
-            <div class="flex items-start justify-between gap-2 mb-1">
+          <article class="portfolio-job-card group/card cursor-pointer border-[1.5px] border-gray-900 dark:border-gray-600 rounded-3xl p-5 bg-gray-50 dark:bg-slate-900/20 backdrop-blur transition-all duration-300 hover:border-indigo-500/30 relative overflow-hidden" data-company={job.name} data-project-image={projectImages[job.name]} role="listitem">
+            <div class="flex items-start justify-between gap-2 mb-1 relative z-10">
               <div class="flex items-center gap-2">
                 {(companyLogos[job.name] || projectImages[job.name]) && (
-                  <button
-                    class="logo-image-container relative w-16 h-16 rounded-lg overflow-hidden ring-1 ring-gray-200 dark:ring-slate-700 hover:ring-indigo-500 transition-all flex-shrink-0 cursor-pointer group/logo"
-                    data-project-image={projectImages[job.name]}
-                    data-company-name={job.name}
-                    aria-label={`View ${job.name} project`}
+                  <div
+                    class="logo-image-container relative w-16 h-16 rounded-lg overflow-hidden ring-1 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
                   >
                     {companyLogos[job.name] && (
                       <img
                         src={companyLogos[job.name]}
                         alt={`${job.name} logo`}
-                        class="absolute inset-0 w-full h-full object-contain p-1.5 grayscale group-hover/logo:opacity-0 transition-opacity duration-500"
+                        class="absolute inset-0 w-full h-full object-contain p-1.5 grayscale group-hover/card:opacity-0 transition-opacity duration-500"
                       />
                     )}
                     {projectImages[job.name] && (
-                      <div class="absolute inset-0 opacity-0 group-hover/logo:opacity-100 transition-all duration-500 group-hover/logo:scale-[3] group-hover/logo:rounded-lg">
+                      <div class="project-image-morph absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:rounded-lg origin-center" style="will-change: transform, opacity;">
                         <img
                           src={projectImages[job.name]}
                           alt={`${job.name} project`}
@@ -154,7 +148,7 @@ const earlierJobs = work.slice(5);
                         />
                       </div>
                     )}
-                  </button>
+                  </div>
                 )}
                 <h4 class="font-bold text-gray-900 dark:text-white text-sm">{job.name}</h4>
               </div>
@@ -203,13 +197,13 @@ const earlierJobs = work.slice(5);
     const modalImage = document.getElementById('modal-project-image') as HTMLImageElement;
     const modalTitle = document.getElementById('modal-title');
     const modalClose = document.getElementById('modal-close');
-    const logoContainers = document.querySelectorAll('.logo-image-container');
+    const jobCards = document.querySelectorAll('.portfolio-job-card');
 
-    logoContainers.forEach(container => {
-      container.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const projectImage = container.getAttribute('data-project-image');
-        const companyName = container.getAttribute('data-company-name');
+    // Handle card clicks to open modal
+    jobCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const projectImage = card.getAttribute('data-project-image');
+        const companyName = card.getAttribute('data-company');
 
         if (projectImage && modal && modalImage && modalTitle) {
           modalImage.src = projectImage;
@@ -220,6 +214,24 @@ const earlierJobs = work.slice(5);
           document.body.style.overflow = 'hidden';
         }
       });
+
+      // Handle hover to scale image to card height
+      const projectImageDiv = card.querySelector('.project-image-morph') as HTMLElement;
+      if (projectImageDiv) {
+        card.addEventListener('mouseenter', () => {
+          const cardHeight = card.offsetHeight;
+          const logoContainer = card.querySelector('.logo-image-container') as HTMLElement;
+          const logoHeight = logoContainer?.offsetHeight || 80;
+
+          // Calculate scale factor to match card height
+          const scaleFactor = cardHeight / logoHeight;
+          projectImageDiv.style.transform = `scale(${scaleFactor})`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          projectImageDiv.style.transform = '';
+        });
+      }
     });
 
     const closeModal = () => {
