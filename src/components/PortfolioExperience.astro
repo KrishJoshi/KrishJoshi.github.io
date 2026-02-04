@@ -63,7 +63,7 @@ const earlierJobs = work.slice(5);
           <div class="flex items-center gap-3">
             {(companyLogos[job.name] || projectImages[job.name]) && (
               <div
-                class="logo-image-container relative w-20 h-20 rounded-full group-hover/card:rounded-xl overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
+                class="logo-image-container relative w-20 h-20 rounded-full group-hover/card:rounded-xl overflow-hidden ring-2 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0 bg-white dark:bg-slate-800"
               >
                 {/* Company Logo - visible by default, fades out on hover */}
                 {companyLogos[job.name] && (
@@ -130,7 +130,7 @@ const earlierJobs = work.slice(5);
               <div class="flex items-center gap-2">
                 {(companyLogos[job.name] || projectImages[job.name]) && (
                   <div
-                    class="logo-image-container relative w-16 h-16 rounded-full group-hover/card:rounded-lg overflow-hidden ring-1 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0"
+                    class="logo-image-container relative w-16 h-16 rounded-full group-hover/card:rounded-lg overflow-hidden ring-1 ring-gray-200 dark:ring-slate-700 group-hover/card:ring-indigo-500 transition-all flex-shrink-0 bg-white dark:bg-slate-800"
                   >
                     {companyLogos[job.name] && (
                       <img
