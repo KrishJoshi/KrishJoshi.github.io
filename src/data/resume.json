@@ -106,10 +106,10 @@
       "endDate": "",
       "summary": "Joined immediately post-launch to evolve a monolithic PoC into a scalable, production-hardened platform for regulated banking clients. Focused on architectural cleanup, performance optimization, and regulatory compliance in collaboration with the infrastructure team.",
       "highlights": [
-        "**Architectural Maturation:** Refactored legacy monolith into a maintainable distributed system, establishing coding standards and decoupling patterns that enabled safe, rapid iteration.",
-        "**Performance Engineering:** Resolved critical latency issues through dependency optimization and provisioned concurrency, reducing AWS Lambda cold starts by 40% and ensuring sub-second transaction response times.",
-        "**Observability:** Implemented end-to-end OpenTelemetry instrumentation across 12 microservices, reducing mean-time-to-diagnosis by 60% and enabling proactive monitoring.",
-        "**Regulatory Compliance:** Led FAPI 2.0/PSD2 authentication flows, serving as technical authority on OAuth2/OIDC security for Canadian and EU banking standards."
+        "Refactored **legacy monolith into a maintainable distributed system**, establishing coding standards and decoupling patterns that enabled safe, rapid iteration.",
+        "Resolved critical latency issues through **dependency optimization and provisioned concurrency**, reducing **AWS Lambda cold starts by 40%** and ensuring sub-second transaction response times.",
+        "Implemented end-to-end **OpenTelemetry instrumentation across 12 microservices**, reducing **mean-time-to-diagnosis by 60%** and enabling proactive monitoring.",
+        "Led **FAPI 2.0/PSD2 authentication flows**, serving as technical authority on **OAuth2/OIDC security** for Canadian and EU banking standards."
       ],
       "keywords": [
         "AWS Lambda",
@@ -119,7 +119,7 @@
         "DynamoDB",
         "API Gateway"
       ],
-      "stack": "TypeScript, AWS Lambda, DynamoDB, API Gateway, OpenTelemetry, Terraform, GitHub Actions"
+      "stack": "TypeScript, Next.js, AWS Lambda, DynamoDB, API Gateway, OpenTelemetry, Terraform, GitHub Actions, Jest, Playwright"
     },
     {
       "name": "Climatise",
@@ -129,10 +129,10 @@
       "endDate": "2024-06",
       "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the cloud infrastructure and backend services from zero to launch.",
       "highlights": [
-        "**Zero to One Architecture:** Designed and built the entire cloud estate on AWS, achieving Amazon Well-Architected status on the first submission—a rare feat for an early-stage startup.",
-        "**AI Integration:** Pioneered the integration of Generative AI (Amazon Bedrock/Claude) into the core workflow, enabling businesses to automatically track and analyze carbon emissions via unstructured data.",
-        "**Infrastructure as Code:** Established a strict IaC-first workflow using Terraform to manage Cognito, Aurora, and Lambda across dev/staging/prod environments, ensuring zero configuration drift.",
-        "**Team Building:** Built and led a team of 5 senior engineers, establishing code review standards, CI/CD practices, and architectural patterns that enabled the team to ship with confidence."
+        "Designed and built the **entire cloud estate on AWS**, achieving **Amazon Well-Architected status on the first submission**—a rare feat for an early-stage startup.",
+        "Pioneered the integration of **Generative AI (Amazon Bedrock/Claude)** into the core workflow, enabling businesses to automatically track and analyze carbon emissions via unstructured data.",
+        "Established a strict **IaC-first workflow using Terraform** to manage Cognito, Aurora, and Lambda across dev/staging/prod environments, ensuring **zero configuration drift**.",
+        "Built and led a **team of 5 senior engineers**, establishing code review standards, CI/CD practices, and architectural patterns that enabled the team to ship with confidence."
       ],
       "keywords": [
         "NestJS",
@@ -141,7 +141,7 @@
         "Terraform",
         "REST APIs"
       ],
-      "stack": "NestJS, Node.js, TypeScript, REST APIs, AWS Lambda, Cognito, DynamoDB, Aurora, Terraform, GitHub Actions"
+      "stack": "NestJS, Node.js, TypeScript, REST APIs, AWS Lambda, Cognito, DynamoDB, Aurora, Terraform, GitHub Actions, Jest"
     },
     {
       "name": "Tesco",
@@ -151,10 +151,10 @@
       "endDate": "2023-07",
       "summary": "Core member of the Identity & Account platform team, safeguarding the digital front door for 2M+ daily users. Focused on modernizing legacy authentication flows and improving system reliability at massive scale.",
       "highlights": [
-        "**Security & Usability:** Implemented WebAuthn (Passkeys) and modern MFA flows, reducing account compromise incidents by 60% and significantly improving login conversion rates.",
-        "**Platform Migration:** Orchestrated the migration of monolithic legacy systems to agile Kubernetes-based micro-apps, allowing for independent scaling and failure isolation.",
-        "**Testing Excellence:** Established comprehensive E2E testing with Playwright, achieving 90%+ coverage and enabling daily deployments through automated regression suites.",
-        "**CI/CD Optimization:** Transformed release process from weekly to daily deployments through pipeline optimization and feature flagging."
+        "Implemented **WebAuthn (Passkeys) and modern MFA flows**, reducing **account compromise incidents by 60%** and significantly improving login conversion rates.",
+        "Orchestrated the migration of **monolithic legacy systems to agile Kubernetes-based micro-apps**, allowing for independent scaling and failure isolation.",
+        "Established **comprehensive E2E testing with Playwright**, achieving **90%+ coverage** and enabling daily deployments through automated regression suites.",
+        "Transformed release process from **weekly to daily deployments** through pipeline optimization and feature flagging."
       ],
       "keywords": [
         "NextJS",
@@ -174,10 +174,10 @@
       "endDate": "2021-09",
       "summary": "Part of the 'Banking as a Platform' team, building the ecosystem that enabled Chase Bank to launch in the UK. Built modular banking products that could be assembled rapidly.",
       "highlights": [
-        "**Ecosystem Development:** Delivered unified web and mobile experiences using React and React Native, ensuring feature parity and code sharing between platforms to reduce developer overhead.",
-        "**Regulatory Security:** Integrated Apigee and OAuth for secure API management, ensuring our architecture met strict FCA regulatory requirements and internal banking security standards.",
-        "**Serverless Orchestration:** Built complex, long-running account onboarding workflows using AWS Step Functions, streamlining the customer journey from days to minutes.",
-        "**Component Library:** Created reusable component library with Material UI and Storybook, adopted by 4 other product teams."
+        "Delivered **unified web and mobile experiences** using React and React Native, ensuring feature parity and code sharing between platforms to reduce developer overhead.",
+        "Integrated **Apigee and OAuth for secure API management**, ensuring our architecture met strict **FCA regulatory requirements** and internal banking security standards.",
+        "Built complex, long-running **account onboarding workflows using AWS Step Functions**, streamlining the customer journey from days to minutes.",
+        "Created **reusable component library** with Material UI and Storybook, adopted by **4 other product teams**."
       ],
       "keywords": [
         "React Native",
@@ -186,7 +186,7 @@
         "Apigee",
         "OAuth"
       ],
-      "stack": "React (Redux, TypeScript, Formik, Storybook), React Native, Next.js, Node.js, Express, Cypress, AWS Lambda, Step Functions, Jenkins"
+      "stack": "React (Redux, TypeScript, Formik, Storybook), React Native, Next.js, Node.js, Express, AWS Lambda, Step Functions, Cypress, Jest, Jenkins"
     },
     {
       "name": "Cisco",
@@ -196,10 +196,10 @@
       "endDate": "2020-10",
       "summary": "Core contributor to Cisco's dCloud platform, a global environment enabling network simulation for engineers worldwide. Worked alongside the lead frontend architect to drive a massive modernization effort.",
       "highlights": [
-        "**The Great Migration:** Co-led the strategic migration of the legacy Angular 1 platform to a modern React architecture, executed with zero downtime and minimal user disruption, setting the standard for future Cisco web projects.",
-        "**Performance Engineering:** Optimization work on the new stack improved application performance by 40% and reduced bundle sizes by 50%, directly improving the experience for users in low-bandwidth regions.",
-        "**Quality Assurance:** Driving force behind the testing strategy, achieving 95% coverage across a distributed codebase using Jest and Enzyme, establishing testing patterns adopted by the wider team.",
-        "**Microservices Design:** Designed the Node.js API layer schemas that enabled scalable network topology visualization, replacing static diagrams with interactive D3.js models."
+        "Co-led the strategic **migration from Angular 1 to modern React architecture**, executed with **zero downtime** and minimal user disruption, setting the standard for future Cisco web projects.",
+        "Optimization work on the new stack **improved application performance by 40%** and **reduced bundle sizes by 50%**, directly improving the experience for users in low-bandwidth regions.",
+        "Driving force behind the testing strategy, achieving **95% coverage across a distributed codebase** using Jest and Enzyme, establishing testing patterns adopted by the wider team.",
+        "Designed the **Node.js API layer schemas** that enabled scalable network topology visualization, replacing static diagrams with **interactive D3.js models**."
       ],
       "keywords": [
         "React",
@@ -209,7 +209,7 @@
         "Microservices",
         "AngularJS"
       ],
-      "stack": "Node.js, Express, React (TypeScript, Redux, Storybook, D3, Jest), React Native, AngularJS (Karma, Protractor, Selenium), Bootstrap, SASS, Jenkins"
+      "stack": "Node.js, Express, React (TypeScript, Redux, Storybook, D3), React Native, AngularJS, Jest, Enzyme, Karma, Protractor, Selenium, Bootstrap, SASS, Jenkins"
     },
     {
       "name": "Vanguard",
@@ -231,7 +231,7 @@
         "CI/CD",
         "Angular"
       ],
-      "stack": "TypeScript, Angular, AWS Lambda, Karma, Protractor, CI/CD Pipelines"
+      "stack": "TypeScript, Angular, AWS Lambda, Karma, Protractor, Jest, CI/CD Pipelines"
     },
     {
       "name": "Havas",
