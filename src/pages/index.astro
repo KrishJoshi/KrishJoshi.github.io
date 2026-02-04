@@ -108,10 +108,10 @@ const educationImages: Record<string, string> = {
 
     <!-- Education & Certs in portfolio style -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-      <section class="bento-card p-6" aria-labelledby="education-heading">
+      <section class="bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-gray-900 dark:border-slate-700/50 rounded-3xl transition-all hover:border-indigo-500/30 p-6" aria-labelledby="education-heading">
         <div class="flex items-center gap-2 mb-4">
-          <span class="material-symbols-outlined text-indigo-400" aria-hidden="true">school</span>
-          <h2 id="education-heading" class="text-lg font-bold text-white">Education</h2>
+          <span class="material-symbols-outlined text-indigo-600 dark:text-indigo-400" aria-hidden="true">school</span>
+          <h2 id="education-heading" class="text-lg font-bold text-gray-900 dark:text-white">Education</h2>
         </div>
         <ul role="list" aria-label="Educational qualifications">
           {education.map((edu: any) => (
@@ -123,23 +123,23 @@ const educationImages: Record<string, string> = {
                   class="w-12 h-12 rounded-xl object-cover flex-shrink-0 grayscale"
                 />
               ) : (
-                <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center" aria-hidden="true">
-                  <span class="material-symbols-outlined text-slate-400">account_balance</span>
+                <div class="w-12 h-12 bg-gray-200 dark:bg-slate-800 rounded-xl flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-gray-600 dark:text-slate-400">account_balance</span>
                 </div>
               )}
               <div>
-                <div class="font-bold text-white text-sm">{edu.institution}</div>
-                <div class="text-xs text-slate-400">{edu.studyType} {edu.area} {edu.score ? `(${edu.score})` : ''}</div>
+                <div class="font-bold text-gray-900 dark:text-white text-sm">{edu.institution}</div>
+                <div class="text-xs text-gray-600 dark:text-slate-400">{edu.studyType} {edu.area} {edu.score ? `(${edu.score})` : ''}</div>
               </div>
             </li>
           ))}
         </ul>
       </section>
 
-      <section class="bento-card p-6" aria-labelledby="certifications-heading">
+      <section class="bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-gray-900 dark:border-slate-700/50 rounded-3xl transition-all hover:border-indigo-500/30 p-6" aria-labelledby="certifications-heading">
         <div class="flex items-center gap-2 mb-4">
-          <span class="material-symbols-outlined text-indigo-400" aria-hidden="true">workspace_premium</span>
-          <h2 id="certifications-heading" class="text-lg font-bold text-white">Certifications</h2>
+          <span class="material-symbols-outlined text-indigo-600 dark:text-indigo-400" aria-hidden="true">workspace_premium</span>
+          <h2 id="certifications-heading" class="text-lg font-bold text-gray-900 dark:text-white">Certifications</h2>
         </div>
         <ul role="list" aria-label="Professional certifications">
           {certificates.map((cert: any) => (
@@ -151,13 +151,13 @@ const educationImages: Record<string, string> = {
                   class="w-12 h-12 rounded-xl object-contain bg-white p-1.5 flex-shrink-0 grayscale"
                 />
               ) : (
-                <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center" aria-hidden="true">
-                  <span class="material-symbols-outlined text-emerald-400">{cert.icon || 'verified'}</span>
+                <div class="w-12 h-12 bg-gray-200 dark:bg-slate-800 rounded-xl flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400">{cert.icon || 'verified'}</span>
                 </div>
               )}
               <div>
-                <div class="font-bold text-white text-sm">{cert.name}</div>
-                <div class="text-xs text-slate-400">{cert.issuer} • {cert.date}</div>
+                <div class="font-bold text-gray-900 dark:text-white text-sm">{cert.name}</div>
+                <div class="text-xs text-gray-600 dark:text-slate-400">{cert.issuer} • {cert.date}</div>
               </div>
             </li>
           ))}
@@ -166,8 +166,8 @@ const educationImages: Record<string, string> = {
     </div>
 
     <!-- Portfolio Footer -->
-    <footer class="mt-16 pt-8 border-t border-slate-700/50" role="contentinfo">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-widest text-slate-500 uppercase">
+    <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-slate-700/50" role="contentinfo">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-widest text-gray-500 dark:text-slate-500 uppercase">
         <span>&copy; {new Date().getFullYear()} {basics.name}</span>
         <span>Built with Astro + Tailwind</span>
         <span>{basics.location.city}, {basics.location.countryCode}</span>

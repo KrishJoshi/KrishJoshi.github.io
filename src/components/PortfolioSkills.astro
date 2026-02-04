@@ -19,8 +19,8 @@ skills.forEach(cat => {
 });
 ---
 
-<section class="bento-card p-6 mb-6" aria-labelledby="skills-heading">
-  <h2 id="skills-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+<section class="bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-gray-900 dark:border-slate-700/50 rounded-3xl transition-all hover:border-indigo-500/30 p-6 mb-6" aria-labelledby="skills-heading">
+  <h2 id="skills-heading" class="text-xs font-bold text-gray-500 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
     <span class="material-symbols-outlined text-sm" aria-hidden="true">code</span>
     Technical Ecosystem
   </h2>
@@ -30,7 +30,7 @@ skills.forEach(cat => {
     {Array.from(allFilters).map(filter => (
       <button
         data-filter={filter}
-        class="portfolio-filter-btn px-3 py-1.5 border border-slate-600 rounded-full text-xs font-semibold uppercase hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-slate-400"
+        class="portfolio-filter-btn px-3 py-1.5 border border-gray-300 dark:border-slate-600 rounded-full text-xs font-semibold uppercase hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900 text-gray-600 dark:text-slate-400"
         aria-pressed="false"
       >
         {filter}
@@ -42,18 +42,18 @@ skills.forEach(cat => {
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     {skills.map(category => (
       <div>
-        <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">{category.name}</h3>
+        <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-slate-500 mb-3">{category.name}</h3>
         <ul class="space-y-1" role="list">
           {category.keywords.map(kw => (
             <li>
               <button
-                class="portfolio-skill-item flex items-center gap-3 w-full p-2 -mx-2 rounded-lg hover:bg-white/10 transition-all cursor-pointer group text-left focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                class="portfolio-skill-item flex items-center gap-3 w-full p-2 -mx-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-all cursor-pointer group text-left focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900"
                 data-filter={kw.filter}
                 data-companies={kw.companies?.join(',')}
                 aria-label={`Filter by ${kw.text}`}
               >
-                <span class="material-symbols-outlined text-lg text-indigo-400 group-hover:scale-110 transition-transform" aria-hidden="true">{kw.icon}</span>
-                <span class="text-sm text-slate-300 group-hover:text-white transition-colors">{kw.text}</span>
+                <span class="material-symbols-outlined text-lg text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" aria-hidden="true">{kw.icon}</span>
+                <span class="text-sm text-gray-900 dark:text-slate-300 group-hover:text-gray-600 dark:group-hover:text-white transition-colors">{kw.text}</span>
               </button>
             </li>
           ))}
@@ -102,11 +102,11 @@ skills.forEach(cat => {
       const btnFilter = (btn as HTMLElement).dataset.filter;
       if (btnFilter === filter) {
         btn.classList.add('bg-indigo-500/30', 'border-indigo-500', 'text-white');
-        btn.classList.remove('border-slate-600', 'text-slate-400');
+        btn.classList.remove('border-gray-300', 'dark:border-slate-600', 'text-gray-600', 'dark:text-slate-400');
         btn.setAttribute('aria-pressed', 'true');
       } else {
         btn.classList.remove('bg-indigo-500/30', 'border-indigo-500', 'text-white');
-        btn.classList.add('border-slate-600', 'text-slate-400');
+        btn.classList.add('border-gray-300', 'dark:border-slate-600', 'text-gray-600', 'dark:text-slate-400');
         btn.setAttribute('aria-pressed', 'false');
       }
     });
@@ -122,7 +122,7 @@ skills.forEach(cat => {
     if (activePortfolioFilter && !clearBtn && filterControls) {
       clearBtn = document.createElement('button');
       clearBtn.id = 'portfolio-clear-filter-btn';
-      clearBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 bg-indigo-500 text-white rounded-full text-xs font-bold uppercase hover:bg-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900';
+      clearBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 bg-indigo-500 text-white rounded-full text-xs font-bold uppercase hover:bg-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900';
       clearBtn.innerHTML = `<span class="material-symbols-outlined text-sm" aria-hidden="true">close</span> Clear`;
       clearBtn.setAttribute('aria-label', 'Clear filter');
       clearBtn.addEventListener('click', () => applyPortfolioFilter(null));

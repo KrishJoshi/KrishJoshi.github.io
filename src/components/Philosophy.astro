@@ -14,26 +14,37 @@ interface Props {
 
 const { statement, principles } = Astro.props;
 
-// Split statement to highlight "hardened infrastructure"
-const [before, after] = statement.split('hardened infrastructure');
+// Highlight multiple key phrases
+const highlightWords = (text: string) => {
+  const highlights = [
+    { phrase: 'protect their own integrity', className: 'text-indigo-600 dark:text-indigo-400 font-medium' },
+    { phrase: 'autonomous', className: 'text-indigo-600 dark:text-indigo-400 font-medium' },
+    { phrase: 'zero anxiety', className: 'text-indigo-600 dark:text-indigo-400 font-medium' }
+  ];
+
+  let result = text;
+  highlights.forEach(({ phrase, className }) => {
+    result = result.replace(phrase, `<span class="${className}">${phrase}</span>`);
+  });
+
+  return result;
+};
 ---
 
-<section class="bento-card p-8 overflow-hidden mb-6" aria-labelledby="philosophy-heading">
+<section class="bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-gray-900 dark:border-slate-700/50 rounded-3xl transition-all hover:border-indigo-500/30 p-8 overflow-hidden mb-6" aria-labelledby="philosophy-heading">
   <div class="grid md:grid-cols-2 gap-12 items-center">
     <div>
-      <h2 id="philosophy-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+      <h2 id="philosophy-heading" class="text-xs font-bold text-gray-500 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
         <span class="material-symbols-outlined text-sm" aria-hidden="true">architecture</span>
         The Architectural Philosophy
       </h2>
-      <p class="text-2xl font-light text-white leading-relaxed mb-8">
-        "{before}<span class="text-indigo-400 font-medium">hardened infrastructure</span>{after}"
-      </p>
+      <p class="text-2xl font-light text-gray-900 dark:text-white leading-relaxed mb-8" set:html={`"${highlightWords(statement)}"`} />
       <div class="grid grid-cols-2 gap-4">
         {principles.slice(0, 2).map(p => (
-          <div class="principle-box p-4 rounded-2xl bg-slate-900/50 border border-slate-800">
-            <span class="material-symbols-outlined text-indigo-400 mb-2 block">{p.icon}</span>
-            <h4 class="text-sm font-bold text-white mb-1">{p.title}</h4>
-            <p class="text-xs text-slate-400">{p.description}</p>
+          <div class="principle-box p-4 rounded-2xl bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-800">
+            <span class="material-symbols-outlined text-indigo-600 dark:text-indigo-400 mb-2 block">{p.icon}</span>
+            <h4 class="text-sm font-bold text-gray-900 dark:text-white mb-1">{p.title}</h4>
+            <p class="text-xs text-gray-600 dark:text-slate-400">{p.description}</p>
           </div>
         ))}
       </div>

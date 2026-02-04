@@ -32,191 +32,9 @@
   white-space: normal;
 }
 
-/* Custom styles */
-.section-box {
-  border: 1.5px solid #1a1a1a;
-  border-radius: 24px;
-}
+/* Portfolio mode - now using Tailwind classes in Layout.astro */
 
-.dark .section-box {
-  border-color: #4b5563;
-}
-
-.section-title-pill {
-  display: inline-block;
-  border: 1.5px solid #1a1a1a;
-  border-radius: 9999px;
-  padding: 0.5rem 1.5rem;
-  font-weight: 800;
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.dark .section-title-pill {
-  border-color: #9ca3af;
-  color: #f3f4f6;
-}
-
-.date-badge {
-  background: #1a1a1a;
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.dark .date-badge {
-  background: #f3f4f6;
-  color: #1a1a1a;
-}
-
-/* Interactive mode styles - Dark theme (default) */
-body.portfolio-mode {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  min-height: 100vh;
-}
-
-body.portfolio-mode .section-box {
-  border-color: rgba(71, 85, 105, 0.5);
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(12px);
-}
-
-/* Bento card style - Dark theme */
-.bento-card {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(71, 85, 105, 0.5);
-  border-radius: 24px;
-  backdrop-filter: blur(12px);
-  transition: all 0.3s ease;
-}
-
-.bento-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
-}
-
-/* Interactive mode - Light theme (Gemini-inspired) */
-.dark body.portfolio-mode,
-body.portfolio-mode:not(.light-interactive) {
-  /* Keep dark gradient for dark mode */
-}
-
-:root:not(.dark) body.portfolio-mode {
-  background: #ffffff;
-}
-
-:root:not(.dark) .bento-card {
-  background: #ffffff;
-  border: 1.5px solid #1a1a1a;
-  box-shadow: none;
-}
-
-:root:not(.dark) .bento-card:hover {
-  border-color: #1a1a1a;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-:root:not(.dark) body.portfolio-mode .section-box {
-  background: #ffffff;
-  border-color: #1a1a1a;
-}
-
-/* Light mode text colors for interactive view */
-:root:not(.dark) body.portfolio-mode .text-white {
-  color: #1a1a1a;
-}
-
-:root:not(.dark) body.portfolio-mode .text-slate-300,
-:root:not(.dark) body.portfolio-mode .text-slate-400 {
-  color: #4b5563;
-}
-
-:root:not(.dark) body.portfolio-mode .text-slate-500 {
-  color: #6b7280;
-}
-
-:root:not(.dark) body.portfolio-mode .text-indigo-400 {
-  color: #4f46e5;
-}
-
-:root:not(.dark) body.portfolio-mode .text-emerald-400,
-:root:not(.dark) body.portfolio-mode .text-emerald-500 {
-  color: #059669;
-}
-
-:root:not(.dark) body.portfolio-mode .bg-slate-800,
-:root:not(.dark) body.portfolio-mode .bg-slate-900 {
-  background: #f3f4f6;
-}
-
-:root:not(.dark) body.portfolio-mode .bg-slate-900\/30,
-:root:not(.dark) body.portfolio-mode .bg-slate-900\/20 {
-  background: #ffffff;
-}
-
-:root:not(.dark) body.portfolio-mode .bg-slate-950 {
-  background: #f9fafb;
-}
-
-:root:not(.dark) body.portfolio-mode .border-slate-700,
-:root:not(.dark) body.portfolio-mode .border-slate-800 {
-  border-color: #e5e7eb;
-}
-
-/* Light mode gradient button */
-:root:not(.dark) body.portfolio-mode .from-indigo-500 {
-  --tw-gradient-from: #4f46e5;
-}
-
-:root:not(.dark) body.portfolio-mode .to-purple-500,
-:root:not(.dark) body.portfolio-mode .to-purple-600 {
-  --tw-gradient-to: #7c3aed;
-}
-
-/* Light mode filter buttons */
-:root:not(.dark) body.portfolio-mode .portfolio-filter-btn {
-  border-color: #d1d5db;
-  color: #4b5563;
-}
-
-:root:not(.dark) body.portfolio-mode .portfolio-filter-btn:hover {
-  background: rgba(79, 70, 229, 0.1);
-  border-color: rgba(79, 70, 229, 0.5);
-}
-
-:root:not(.dark) body.portfolio-mode .portfolio-filter-btn.bg-indigo-500\/30 {
-  background: rgba(79, 70, 229, 0.15);
-  border-color: #4f46e5;
-  color: #4f46e5;
-}
-
-/* Architecture diagram light mode */
-:root:not(.dark) body.portfolio-mode #arch-diagram {
-  background: #f9fafb;
-  border-color: #1a1a1a;
-}
-
-/* Principle boxes light mode - very light gray */
-:root:not(.dark) body.portfolio-mode .principle-box {
-  background: #f9fafb !important;
-  border-color: #e5e7eb !important;
-}
-
-:root:not(.dark) body.portfolio-mode .principle-box .text-white {
-  color: #1a1a1a;
-}
-
-:root:not(.dark) body.portfolio-mode .principle-box .text-slate-400 {
-  color: #6b7280;
-}
-
-:root:not(.dark) body.portfolio-mode .principle-box .text-indigo-400 {
-  color: #4f46e5;
-}
-
-/* Portfolio animations */
+/* Animations */
 @keyframes pulse-glow {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -226,7 +44,6 @@ body.portfolio-mode:not(.light-interactive) {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Expertise bar animation */
 .expertise-bar {
   transition: width 1s ease-out;
 }
@@ -254,8 +71,8 @@ body.portfolio-mode:not(.light-interactive) {
 
   html, body {
     background: white !important;
-    font-size: 9pt !important;
-    line-height: 1.4 !important;
+    font-size: 10pt !important;
+    line-height: 1.5 !important;
     color: #1a1a1a !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -298,7 +115,7 @@ body.portfolio-mode:not(.light-interactive) {
   }
 
   header > p {
-    font-size: 9pt !important;
+    font-size: 10pt !important;
     font-weight: 600 !important;
     color: #4b5563 !important;
     text-transform: uppercase !important;
@@ -320,7 +137,7 @@ body.portfolio-mode:not(.light-interactive) {
     align-items: center !important;
     gap: 0.1cm !important;
     padding: 0 !important;
-    font-size: 8pt !important;
+    font-size: 9pt !important;
     color: #1a1a1a !important;
     background: transparent !important;
     border: none !important;
@@ -337,25 +154,25 @@ body.portfolio-mode:not(.light-interactive) {
      TYPOGRAPHY - Clear hierarchy
      =========================================== */
   h2 {
-    font-size: 11pt !important;
+    font-size: 12pt !important;
     font-weight: 900 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
     color: #1a1a1a !important;
-    margin-bottom: 0.2cm !important;
-    padding-bottom: 0.1cm !important;
+    margin-bottom: 0.25cm !important;
+    padding-bottom: 0.15cm !important;
     border-bottom: 1px solid #e5e7eb !important;
   }
 
   h3 {
-    font-size: 10pt !important;
+    font-size: 11pt !important;
     font-weight: 800 !important;
     color: #1a1a1a !important;
-    margin-bottom: 0.05cm !important;
+    margin-bottom: 0.1cm !important;
   }
 
   h4 {
-    font-size: 8pt !important;
+    font-size: 9pt !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
@@ -364,36 +181,14 @@ body.portfolio-mode:not(.light-interactive) {
   }
 
   p, li {
-    font-size: 8.5pt !important;
-    line-height: 1.4 !important;
+    font-size: 9.5pt !important;
+    line-height: 1.5 !important;
     color: #374151 !important;
   }
 
   strong {
     font-weight: 700 !important;
     color: #1a1a1a !important;
-  }
-
-  /* ===========================================
-     SECTION BOXES - Minimal, clean borders
-     =========================================== */
-  .section-box {
-    border: 1px solid #e5e7eb !important;
-    border-radius: 4px !important;
-    padding: 0.3cm !important;
-    margin-bottom: 0.25cm !important;
-    background: white !important;
-    page-break-inside: avoid !important;
-  }
-
-  .section-title-pill {
-    font-size: 9pt !important;
-    font-weight: 800 !important;
-    padding: 0.1cm 0.3cm !important;
-    border: 1.5px solid #1a1a1a !important;
-    border-radius: 9999px !important;
-    color: #1a1a1a !important;
-    background: white !important;
   }
 
   /* ===========================================
@@ -408,99 +203,26 @@ body.portfolio-mode:not(.light-interactive) {
     grid-template-columns: 1fr 240px !important;
   }
 
-  .md\:grid-cols-2 {
+  .md\:grid-cols-2,
+  .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
   /* ===========================================
-     SKILLS SECTION - Clean list, no interactive elements
+     SECTIONS - Minimal, clean
      =========================================== */
-  .skill-item {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.15cm !important;
-    padding: 0.05cm 0 !important;
-    margin: 0 !important;
-    background: transparent !important;
-    cursor: default !important;
+  section {
+    page-break-inside: avoid !important;
+    margin-bottom: 0.25cm !important;
   }
 
-  .skill-item .material-symbols-outlined {
-    font-size: 10pt !important;
-    color: #6b7280 !important;
-  }
-
-  /* Hide arrow icons in skills */
-  .skill-item .material-symbols-outlined:last-child {
-    display: none !important;
-  }
-
-  .skill-item span:not(.material-symbols-outlined) {
-    font-size: 8.5pt !important;
-    color: #374151 !important;
-  }
-
-  /* ===========================================
-     ACHIEVEMENTS - Card grid
-     =========================================== */
-  .achievement-card {
-    background: white !important;
-    border: none !important;
-    padding: 0.2cm !important;
-    box-shadow: none !important;
-  }
-
-  .achievement-card .w-9 {
-    width: 0.7cm !important;
-    height: 0.7cm !important;
-    background: #1a1a1a !important;
-    border-radius: 0.1cm !important;
-  }
-
-  .achievement-card .material-symbols-outlined {
-    font-size: 10pt !important;
-    color: white !important;
-  }
-
-  .achievement-card h3 {
-    font-size: 8.5pt !important;
-    font-weight: 600 !important;
-    margin-bottom: 0.05cm !important;
-    color: #1a1a1a !important;
-  }
-
-  .achievement-card p {
-    font-size: 7.5pt !important;
-    line-height: 1.3 !important;
-    color: #4b5563 !important;
-  }
-
-  .space-y-5 > * {
-    margin-bottom: 0.15cm !important;
-  }
-
-  .space-y-5 > *:last-child {
-    margin-bottom: 0 !important;
-  }
-
-  /* ===========================================
-     PROFILE - Clean summary
-     =========================================== */
-  /* Core expertise pills - lighter for print */
-  .bg-gray-900,
-  .dark\:bg-gray-700 {
-    background: #f3f4f6 !important;
-    color: #1a1a1a !important;
-    border: 1px solid #d1d5db !important;
+  .border-\[1\.5px\] {
+    border: 1px solid #e5e7eb !important;
   }
 
   /* ===========================================
      EXPERIENCE - Professional job cards
      =========================================== */
-  #experience-section {
-    page-break-before: auto !important;
-  }
-
   .job-card {
     page-break-inside: avoid !important;
     padding-top: 0.2cm !important;
@@ -508,25 +230,18 @@ body.portfolio-mode:not(.light-interactive) {
   }
 
   .job-card h3 {
-    font-size: 10pt !important;
+    font-size: 11pt !important;
     color: #1a1a1a !important;
   }
 
   .job-card > p:first-of-type {
-    font-size: 8pt !important;
+    font-size: 9pt !important;
     color: #4b5563 !important;
     font-style: normal !important;
     text-transform: uppercase !important;
     letter-spacing: 0.03em !important;
   }
 
-  /* Job summary - normal style, not italic */
-  .job-card .italic {
-    font-style: normal !important;
-    color: #4b5563 !important;
-  }
-
-  /* Job highlights */
   .job-card ul {
     margin: 0.1cm 0 !important;
     padding-left: 0.4cm !important;
@@ -535,17 +250,6 @@ body.portfolio-mode:not(.light-interactive) {
   .job-card li {
     margin-bottom: 0.05cm !important;
     padding-left: 0.1cm !important;
-  }
-
-  .job-card li span:first-child {
-    color: #9ca3af !important;
-  }
-
-  /* Stack info - more compact */
-  .job-card .border-t {
-    margin-top: 0.1cm !important;
-    padding-top: 0.1cm !important;
-    border-color: #e5e7eb !important;
   }
 
   /* Date badges */
@@ -558,51 +262,6 @@ body.portfolio-mode:not(.light-interactive) {
   }
 
   /* ===========================================
-     SECONDARY JOBS - Compact grid
-     =========================================== */
-  .job-card .flex-wrap.gap-1\.5 {
-    gap: 0.1cm !important;
-  }
-
-  .job-card .flex-wrap.gap-1\.5 span {
-    font-size: 6.5pt !important;
-    padding: 0.03cm 0.15cm !important;
-    border: 1px solid #9ca3af !important;
-    color: #4b5563 !important;
-  }
-
-  /* ===========================================
-     EDUCATION & CERTIFICATIONS
-     =========================================== */
-  .space-y-4 > * {
-    margin-bottom: 0.15cm !important;
-  }
-
-  .space-y-4 > *:last-child {
-    margin-bottom: 0 !important;
-  }
-
-  .space-y-6 > * + * {
-    margin-top: 0.2cm !important;
-  }
-
-  /* Certification icons */
-  section .material-symbols-outlined {
-    font-size: 12pt !important;
-    color: #6b7280 !important;
-  }
-
-  /* ===========================================
-     BORDERS - Consistent light gray
-     =========================================== */
-  .border-t,
-  .border-gray-200,
-  .border-gray-300,
-  .dark\:border-gray-700 {
-    border-color: #e5e7eb !important;
-  }
-
-  /* ===========================================
      COLOR OVERRIDES - Force light theme
      =========================================== */
   .dark\:text-gray-100,
@@ -612,9 +271,7 @@ body.portfolio-mode:not(.light-interactive) {
   .text-white,
   .text-gray-100,
   .text-gray-200,
-  .text-gray-300,
-  .text-gray-900,
-  .dark\:text-gray-100 {
+  .text-gray-300 {
     color: #1a1a1a !important;
   }
 
@@ -635,6 +292,16 @@ body.portfolio-mode:not(.light-interactive) {
   .bg-white,
   .dark\:bg-white {
     background: white !important;
+  }
+
+  /* ===========================================
+     BORDERS - Consistent light gray
+     =========================================== */
+  .border-gray-200,
+  .border-gray-300,
+  .dark\:border-gray-700,
+  .dark\:border-gray-600 {
+    border-color: #e5e7eb !important;
   }
 
   /* ===========================================
@@ -675,7 +342,7 @@ body.portfolio-mode:not(.light-interactive) {
   }
 
   /* Keep sections together */
-  section, article, .section-box {
+  section, article {
     page-break-inside: avoid;
   }
 }

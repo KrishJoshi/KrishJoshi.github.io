@@ -3,10 +3,10 @@
 ---
 
 <div class="fixed bottom-4 left-1/2 -translate-x-1/2 md:bottom-auto md:top-6 md:left-6 md:translate-x-0 z-50 no-print">
-  <nav class="view-toggle-nav flex rounded-full shadow-md p-1" role="navigation" aria-label="View mode toggle">
+  <nav class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 flex rounded-full shadow-md p-1" role="navigation" aria-label="View mode toggle">
     <button
       id="view-interactive"
-      class="view-toggle-btn view-btn-active px-3 py-1.5 md:px-4 md:py-2 rounded-full text-[10px] md:text-xs font-bold uppercase transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      class="view-toggle-btn view-btn-active bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-[10px] md:text-xs font-bold uppercase transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       data-view="interactive"
       aria-pressed="true"
       type="button"
@@ -15,7 +15,7 @@
     </button>
     <button
       id="view-printable"
-      class="view-toggle-btn view-btn-inactive px-3 py-1.5 md:px-4 md:py-2 rounded-full text-[10px] md:text-xs font-bold uppercase transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      class="view-toggle-btn view-btn-inactive bg-transparent text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-[10px] md:text-xs font-bold uppercase transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       data-view="printable"
       aria-pressed="false"
       type="button"
@@ -25,42 +25,6 @@
   </nav>
 </div>
 
-<style is:global>
-  /* View toggle nav container */
-  .view-toggle-nav {
-    background: white;
-    border: 1px solid #e5e7eb;
-  }
-  .dark .view-toggle-nav {
-    background: #1e293b;
-    border-color: #334155;
-  }
-
-  /* Active button - light mode: white bg with dark text, dark mode: dark bg with white text */
-  .view-btn-active {
-    background: #1a1a1a !important;
-    color: white !important;
-  }
-  .dark .view-btn-active {
-    background: white !important;
-    color: #1a1a1a !important;
-  }
-
-  /* Inactive button */
-  .view-btn-inactive {
-    background: transparent !important;
-    color: #6b7280 !important;
-  }
-  .view-btn-inactive:hover {
-    color: #1a1a1a !important;
-  }
-  .dark .view-btn-inactive {
-    color: #94a3b8 !important;
-  }
-  .dark .view-btn-inactive:hover {
-    color: white !important;
-  }
-</style>
 
 <script>
   const STORAGE_KEY = 'cv-view-mode';
@@ -76,24 +40,24 @@
       interactiveView?.classList.remove('hidden');
       document.body.classList.add('portfolio-mode');
 
-      interactiveBtn?.classList.add('view-btn-active');
-      interactiveBtn?.classList.remove('view-btn-inactive');
+      interactiveBtn?.classList.add('view-btn-active', 'bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900');
+      interactiveBtn?.classList.remove('view-btn-inactive', 'bg-transparent', 'text-gray-600', 'dark:text-slate-400');
       interactiveBtn?.setAttribute('aria-pressed', 'true');
 
-      printableBtn?.classList.remove('view-btn-active');
-      printableBtn?.classList.add('view-btn-inactive');
+      printableBtn?.classList.remove('view-btn-active', 'bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900');
+      printableBtn?.classList.add('view-btn-inactive', 'bg-transparent', 'text-gray-600', 'dark:text-slate-400');
       printableBtn?.setAttribute('aria-pressed', 'false');
     } else {
       printableView?.classList.remove('hidden');
       interactiveView?.classList.add('hidden');
       document.body.classList.remove('portfolio-mode');
 
-      interactiveBtn?.classList.remove('view-btn-active');
-      interactiveBtn?.classList.add('view-btn-inactive');
+      interactiveBtn?.classList.remove('view-btn-active', 'bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900');
+      interactiveBtn?.classList.add('view-btn-inactive', 'bg-transparent', 'text-gray-600', 'dark:text-slate-400');
       interactiveBtn?.setAttribute('aria-pressed', 'false');
 
-      printableBtn?.classList.add('view-btn-active');
-      printableBtn?.classList.remove('view-btn-inactive');
+      printableBtn?.classList.add('view-btn-active', 'bg-gray-900', 'dark:bg-white', 'text-white', 'dark:text-gray-900');
+      printableBtn?.classList.remove('view-btn-inactive', 'bg-transparent', 'text-gray-600', 'dark:text-slate-400');
       printableBtn?.setAttribute('aria-pressed', 'true');
     }
 

@@ -15,34 +15,34 @@ const { achievements, summary } = Astro.props;
 const icons = ['cloud', 'account_balance', 'dns', 'public'];
 
 // Bold specific keywords in summary
-const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA', 'Claude', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco'];
+const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'WebAuthn', 'Passkeys', 'OAuth2', 'OIDC', 'MFA', 'Claude', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco'];
 let formattedSummary = summary;
 boldWords.forEach(word => {
   formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);
 });
 ---
 
-<section class="bento-card p-6 mb-6" aria-labelledby="achievements-heading">
-  <h2 id="achievements-heading" class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+<section class="bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-gray-900 dark:border-slate-700/50 rounded-3xl transition-all hover:border-indigo-500/30 p-6 mb-6" aria-labelledby="achievements-heading">
+  <h2 id="achievements-heading" class="text-xs font-bold text-gray-500 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
     <span class="material-symbols-outlined text-sm" aria-hidden="true">emoji_events</span>
     Key Achievements
   </h2>
 
   <!-- Profile Summary -->
-  <div class="mb-6 text-sm text-slate-300 leading-relaxed" set:html={formattedSummary} />
+  <div class="mb-6 text-base text-gray-900 dark:text-slate-300 leading-relaxed" set:html={formattedSummary} />
 
   <!-- Achievement Cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {achievements.map((a, i) => (
-      <div class="principle-box p-4 rounded-2xl bg-slate-900/50 border border-slate-800 transition-all">
+      <div class="principle-box p-4 rounded-2xl bg-gray-50 dark:bg-slate-900/50 border border-gray-200 dark:border-slate-800 transition-all">
         <div class="flex items-start gap-3">
 
           <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-indigo-400 text-lg">{icons[i % icons.length]}</span>
+            <span class="material-symbols-outlined text-indigo-600 dark:text-indigo-400 text-lg">{icons[i % icons.length]}</span>
           </div>
           <div>
-            <h3 class="font-bold text-white text-sm mb-1">{a.title}</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">{a.description}</p>
+            <h3 class="font-bold text-gray-900 dark:text-white text-sm mb-1">{a.title}</h3>
+            <p class="text-xs text-gray-600 dark:text-slate-400 leading-relaxed">{a.description}</p>
           </div>
         </div>
       </div>
