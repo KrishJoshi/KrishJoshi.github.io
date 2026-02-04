@@ -26,22 +26,22 @@ function formatDateRange(start: string, end?: string): string {
   return `${formatDate(start)} — ${formatDate(end)}`;
 }
 
-// Company logos (grayscale by default, shown in small circle)
+// Company logos (grayscale by default, shown in small circle) - SVG preferred
 const companyLogos: Record<string, string> = {
   'CaspianOne Open Banking': '/portfolio/logos/caspianone.png',
   'Climatise': '/portfolio/logos/climatise.svg',
-  'Tesco': '/portfolio/logos/tesco.png',
-  'Chase UK': '/portfolio/logos/chase.png',
-  'Cisco': '/portfolio/logos/cisco.png',
+  'Tesco': '/portfolio/logos/tesco.svg',
+  'Chase UK': '/portfolio/logos/chase.svg',
+  'Cisco': '/portfolio/logos/cisco.svg',
 };
 
-// Project images (full-color, shown on card hover as background)
+// Project images (full-color, shown on card hover as background) - WebP format
 const projectImages: Record<string, string> = {
-  'CaspianOne Open Banking': '/portfolio/caspianone.png',
-  'Climatise': '/portfolio/climatise.png',
-  'Tesco': '/portfolio/tesco.png',
-  'Chase UK': '/portfolio/chaseuk.png',
-  'Cisco': '/portfolio/cisco.png',
+  'CaspianOne Open Banking': '/portfolio/caspianone.webp',
+  'Climatise': '/portfolio/climatise.webp',
+  'Tesco': '/portfolio/tesco.webp',
+  'Chase UK': '/portfolio/chaseuk.webp',
+  'Cisco': '/portfolio/cisco.webp',
 };
 
 // Split into recent (featured) and earlier roles - show more featured jobs now we have rich descriptions
