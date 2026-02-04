@@ -214,24 +214,6 @@ const earlierJobs = work.slice(5);
           document.body.style.overflow = 'hidden';
         }
       });
-
-      // Handle hover to scale image to card height
-      const projectImageDiv = card.querySelector('.project-image-morph') as HTMLElement;
-      if (projectImageDiv) {
-        card.addEventListener('mouseenter', () => {
-          const cardHeight = card.offsetHeight;
-          const logoContainer = card.querySelector('.logo-image-container') as HTMLElement;
-          const logoHeight = logoContainer?.offsetHeight || 80;
-
-          // Calculate scale factor to match card height
-          const scaleFactor = cardHeight / logoHeight;
-          projectImageDiv.style.transform = `scale(${scaleFactor})`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-          projectImageDiv.style.transform = '';
-        });
-      }
     });
 
     const closeModal = () => {
