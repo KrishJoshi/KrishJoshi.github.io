@@ -31,7 +31,7 @@ const companyLogos: Record<string, string> = {
   'CaspianOne Open Banking': '/portfolio/logos/caspianone.png',
   'Climatise': '/portfolio/logos/climatise.svg',
   'Tesco': '/portfolio/logos/tesco.svg',
-  'Chase UK (10x Future Tech)': '/portfolio/logos/chase.png',
+  'Chase UK (10x Future Tech)': '/portfolio/logos/chase.svg',
   'Cisco': '/portfolio/logos/cisco.svg',
 };
 
@@ -70,7 +70,7 @@ const earlierJobs = work.slice(5);
                   <img
                     src={companyLogos[job.name]}
                     alt={`${job.name} logo`}
-                    class="absolute inset-0 w-full h-full object-contain p-2 grayscale group-hover/card:opacity-0 transition-opacity duration-500"
+                    class="absolute inset-0 w-full h-full object-contain p-2 group-hover/card:opacity-0 transition-opacity duration-500"
                   />
                 )}
                 {/* Project Image - hidden by default, expands on hover to card height */}
