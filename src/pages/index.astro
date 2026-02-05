@@ -122,6 +122,7 @@ const educationImages: Record<string, string> = {
                 <img
                   src={educationImages[edu.institution]}
                   alt={edu.institution}
+                  loading="lazy"
                   class="w-12 h-12 rounded-xl object-cover flex-shrink-0 grayscale"
                 />
               ) : (
@@ -150,6 +151,7 @@ const educationImages: Record<string, string> = {
                 <img
                   src={issuerLogos[cert.issuer]}
                   alt={cert.issuer}
+                  loading="lazy"
                   class="w-12 h-12 rounded-xl object-contain bg-white p-1.5 flex-shrink-0 grayscale"
                 />
               ) : (
