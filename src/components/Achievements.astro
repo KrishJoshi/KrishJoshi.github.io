@@ -14,7 +14,7 @@ const { achievements, summary } = Astro.props;
 const icons = ['cloud', 'account_balance', 'dns', 'public'];
 
 // Bold specific keywords in summary
-const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA', 'Claude', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco'];
+const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA', 'Claude', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco', 'FAPI 2.0', 'PSD2', 'GenAI', 'Open Banking', 'Passkeys', 'FTSE 100'];
 let formattedSummary = summary;
 boldWords.forEach(word => {
   formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);

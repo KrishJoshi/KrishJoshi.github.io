@@ -6,20 +6,20 @@ interface Props {
 const { summary } = Astro.props;
 
 // Bold specific keywords
-const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'GraphQL', 'Claude', 'AI', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA'];
+const boldWords = ['React', 'React Native', 'AWS', 'TypeScript', 'Node.js', 'Terraform', 'GraphQL', 'Claude', 'AI', 'Amazon Bedrock', 'Tesco', 'Chase UK', 'Cisco', 'WebAuthn', 'OAuth2', 'OIDC', 'MFA', 'FAPI 2.0', 'PSD2', 'FTSE 100', 'Open Banking'];
 let formattedSummary = summary;
 boldWords.forEach(word => {
   formattedSummary = formattedSummary.replace(new RegExp(`\\b${word}\\b`, 'g'), `<strong class="font-bold">${word}</strong>`);
 });
 
 const expertiseAreas = [
-  'Frontend Architecture',
-  'Cloud Infrastructure',
-  'Identity & Authentication',
-  'Team Leadership',
-  'AI Integration',
-  'DevOps & CI/CD',
-  'Security & Compliance'
+  'Identity & Auth (FAPI/OAuth/WebAuthn)',
+  'GenAI Architecture',
+  'Cloud Infrastructure (AWS)',
+  'Engineering Leadership',
+  'Zero-to-One Product Build',
+  'Regulated Environments',
+  'Observability & DevOps'
 ];
 ---
 

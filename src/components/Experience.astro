@@ -34,8 +34,9 @@ skills.forEach(cat => {
 function formatDateRange(start: string, end?: string): string {
   const formatDate = (dateStr?: string) => {
     if (!dateStr) return 'PRESENT';
-    const [year] = dateStr.split('-');
-    return year;
+    const [year, month] = dateStr.split('-');
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    return month ? `${months[parseInt(month) - 1]} ${year}` : year;
   };
   return `${formatDate(start)} — ${formatDate(end)}`;
 }

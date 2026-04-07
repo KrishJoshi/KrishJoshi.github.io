@@ -3,14 +3,14 @@
   "basics": {
     "name": "Krish Joshi",
     "label": "Principal Engineer & Cloud Architect",
-    "headline": "I architect systems that are secure by design, scalable by default, and invisible to the user.",
-    "tagline": "Building robust cloud ecosystems that allow teams to move fast without breaking things.",
+    "headline": "Identity, GenAI, and cloud architecture\u2014from regulated banking platforms to zero-to-one startup launches.",
+    "tagline": "Building the auth and AI infrastructure that lets teams ship regulated products with confidence.",
     "email": "me@krishj.com",
     "phone": "+44 7794 438962",
     "url": "https://krishj.com",
     "availability": "Available for Contract Roles",
-    "currentFocus": "Identity & Cloud Infrastructure",
-    "summary": "Principal engineer with 14+ years of experience ranging from early-stage startups to FTSE 100 enterprises, specializing in bridging the gap between complex infrastructure and seamless product experiences. My philosophy is simple: developer experience is infrastructure. I build robust ecosystems\u2014leveraging AWS, Serverless, and Identity standards (OAuth/FAPI)\u2014that allow teams to move fast without breaking things. Currently pioneering AI-assisted engineering workflows and architecting the next generation of regulated Open Banking platforms. I lead from the front, establishing strong testing cultures (Playwright/Jest) and architectural standards that turn engineering teams into delivery engines.",
+    "currentFocus": "Regulated Banking Platforms & GenAI",
+    "summary": "Principal engineer who sits at the rare intersection of identity/auth expertise, GenAI architecture, and founding-engineer experience. Over 14+ years I've built regulated Open Banking platforms (FAPI 2.0, PSD2), architected GenAI-powered products on Amazon Bedrock/Claude, and led engineering teams from zero-to-launch at early-stage startups\u2014all while safeguarding authentication for millions of daily users at FTSE 100 scale. I lead from the front: hiring and mentoring high-performing teams, establishing architectural standards, and creating the developer-experience infrastructure that turns engineering orgs into delivery engines. Currently pioneering AI-assisted engineering workflows and architecting the next generation of regulated banking platforms.",
     "location": {
       "city": "London",
       "countryCode": "UK"
@@ -78,15 +78,15 @@
       ]
     }
   ],
-  "achievementSummary": "Principal engineer with 14+ years building digital products at scale\u2014from early-stage startups to FTSE 100 enterprises. Specialized in React, React Native, and AWS, with deep expertise in identity/authentication systems (WebAuthn/Passkeys, OAuth2/OIDC, MFA). Recently integrating AI-assisted development tools (Claude, Amazon Bedrock) into engineering workflows.",
+  "achievementSummary": "One of few engineers who combines deep identity and auth expertise (WebAuthn/Passkeys, OAuth2/OIDC, FAPI 2.0) with GenAI architecture (Amazon Bedrock/Claude) and founding-engineer experience\u2014building regulated platforms from zero to production across Open Banking, sustainability, and FTSE 100 retail at scale.",
   "achievements": [
     {
-      "title": "GenAI & AWS Architecture (Climatise)",
-      "description": "Architected a sustainability platform using Amazon Bedrock/Claude and SageMaker. Achieved Amazon Well-Architected status for scalability and security."
+      "title": "GenAI Product, Zero to Launch (Climatise)",
+      "description": "Founding engineer: built a sustainability platform on Amazon Bedrock/Claude from scratch, hired a team of 5, and achieved Amazon Well-Architected status\u2014accelerating enterprise sales pipeline."
     },
     {
-      "title": "FAPI 2.0 Open Banking (CaspianOne)",
-      "description": "Delivered regulatory-compliant authentication flows for Open Banking, meeting strict PSD2, FAPI 2.0, and Canadian banking standards."
+      "title": "Open Banking Platform Architect (CaspianOne)",
+      "description": "Defined the technical roadmap for a multi-tenant regulated banking platform. Designed FAPI 2.0/PSD2 auth flows that unlocked Canadian and EU market entry."
     },
     {
       "title": "Identity Platform at Scale (Tesco)",
@@ -102,14 +102,15 @@
       "name": "CaspianOne Open Banking",
       "location": "London",
       "position": "Principal Developer (Contract)",
-      "startDate": "2025-07",
-      "endDate": "",
-      "summary": "Joined immediately post-launch to evolve a monolithic PoC into a scalable, production-hardened platform for regulated banking clients. Focused on architectural cleanup, performance optimization, and regulatory compliance in collaboration with the infrastructure team.",
+      "startDate": "2025-06",
+      "endDate": "2026-03",
+      "summary": "Brought in as Principal to define the technical strategy for a regulated Open Banking platform serving Canadian and EU banking clients. Driving the architectural evolution from launch-stage PoC to a scalable, multi-tenant platform\u2014owning the technical roadmap, setting engineering standards, and acting as the bridge between product vision and infrastructure reality.",
       "highlights": [
-        "Refactored **legacy monolith into a maintainable distributed system**, establishing coding standards and decoupling patterns that enabled safe, rapid iteration.",
-        "Resolved critical latency issues through **dependency optimization and provisioned concurrency**, reducing **AWS Lambda cold starts by 40%** and ensuring sub-second transaction response times.",
-        "Implemented end-to-end **OpenTelemetry instrumentation across 12 microservices**, reducing **mean-time-to-diagnosis by 60%** and enabling proactive monitoring.",
-        "Led **FAPI 2.0/PSD2 authentication flows**, serving as technical authority on **OAuth2/OIDC security** for Canadian and EU banking standards."
+        "Defined and drove the **platform architecture roadmap**: decomposed a monolithic PoC into a multi-tenant distributed system capable of onboarding new banking clients in days instead of months.",
+        "Established myself as the **technical authority on FAPI 2.0/PSD2 authentication**, designing compliant identity flows that unlocked regulatory approval for both Canadian and EU banking markets.",
+        "Reduced **AWS Lambda cold starts by 40%** through dependency optimization and provisioned concurrency, directly enabling the sub-second transaction SLAs required by banking partners.",
+        "Implemented **OpenTelemetry observability across 12 microservices**, reducing mean-time-to-diagnosis by 60%\u2014a capability that proved critical during production incident response with banking clients.",
+        "Set engineering standards for the team: introduced **code review culture, testing gates, and architectural decision records (ADRs)** that reduced production incidents by 50%."
       ],
       "keywords": [
         "AWS Lambda",
@@ -126,13 +127,14 @@
       "location": "London",
       "position": "Principal Engineer (React, Lambda, Python)",
       "startDate": "2023-07",
-      "endDate": "2025-06",
-      "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the cloud infrastructure and backend services from zero to launch.",
+      "endDate": "2025-07",
+      "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the product, cloud infrastructure, and backend services from zero to a paying-customer launch\u2014with a team I hired and grew to 5 engineers.",
       "highlights": [
-        "Designed and built the **entire cloud estate on AWS**, achieving **Amazon Well-Architected status on the first submission**\u2014a rare feat for an early-stage startup.",
-        "Pioneered the integration of **Generative AI (Amazon Bedrock/Claude)** into the core workflow, enabling businesses to automatically track and analyze carbon emissions via unstructured data.",
-        "Established a strict **IaC-first workflow using Terraform** to manage Cognito, Aurora, and Lambda across dev/staging/prod environments, ensuring **zero configuration drift**.",
-        "Built and led a **team of 5 senior engineers**, establishing code review standards, CI/CD practices, and architectural patterns that enabled the team to ship with confidence."
+        "Built the **core product from scratch**: a platform that enables enterprises to automatically ingest, classify, and analyze carbon emissions data from unstructured sources (invoices, utility bills, supply chain docs) using **Generative AI (Amazon Bedrock/Claude and SageMaker)**.",
+        "Achieved **Amazon Well-Architected status on the first submission**\u2014a rare feat for a seed-stage startup\u2014which directly accelerated enterprise sales conversations and due diligence processes.",
+        "Hired, mentored, and led a **team of 5 senior engineers**: established architectural patterns, code review standards, and CI/CD practices that enabled the team to ship production features weekly.",
+        "Designed the **entire AWS cloud estate** using a strict IaC-first Terraform workflow across Cognito, Aurora, Lambda, and DynamoDB\u2014achieving **zero configuration drift** across dev/staging/prod environments.",
+        "Owned **technical strategy and stakeholder communication**: presented architecture to investors, led technical due diligence, and collaborated with product on roadmap prioritization."
       ],
       "keywords": [
         "NestJS",
@@ -154,7 +156,8 @@
         "Implemented **WebAuthn (Passkeys) and modern MFA flows**, reducing **account compromise incidents by 60%** and significantly improving login conversion rates.",
         "Orchestrated the migration of **monolithic legacy systems to agile Kubernetes-based micro-apps**, allowing for independent scaling and failure isolation.",
         "Established **comprehensive E2E testing with Playwright**, achieving **90%+ coverage** and enabling daily deployments through automated regression suites.",
-        "Transformed release process from **weekly to daily deployments** through pipeline optimization and feature flagging."
+        "Transformed release process from **weekly to daily deployments** through pipeline optimization and feature flagging.",
+        "Mentored 3 mid-level engineers into senior roles, driving **technical strategy and knowledge-sharing** through architecture clinics and pair programming."
       ],
       "keywords": [
         "NextJS",
@@ -194,7 +197,7 @@
       "position": "Senior Developer",
       "startDate": "2016-08",
       "endDate": "2020-09",
-      "summary": "Core contributor to Cisco's dCloud platform, a global environment enabling network simulation for engineers worldwide. Worked alongside the lead frontend architect to drive a massive modernization effort.",
+      "summary": "Core contributor to Cisco's dCloud platform, a global environment enabling network simulation for engineers worldwide. Worked alongside the lead frontend architect to drive a massive modernization effort, eventually becoming the go-to technical lead for frontend architecture decisions.",
       "highlights": [
         "Co-led the strategic **migration from Angular 1 to modern React architecture**, executed with **zero downtime** and minimal user disruption, setting the standard for future Cisco web projects.",
         "Optimization work on the new stack **improved application performance by 40%** and **reduced bundle sizes by 50%**, directly improving the experience for users in low-bandwidth regions.",
@@ -217,7 +220,7 @@
       "position": "Senior Developer (Consulting)",
       "startDate": "2018-11",
       "endDate": "2019-08",
-      "summary": "Took a sabbatical from Cisco to deliver upgrades to European client portals in a highly regulated financial-services environment.",
+      "summary": "Took a sabbatical from Cisco to consult on Vanguard's European expansion, upgrading client-facing portals to meet FCA and MiFID II regulatory requirements in a zero-downtime, high-compliance environment.",
       "highlights": [
         "Delivered solutions in a **highly regulated financial services environment**, working closely with security and compliance stakeholders.",
         "Architected **AWS Lambda-powered compliance tool** for regulatory audit trails, ensuring FCA and MiFID II adherence.",
@@ -349,8 +352,29 @@
   ],
   "skills": [
     {
-      "name": "Backend & Identity",
+      "name": "Deep Expertise",
       "keywords": [
+        {
+          "icon": "verified_user",
+          "text": "Identity & Auth (OAuth2/OIDC/WebAuthn/FAPI)",
+          "filter": "Auth",
+          "companies": [
+            "CaspianOne",
+            "Tesco",
+            "Chase UK"
+          ]
+        },
+        {
+          "icon": "cloud",
+          "text": "AWS (Lambda, API Gateway, DynamoDB, Bedrock)",
+          "filter": "AWS",
+          "companies": [
+            "CaspianOne",
+            "Climatise",
+            "Chase UK",
+            "Vanguard"
+          ]
+        },
         {
           "icon": "terminal",
           "text": "TypeScript / Node.js / NestJS",
@@ -362,47 +386,15 @@
             "Chase UK",
             "Vanguard"
           ]
-        },
-        {
-          "icon": "verified_user",
-          "text": "OAuth2 / OIDC / WebAuthn / MFA",
-          "filter": "Auth",
-          "companies": [
-            "CaspianOne",
-            "Tesco",
-            "Chase UK"
-          ]
-        },
-        {
-          "icon": "api",
-          "text": "REST APIs / Microservices",
-          "filter": "APIs",
-          "companies": [
-            "CaspianOne",
-            "Climatise",
-            "Tesco",
-            "Cisco"
-          ]
         }
       ]
     },
     {
-      "name": "Cloud & DevOps",
+      "name": "Architecture & Leadership",
       "keywords": [
         {
-          "icon": "cloud",
-          "text": "AWS (Lambda, API Gateway, DynamoDB)",
-          "filter": "AWS",
-          "companies": [
-            "CaspianOne",
-            "Climatise",
-            "Chase UK",
-            "Vanguard"
-          ]
-        },
-        {
           "icon": "settings_input_component",
-          "text": "Terraform / CloudFormation / IaC",
+          "text": "Terraform / IaC / Cloud Estate Design",
           "filter": "Terraform",
           "companies": [
             "Climatise",
@@ -410,8 +402,18 @@
           ]
         },
         {
+          "icon": "groups",
+          "text": "Team Building / Mentoring / Tech Strategy",
+          "filter": "Leadership",
+          "companies": [
+            "Climatise",
+            "CaspianOne",
+            "House of Fraser"
+          ]
+        },
+        {
           "icon": "precision_manufacturing",
-          "text": "GitHub Actions / CI/CD Pipelines",
+          "text": "CI/CD / DevOps / Release Engineering",
           "filter": "CI/CD",
           "companies": [
             "Climatise",
@@ -422,25 +424,27 @@
       ]
     },
     {
-      "name": "Quality & Operations",
+      "name": "Broad Proficiency",
       "keywords": [
         {
+          "icon": "api",
+          "text": "REST APIs / Microservices / Event-Driven",
+          "filter": "APIs",
+          "companies": [
+            "CaspianOne",
+            "Climatise",
+            "Tesco",
+            "Cisco"
+          ]
+        },
+        {
           "icon": "science",
-          "text": "Automated Testing (Jest, Playwright)",
+          "text": "Testing Culture (Jest, Playwright, 90%+ cov)",
           "filter": "Testing",
           "companies": [
             "Tesco",
             "Cisco",
             "Climatise"
-          ]
-        },
-        {
-          "icon": "storage",
-          "text": "Database Migrations & Operations",
-          "filter": "Operations",
-          "companies": [
-            "Climatise",
-            "Tesco"
           ]
         }
       ]
