@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Krish Joshi",
-    "label": "Principal Engineer & Cloud Architect",
+    "label": "Principal Engineer — Backend & Distributed Systems",
     "headline": "Identity, GenAI, and cloud architecture\u2014from regulated banking platforms to zero-to-one startup launches.",
     "tagline": "Building the auth and AI infrastructure that lets teams ship regulated products with confidence.",
     "email": "me@krishj.com",
@@ -10,7 +10,7 @@
     "url": "https://krishj.com",
     "availability": "Available for Contract Roles",
     "currentFocus": "Regulated Banking Platforms & GenAI",
-    "summary": "Principal engineer who sits at the rare intersection of identity/auth expertise, GenAI architecture, and founding-engineer experience. Over 14+ years I've built regulated Open Banking platforms (FAPI 2.0, PSD2), architected GenAI-powered products on Amazon Bedrock/Claude, and led engineering teams from zero-to-launch at early-stage startups\u2014all while safeguarding authentication for millions of daily users at FTSE 100 scale. I lead from the front: hiring and mentoring high-performing teams, establishing architectural standards, and creating the developer-experience infrastructure that turns engineering orgs into delivery engines. Currently pioneering AI-assisted engineering workflows and architecting the next generation of regulated banking platforms.",
+    "summary": "Principal engineer with 14+ years shipping production backend systems in TypeScript and Node.js across regulated financial services environments. I hit the ground running — as a contractor at CaspianOne and Climatise I owned end-to-end backend workstreams, from schema design and event-driven pipelines to production observability. Cross-cloud across AWS, GCP, and Azure, with hands-on experience in distributed microservices, SQL at scale, and high-reliability platforms serving millions of users. Background spans FCA-regulated banking (10x/Chase UK, Vanguard), Open Banking (PSD2/FAPI 2.0), and founding-engineer builds from zero to production.",
     "location": {
       "city": "London",
       "countryCode": "UK"
@@ -78,7 +78,7 @@
       ]
     }
   ],
-  "achievementSummary": "One of few engineers who combines deep identity and auth expertise (WebAuthn/Passkeys, OAuth2/OIDC, FAPI 2.0) with GenAI architecture (Amazon Bedrock/Claude) and founding-engineer experience\u2014building regulated platforms from zero to production across Open Banking, sustainability, and FTSE 100 retail at scale.",
+  "achievementSummary": "Senior backend contractor with 14+ years shipping TypeScript and Node.js in regulated financial services \u2014 FCA-regulated banking, Open Banking (PSD2/FAPI 2.0), and FTSE 100 scale. Cross-cloud across AWS, GCP, and Azure. Hits the ground running: end-to-end backend ownership from event-driven pipelines and SQL schema design to production observability.",
   "achievements": [
     {
       "title": "GenAI Product, Zero to Launch (Climatise)",
@@ -110,6 +110,7 @@
         "Established myself as the **technical authority on FAPI 2.0/PSD2 authentication**, designing compliant identity flows that unlocked regulatory approval for both Canadian and EU banking markets.",
         "Reduced **AWS Lambda cold starts by 40%** through dependency optimization and provisioned concurrency, directly enabling the sub-second transaction SLAs required by banking partners.",
         "Implemented **OpenTelemetry observability across 12 microservices**, reducing mean-time-to-diagnosis by 60%\u2014a capability that proved critical during production incident response with banking clients.",
+        "Contributed **SQL schema extensions and data migrations** to the existing banking domain model, adding and evolving tables in a live regulated system with strict backward-compatibility requirements.",
         "Set engineering standards for the team: introduced **code review culture, testing gates, and architectural decision records (ADRs)** that reduced production incidents by 50%."
       ],
       "keywords": [
@@ -118,6 +119,7 @@
         "OpenTelemetry",
         "FAPI/OIDC",
         "DynamoDB",
+        "SQL Migrations",
         "API Gateway"
       ],
       "stack": "TypeScript, Next.js, AWS Lambda, DynamoDB, API Gateway, OpenTelemetry, Terraform, GitHub Actions, Jest, Playwright"
@@ -131,8 +133,11 @@
       "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the product, cloud infrastructure, and backend services from zero to a paying-customer launch\u2014with a team I hired and grew to 5 engineers.",
       "highlights": [
         "Built the **core product from scratch**: a platform that enables enterprises to automatically ingest, classify, and analyze carbon emissions data from unstructured sources (invoices, utility bills, supply chain docs) using **Generative AI (Amazon Bedrock/Claude and SageMaker)**.",
+        "Architected an **event-driven document processing pipeline** using SNS and SQS: document upload triggers async AI classification and extraction, with results propagated back to Aurora via chained Lambda consumers — fully decoupled and independently scalable.",
+        "Initially architected on **GCP** (Cloud Run, Pub/Sub, Cloud SQL) before migrating to AWS to align with investor infrastructure preferences\u2014gaining hands-on experience with both cloud estates.",
         "Achieved **Amazon Well-Architected status on the first submission**\u2014a rare feat for a seed-stage startup\u2014which directly accelerated enterprise sales conversations and due diligence processes.",
         "Hired, mentored, and led a **team of 5 senior engineers**: established architectural patterns, code review standards, and CI/CD practices that enabled the team to ship production features weekly.",
+        "Owned the **full Aurora PostgreSQL estate**: designed schemas from scratch, wrote and reviewed all migrations, optimised slow queries, and managed live schema changes with zero downtime across dev/staging/prod.",
         "Designed the **entire AWS cloud estate** using a strict IaC-first Terraform workflow across Cognito, Aurora, Lambda, and DynamoDB\u2014achieving **zero configuration drift** across dev/staging/prod environments.",
         "Owned **technical strategy and stakeholder communication**: presented architecture to investors, led technical due diligence, and collaborated with product on roadmap prioritization."
       ],
@@ -140,10 +145,15 @@
         "NestJS",
         "TypeScript",
         "AWS",
+        "GCP",
+        "Cloud Run",
+        "SNS",
+        "SQS",
+        "Aurora PostgreSQL",
         "Terraform",
         "REST APIs"
       ],
-      "stack": "NestJS, Node.js, TypeScript, REST APIs, AWS Lambda, Cognito, DynamoDB, Aurora, Terraform, GitHub Actions, Jest"
+      "stack": "NestJS, Node.js, TypeScript, REST APIs, GCP (Cloud Run, Pub/Sub, Cloud SQL), AWS Lambda, Cognito, DynamoDB, Aurora, Terraform, GitHub Actions, Jest"
     },
     {
       "name": "Tesco",
@@ -180,6 +190,7 @@
         "Delivered **unified web and mobile experiences** using React and React Native, ensuring feature parity and code sharing between platforms to reduce developer overhead.",
         "Integrated **Apigee and OAuth for secure API management**, ensuring our architecture met strict **FCA regulatory requirements** and internal banking security standards.",
         "Built complex, long-running **account onboarding workflows using AWS Step Functions**, streamlining the customer journey from days to minutes.",
+        "Explored **GCP-based infrastructure options** for platform services, evaluating **GKE** for container orchestration and **Cloud SQL** for managed PostgreSQL — informing the team's cloud strategy decisions.",
         "Created **reusable component library** with Material UI and Storybook, adopted by **4 other product teams**."
       ],
       "keywords": [
@@ -187,9 +198,11 @@
         "AWS Lambda",
         "NextJS",
         "Apigee",
-        "OAuth"
+        "OAuth",
+        "GKE",
+        "Cloud SQL"
       ],
-      "stack": "React (Redux, TypeScript, Formik, Storybook), React Native, Next.js, Node.js, Express, AWS Lambda, Step Functions, Cypress, Jest, Jenkins"
+      "stack": "React (Redux, TypeScript, Formik, Storybook), React Native, Next.js, Node.js, Express, AWS Lambda, Step Functions, GKE, Cloud SQL, Cypress, Jest, Jenkins"
     },
     {
       "name": "Cisco",
@@ -264,15 +277,17 @@
       "highlights": [
         "Improved **checkout conversion rates** through A/B tested UX improvements and performance optimization.",
         "Led a team of 4 frontend developers, introducing **code review practices** and component-based architecture with AngularJS.",
-        "Integrated frontend with **.NET backend** APIs, working closely with C# developers on the full stack."
+        "Integrated frontend with **.NET backend** APIs, working closely with C# developers on the full stack.",
+        "Investigated and prototyped **Salesforce API integration** to connect e-commerce order data with CRM, evaluating REST and SOAP endpoints for customer and order record synchronisation."
       ],
       "keywords": [
         "AngularJS",
         "jQuery",
         "C#",
+        "Salesforce",
         "E-commerce"
       ],
-      "stack": "AngularJS, jQuery, SASS, Grunt, C#, Java"
+      "stack": "AngularJS, jQuery, SASS, Grunt, C#, Java, Salesforce API"
     },
     {
       "name": "House of Fraser",
