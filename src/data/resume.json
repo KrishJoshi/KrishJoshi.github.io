@@ -212,18 +212,19 @@
       "endDate": "2020-09",
       "summary": "Collaborated with senior Salesforce engineers to design and build a PoC Salesforce plugin for container tracking. Worked from requirements gathered through direct technical discussions, owning the architecture end-to-end and delivering a paid proof of concept.",
       "highlights": [
-        "Built a **React component embedded in the Salesforce order view** — on click, it called a shipping carrier API to display the real-time container location directly alongside the order record.",
-        "Architected the full integration: **Salesforce plugin shell, React UI, and shipping API layer** — translating requirements from senior Salesforce engineers into a working PoC.",
+        "Built a **React component that combined Salesforce order data with live shipping carrier data** — querying the Salesforce REST API for order records and merging with carrier tracking responses to show real-time container location in a single view.",
+        "Architected the **OAuth-authenticated Salesforce integration**, using the Connected App pattern to securely call the Salesforce REST API (`/sobjects/Order`) from the React frontend.",
         "Delivered a **paid proof of concept** within 3 months, working independently from architecture through to implementation."
       ],
       "keywords": [
-        "Salesforce",
+        "Salesforce REST API",
         "React",
+        "OAuth",
         "Shipping API",
         "Plugin Development",
         "Freelance"
       ],
-      "stack": "Salesforce Platform, React, JavaScript, REST APIs (Shipping/Carrier)"
+      "stack": "Salesforce REST API, React, JavaScript, OAuth2, REST APIs (Shipping/Carrier)"
     },
     {
       "name": "Cisco",
