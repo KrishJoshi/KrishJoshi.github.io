@@ -205,6 +205,27 @@
       "stack": "React (Redux, TypeScript, Formik, Storybook), React Native, Next.js, Node.js, Express, AWS Lambda, Step Functions, GKE, Cloud SQL, Cypress, Jest, Jenkins"
     },
     {
+      "name": "Salesforce Package Tracking Plugin (Freelance)",
+      "location": "Remote",
+      "position": "Architect & Lead Developer (Freelance)",
+      "startDate": "2020-06",
+      "endDate": "2020-09",
+      "summary": "Collaborated with senior Salesforce engineers to design and build a PoC Salesforce plugin for container tracking. Worked from requirements gathered through direct technical discussions, owning the architecture end-to-end and delivering a paid proof of concept.",
+      "highlights": [
+        "Built a **React component embedded in the Salesforce order view** — on click, it called a shipping carrier API to display the real-time container location directly alongside the order record.",
+        "Architected the full integration: **Salesforce plugin shell, React UI, and shipping API layer** — translating requirements from senior Salesforce engineers into a working PoC.",
+        "Delivered a **paid proof of concept** within 3 months, working independently from architecture through to implementation."
+      ],
+      "keywords": [
+        "Salesforce",
+        "React",
+        "Shipping API",
+        "Plugin Development",
+        "Freelance"
+      ],
+      "stack": "Salesforce Platform, React, JavaScript, REST APIs (Shipping/Carrier)"
+    },
+    {
       "name": "Cisco",
       "location": "London",
       "position": "Senior Developer",
