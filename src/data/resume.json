@@ -2,15 +2,15 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Krish Joshi",
-    "label": "Principal Engineer — Backend & Distributed Systems",
-    "headline": "Identity, GenAI, and cloud architecture\u2014from regulated banking platforms to zero-to-one startup launches.",
-    "tagline": "Building the auth and AI infrastructure that lets teams ship regulated products with confidence.",
+    "label": "Principal Engineer — AI Platforms & Agentic Systems",
+    "headline": "Building production AI products — multi-model agents, MCP tooling and enterprise integrations — on 14 years of distributed-systems experience.",
+    "tagline": "I ship AI that holds up in production: secure, observable, and wired into the systems a business actually runs on.",
     "email": "me@krishj.com",
     "phone": "+44 7794 438962",
     "url": "https://krishj.com",
     "availability": "Available for Contract Roles",
-    "currentFocus": "Regulated Banking Platforms & GenAI",
-    "summary": "Principal engineer with 14+ years shipping production backend systems in TypeScript and Node.js across regulated financial services environments. I hit the ground running — as a contractor at CaspianOne and Climatise I owned end-to-end backend workstreams, from schema design and event-driven pipelines to production observability. Cross-cloud across AWS, GCP, and Azure, with hands-on experience in distributed microservices, SQL at scale, and high-reliability platforms serving millions of users. Background spans FCA-regulated banking (10x/Chase UK, Vanguard), Open Banking (PSD2/FAPI 2.0), and founding-engineer builds from zero to production.",
+    "currentFocus": "Enterprise AI Agents & LLM Platforms",
+    "summary": "Principal engineer focused on production AI. At Elanco I build ElancoGPT, an enterprise agent platform orchestrating Gemini, GPT and Claude across Microsoft 365, SAP and ServiceNow, and at Climatise I was founding engineer on a GenAI document-intelligence product built on Amazon Bedrock/Claude. What sets me apart is the 14 years underneath: distributed systems, identity and observability in FCA-regulated banking (10x/Chase UK, Vanguard), Open Banking (PSD2/FAPI 2.0) and platforms serving millions of users. That background is what makes AI products safe to ship — access-controlled tool use, privacy-safe tracing, hardened integrations and real quality gates. Cross-cloud across GCP, AWS and Azure.",
     "location": {
       "city": "London",
       "countryCode": "UK"
@@ -29,34 +29,42 @@
     ]
   },
   "philosophy": {
-    "statement": "I architect systems that protect their own integrity\u2014enforcing quality through strict type safety, autonomous testing, and self-healing pipelines that empower teams to ship production code with zero anxiety.",
+    "statement": "AI is only as good as the system around it. I build the guardrails that make LLM products trustworthy — strict typing, human-in-the-loop control, privacy-safe observability and automated quality gates — so teams can ship AI features with zero anxiety.",
     "principles": [
       {
-        "icon": "bolt",
-        "title": "Latency First",
-        "description": "Optimization at the edge and cold-start reduction for serverless."
+        "icon": "psychology",
+        "title": "Grounded AI",
+        "description": "Agents act through typed, permissioned tools, with human approval where it matters."
       },
       {
         "icon": "shield",
         "title": "Secure by Design",
-        "description": "IAM least-privilege, OAuth2/OIDC, and encrypted data planes as standard."
+        "description": "Least-privilege access, injection-aware prompting and hardened integrations as standard."
       },
       {
         "icon": "visibility",
         "title": "Observable Systems",
-        "description": "Distributed tracing, metrics, and alerting from day one."
+        "description": "Every model and tool call traced end to end, without logging user content."
       }
     ]
   },
   "expertise": [
     {
+      "name": "AI Engineering",
+      "level": 92,
+      "skills": [
+        "LLM Orchestration",
+        "Agents & MCP",
+        "Document AI"
+      ]
+    },
+    {
       "name": "Cloud Architecture",
       "level": 95,
       "skills": [
+        "GCP & AWS",
         "Serverless",
-        "Terraform",
-        "EKS",
-        "IAM"
+        "Terraform"
       ]
     },
     {
@@ -67,34 +75,25 @@
         "SDLC",
         "CI/CD"
       ]
-    },
-    {
-      "name": "Frontend Mastery",
-      "level": 92,
-      "skills": [
-        "React 18",
-        "Next.js",
-        "TypeScript"
-      ]
     }
   ],
-  "achievementSummary": "Senior backend contractor with 14+ years shipping TypeScript and Node.js in regulated financial services \u2014 FCA-regulated banking, Open Banking (PSD2/FAPI 2.0), and FTSE 100 scale. Cross-cloud across AWS, GCP, and Azure. Hits the ground running: end-to-end backend ownership from event-driven pipelines and SQL schema design to production observability.",
+  "achievementSummary": "Principal engineer building production AI platforms — multi-model LLM orchestration, agentic tool use via MCP, and AI-generated artefacts inside enterprise workflows. Backed by 14+ years of TypeScript/Node.js distributed systems in regulated environments, so the AI ships secure, observable and reliable.",
   "achievements": [
     {
+      "title": "Enterprise AI Agent Platform (Elanco)",
+      "description": "Principal engineer on ElancoGPT: multi-model agents (Gemini, GPT, Claude) with MCP tooling and human-in-the-loop control, integrated with Microsoft 365, SAP and ServiceNow — including real-time, AI-driven PowerPoint authoring."
+    },
+    {
       "title": "GenAI Product, Zero to Launch (Climatise)",
-      "description": "Founding engineer: built a sustainability platform on Amazon Bedrock/Claude from scratch, hired a team of 5, and achieved Amazon Well-Architected status\u2014accelerating enterprise sales pipeline."
+      "description": "Founding engineer: built a document-intelligence platform on Amazon Bedrock/Claude from scratch, hired a team of 5, and achieved Amazon Well-Architected status—accelerating enterprise sales pipeline."
     },
     {
       "title": "Open Banking Platform Architect (CaspianOne)",
       "description": "Defined the technical roadmap for a multi-tenant regulated banking platform. Designed FAPI 2.0/PSD2 auth flows that unlocked Canadian and EU market entry."
     },
     {
-      "title": "Identity Platform at Scale (Tesco)",
-      "description": "Safeguarded authentication services for 2M+ daily users. Achieved 90%+ test coverage and enabled daily deployments through comprehensive E2E testing."
-    },
-    {
-      "title": "Global Platform Modernization (Cisco)",
-      "description": "Co-led the Angular-to-React migration for Cisco's global dCloud platform (4-year tenure), achieving 95% test coverage and 40% performance improvement."
+      "title": "Platforms at Scale (Tesco & Cisco)",
+      "description": "Safeguarded identity services for 2M+ daily users at Tesco, and co-led Cisco dCloud's global Angular-to-React modernisation with 95% test coverage and 40% faster performance."
     }
   ],
   "work": [
@@ -133,12 +132,12 @@
       "position": "Principal Developer (Contract)",
       "startDate": "2025-06",
       "endDate": "2026-03",
-      "summary": "Brought in as Principal to define the technical strategy for a regulated Open Banking platform serving Canadian and EU banking clients. Driving the architectural evolution from launch-stage PoC to a scalable, multi-tenant platform\u2014owning the technical roadmap, setting engineering standards, and acting as the bridge between product vision and infrastructure reality.",
+      "summary": "Brought in as Principal to define the technical strategy for a regulated Open Banking platform serving Canadian and EU banking clients. Driving the architectural evolution from launch-stage PoC to a scalable, multi-tenant platform—owning the technical roadmap, setting engineering standards, and acting as the bridge between product vision and infrastructure reality.",
       "highlights": [
         "Defined and drove the **platform architecture roadmap**: decomposed a monolithic PoC into a multi-tenant distributed system capable of onboarding new banking clients in days instead of months.",
         "Established myself as the **technical authority on FAPI 2.0/PSD2 authentication**, designing compliant identity flows that unlocked regulatory approval for both Canadian and EU banking markets.",
         "Reduced **AWS Lambda cold starts by 40%** through dependency optimization and provisioned concurrency, directly enabling the sub-second transaction SLAs required by banking partners.",
-        "Implemented **OpenTelemetry observability across 12 microservices**, reducing mean-time-to-diagnosis by 60%\u2014a capability that proved critical during production incident response with banking clients.",
+        "Implemented **OpenTelemetry observability across 12 microservices**, reducing mean-time-to-diagnosis by 60%—a capability that proved critical during production incident response with banking clients.",
         "Contributed **SQL schema extensions and data migrations** to the existing banking domain model, adding and evolving tables in a live regulated system with strict backward-compatibility requirements.",
         "Set engineering standards for the team: introduced **code review culture, testing gates, and architectural decision records (ADRs)** that reduced production incidents by 50%."
       ],
@@ -156,21 +155,26 @@
     {
       "name": "Climatise",
       "location": "London",
-      "position": "Principal Engineer (React, Lambda, Python)",
+      "position": "Founding Principal Engineer — GenAI",
       "startDate": "2023-07",
       "endDate": "2025-07",
-      "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the product, cloud infrastructure, and backend services from zero to a paying-customer launch\u2014with a team I hired and grew to 5 engineers.",
+      "summary": "Founding engineer for a Sustainability AI startup. Owned the entire engineering roadmap, building the product, cloud infrastructure, and backend services from zero to a paying-customer launch—with a team I hired and grew to 5 engineers.",
       "highlights": [
         "Built the **core product from scratch**: a platform that enables enterprises to automatically ingest, classify, and analyze carbon emissions data from unstructured sources (invoices, utility bills, supply chain docs) using **Generative AI (Amazon Bedrock/Claude and SageMaker)**.",
         "Architected an **event-driven document processing pipeline** using SNS and SQS: document upload triggers async AI classification and extraction, with results propagated back to Aurora via chained Lambda consumers — fully decoupled and independently scalable.",
-        "Initially architected on **GCP** (Cloud Run, Pub/Sub, Cloud SQL) before migrating to AWS to align with investor infrastructure preferences\u2014gaining hands-on experience with both cloud estates.",
-        "Achieved **Amazon Well-Architected status on the first submission**\u2014a rare feat for a seed-stage startup\u2014which directly accelerated enterprise sales conversations and due diligence processes.",
+        "Initially architected on **GCP** (Cloud Run, Pub/Sub, Cloud SQL) before migrating to AWS to align with investor infrastructure preferences—gaining hands-on experience with both cloud estates.",
+        "Achieved **Amazon Well-Architected status on the first submission**—a rare feat for a seed-stage startup—which directly accelerated enterprise sales conversations and due diligence processes.",
         "Hired, mentored, and led a **team of 5 senior engineers**: established architectural patterns, code review standards, and CI/CD practices that enabled the team to ship production features weekly.",
         "Owned the **full Aurora PostgreSQL estate**: designed schemas from scratch, wrote and reviewed all migrations, optimised slow queries, and managed live schema changes with zero downtime across dev/staging/prod.",
-        "Designed the **entire AWS cloud estate** using a strict IaC-first Terraform workflow across Cognito, Aurora, Lambda, and DynamoDB\u2014achieving **zero configuration drift** across dev/staging/prod environments.",
+        "Designed the **entire AWS cloud estate** using a strict IaC-first Terraform workflow across Cognito, Aurora, Lambda, and DynamoDB—achieving **zero configuration drift** across dev/staging/prod environments.",
         "Owned **technical strategy and stakeholder communication**: presented architecture to investors, led technical due diligence, and collaborated with product on roadmap prioritization."
       ],
       "keywords": [
+        "Generative AI",
+        "Amazon Bedrock",
+        "Claude",
+        "SageMaker",
+        "Document AI",
         "NestJS",
         "TypeScript",
         "AWS",
@@ -179,8 +183,7 @@
         "SNS",
         "SQS",
         "Aurora PostgreSQL",
-        "Terraform",
-        "REST APIs"
+        "Terraform"
       ],
       "stack": "NestJS, Node.js, TypeScript, REST APIs, GCP (Cloud Run, Pub/Sub, Cloud SQL), AWS Lambda, Cognito, DynamoDB, Aurora, Terraform, GitHub Actions, Jest"
     },
@@ -418,7 +421,47 @@
   ],
   "skills": [
     {
-      "name": "Deep Expertise",
+      "name": "AI Engineering",
+      "keywords": [
+        {
+          "icon": "smart_toy",
+          "text": "LLM Platforms (Gemini / GPT / Claude / Bedrock)",
+          "filter": "LLMs",
+          "companies": [
+            "Elanco",
+            "Climatise"
+          ]
+        },
+        {
+          "icon": "hub",
+          "text": "Agents, Tool Use & MCP (human-in-the-loop)",
+          "filter": "Agents",
+          "companies": [
+            "Elanco"
+          ]
+        },
+        {
+          "icon": "description",
+          "text": "Document AI & Generated Artefacts (extraction, PPTX)",
+          "filter": "Document AI",
+          "companies": [
+            "Elanco",
+            "Climatise"
+          ]
+        },
+        {
+          "icon": "policy",
+          "text": "AI Security & LLM Observability",
+          "filter": "AI Safety",
+          "companies": [
+            "Elanco",
+            "CaspianOne"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Platform Foundations",
       "keywords": [
         {
           "icon": "verified_user",
@@ -432,9 +475,10 @@
         },
         {
           "icon": "cloud",
-          "text": "AWS (Lambda, API Gateway, DynamoDB, Bedrock)",
-          "filter": "AWS",
+          "text": "Cloud: GCP & AWS (Cloud Run, Vertex AI, Lambda, Bedrock)",
+          "filter": "Cloud",
           "companies": [
+            "Elanco",
             "CaspianOne",
             "Climatise",
             "Chase UK",
@@ -446,6 +490,7 @@
           "text": "TypeScript / Node.js / NestJS",
           "filter": "TypeScript",
           "companies": [
+            "Elanco",
             "CaspianOne",
             "Climatise",
             "Tesco",
@@ -463,6 +508,7 @@
           "text": "Terraform / IaC / Cloud Estate Design",
           "filter": "Terraform",
           "companies": [
+            "Elanco",
             "Climatise",
             "CaspianOne"
           ]
@@ -482,6 +528,7 @@
           "text": "CI/CD / DevOps / Release Engineering",
           "filter": "CI/CD",
           "companies": [
+            "Elanco",
             "Climatise",
             "Tesco",
             "Cisco"
@@ -497,6 +544,7 @@
           "text": "REST APIs / Microservices / Event-Driven",
           "filter": "APIs",
           "companies": [
+            "Elanco",
             "CaspianOne",
             "Climatise",
             "Tesco",
@@ -508,6 +556,7 @@
           "text": "Testing Culture (Jest, Playwright, 90%+ cov)",
           "filter": "Testing",
           "companies": [
+            "Elanco",
             "Tesco",
             "Cisco",
             "Climatise"
@@ -556,6 +605,6 @@
   "meta": {
     "theme": "elegant",
     "version": "1.0.0",
-    "lastModified": "2026-02-04"
+    "lastModified": "2026-11-19"
   }
 }

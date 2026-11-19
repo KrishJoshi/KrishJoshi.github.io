@@ -26,6 +26,26 @@ interface Architecture {
 
 const architectures: Architecture[] = [
   {
+    name: "Enterprise AI Agents (Elanco)",
+    nodes: [
+      { id: 'chat', label: 'Chat & Agents', sublabel: 'Next.js', x: 50, y: 15, color: '#6366f1' },
+      { id: 'pipeline', label: 'Agent Pipeline', sublabel: 'Cloud Run', x: 50, y: 35, color: '#10b981' },
+      { id: 'llms', label: 'LLMs', sublabel: 'Gemini / GPT / Claude', x: 20, y: 55, color: '#f59e0b', icon: 'dashed' },
+      { id: 'mcp', label: 'MCP Tools', sublabel: 'Human-in-the-loop', x: 80, y: 55, color: '#f59e0b' },
+      { id: 'm365', label: 'Microsoft 365', sublabel: 'Office / SharePoint', x: 58, y: 80, color: '#a855f7' },
+      { id: 'erp', label: 'SAP / ServiceNow', x: 84, y: 80, color: '#a855f7' },
+      { id: 'store', label: 'Firestore', x: 28, y: 80, color: '#a855f7' },
+    ],
+    connections: [
+      { from: 'chat', to: 'pipeline', color: '#10b981' },
+      { from: 'pipeline', to: 'llms', color: '#f59e0b', dashed: true },
+      { from: 'pipeline', to: 'mcp', color: '#f59e0b' },
+      { from: 'mcp', to: 'm365', color: '#a855f7' },
+      { from: 'mcp', to: 'erp', color: '#a855f7' },
+      { from: 'pipeline', to: 'store', color: '#a855f7' },
+    ]
+  },
+  {
     name: "AWS Serverless (Climatise)",
     nodes: [
       { id: 'cf', label: 'CloudFront', x: 50, y: 15, color: '#6366f1' },
