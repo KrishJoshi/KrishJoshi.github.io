@@ -99,6 +99,35 @@
   ],
   "work": [
     {
+      "name": "Elanco",
+      "location": "London (Remote)",
+      "position": "Principal Engineer — AI Platform (Contract)",
+      "startDate": "2026-07",
+      "summary": "Principal engineer on ElancoGPT, Elanco's enterprise AI platform. It's a multi-model chat and agent system (Gemini, GPT, Claude) wired into the systems the business runs on: Microsoft 365 (Word, Excel, PowerPoint, SharePoint, Outlook, Teams), SAP and ServiceNow. Users get configurable AI personas, node-based workflows and MCP tool integrations on top. I own major features end to end, from GCP infrastructure through API to UI, and set the bar for security, observability and delivery on the team.",
+      "highlights": [
+        "Built **AI-native enterprise integrations** that let agents work inside the tools people already use. They create and edit Office documents in the chat, translate Word, Excel and PowerPoint files, pull data from SharePoint, and run human-approved actions against systems like ServiceNow through **MCP elicitation**. The flagship piece is **real-time, AI-driven PowerPoint authoring**: the agent builds on-brand decks from the corporate template, generates slide imagery, visually reviews its own output, and co-edits live with the user over a **Yjs collaborative session**.",
+        "Extended the platform's **Model Context Protocol (MCP)** support: **human-in-the-loop elicitation** for tool calls, resource/resource_link responses surfaced as attachments, cross-server tool-name de-duplication, and JSON Schema normalisation so third-party MCP tools work reliably with Gemini.",
+        "Designed and shipped a standalone **feature-flag service**: a private Cloud Run flagd deployment behind **OpenFeature/OFREP**, with a typed client, an admin UI in the Ops Dashboard and full Terraform/CI wiring. It now gates new product launches.",
+        "Led a **frontend performance overhaul**: adopted TanStack Query with session-scoped caching, batched authorisation checks, and rebuilt the persona marketplace around paginated slim payloads, server-side search and lazily loaded ETag-cached icons.",
+        "Introduced **structured, privacy-safe observability**: correlation-ID tracing for every model and MCP tool call across all three AI providers, with content redaction so no prompts or responses ever hit the logs.",
+        "Hardened the platform's **security posture**: SSRF protection on the web-scraping proxy, rate limiting on the public message API, zip-bomb guards on uploaded Office files, and HTTPS-only enforcement for model-generated links.",
+        "Raised delivery quality with an **automated Playwright smoke suite** in CI, PR preview environments with Docker layer caching, and SonarCloud quality gates. Over 1,000 commits shipped in the first five months."
+      ],
+      "keywords": [
+        "Generative AI",
+        "MCP",
+        "Multi-model LLMs",
+        "Microsoft 365",
+        "SAP",
+        "ServiceNow",
+        "GCP",
+        "Cloud Run",
+        "Feature Flags",
+        "Next.js"
+      ],
+      "stack": "TypeScript, Node.js, Express, Next.js, React 19, TanStack Query, Yjs, Firestore, GCP (Cloud Run, Pub/Sub, Vertex AI), Gemini, OpenAI, Anthropic Claude, Microsoft Graph, SAP, ServiceNow, OpenFeature/flagd, Terraform, GitHub Actions, Playwright, Vitest, Jest"
+    },
+    {
       "name": "CaspianOne Open Banking",
       "location": "London",
       "position": "Principal Developer (Contract)",
